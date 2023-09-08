@@ -1,0 +1,31 @@
+.user-header
+{
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+.my-profile-header
+{
+    text-align: center;
+
+}
+.profile-photo
+{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+.file-selector
+{
+  display: none;
+}
+.file-selector-label
+{
+  position: relative;
+  display: flex;
+  margin-left: 50%;
+  bottom: 25px;
+}
+.my-profile-body
+{
+    text-align: center;
+}

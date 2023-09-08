@@ -1,0 +1,70 @@
+.header-menu
+{
+    width: 100%;
+    background: #0F2C40;
+    height: 50px;
+    position: fixed;
+    top: 0px;
+
+}
+.titulo-app
+{
+    font-size: x-large;
+    font-family: 'Times New Roman', Times, serif;
+    color: aqua;
+    padding-left: 20px;
+    padding-top: 5px;
+
+}
+.toggle-btn
+{
+    color: aqua;
+    font-size: x-large;
+    position: fixed;
+    right: 10px;
+    top: 0px;
+    cursor: pointer;
+}
+#options
+{
+    color: aqua !important;
+}
+.options-menu
+{
+    right: 0px;
+    background: #0F2C40 !important;
+    border: solid 2px aqua !important;
+    text-align: center !important;
+}
+.header-item
+{
+    color: aqua !important;
+}
+.header-divider
+{
+    background: aqua;
+}
+.footer-menu
+{
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    background: #0F2C40;
+    bottom: 0px;
+    color: aqua;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding: 5px 10px 0px 10px;
+}
+.footer-icons
+{
+    color: aqua;
+}
+.span-icon
+{
+    display: flex;
+    font-size: small;
+    font-family: 'Times New Roman', Times, serif;
+    padding-top: 5px;
+}

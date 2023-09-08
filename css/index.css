@@ -1,0 +1,98 @@
+body
+{
+    background-color: #0F2C40 !important;
+}
+.login-card
+{
+    padding-top: 5%;
+    width: 400px !important;
+}
+.login-logo
+{
+    width: 200px;
+    align-self: center;
+    padding: 20px;
+}
+
+.login-titulo
+{
+    color: aqua;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+.login-inputs
+{
+    text-align: center;
+    padding: 20px;
+}
+.login-buttons
+{
+    text-align: center;
+    padding: 20px;
+}
+.login-btn
+{
+    width: 100px !important;
+    background: aqua !important;
+    color: #0F2C40 !important;
+}
+.login-btn:hover
+{
+    background: transparent !important;
+    color: aqua !important;
+    box-shadow: 1px 1px 3px 3px aqua;
+}
+.card, .list-group, .list-group-item
+{
+    background: transparent !important;
+    border: none !important;
+}
+.input-opcion-1
+{
+    background: aqua;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: inset 3px 3px 0px 0px rgb(84, 179, 179);
+}
+.index-footer
+{
+    display: none;
+}
+.swal-modal
+{
+    background: #0F2C40;
+}
+.swal-title, .swal-text
+{
+    color: aqua;
+}
+.swal-button
+{
+    width: 100px;
+    color: #0F2C40;
+    background: aqua;
+}
+.swal-footer
+{
+    text-align: center;
+}
+
+@media screen and (max-width: 500px)
+{
+ .login-card
+ {
+    padding-top: 40%;
+    
+ }
+ .index-footer
+ {
+    display: block;
+    position: fixed;
+    bottom: 0px;
+    text-align: center;
+    color: aqua;
+    font-family: 'Times New Roman', Times, serif;
+
+ }
+    
+}
