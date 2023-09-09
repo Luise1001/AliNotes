@@ -106,6 +106,20 @@ function TimeDifference($date_1, $date_2, $indice)
    }
    if($indice === 'minutos')
    {
+      if($minutos === 0)
+      {
+        $minutos = 'Justo Ahora';
+      }
+      if($minutos > 1 && $minutos <60)
+      {
+        $respuesta = "Hace $minutos minutos";
+        return $respuesta;
+      }
+      if($minutos > 60)
+      {
+        $minutos = "Hace $horas horas";
+      }
+
        return $minutos;
    }
    if($indice === 'segundos')

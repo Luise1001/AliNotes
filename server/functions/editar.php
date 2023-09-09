@@ -15,5 +15,9 @@ if($_POST)
         {
             foto_perfil();
         }
+        if($page === 'editar_nota')
+        {
+            editar_nota();
+        }
     }
 }

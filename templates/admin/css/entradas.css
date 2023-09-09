@@ -24,6 +24,21 @@
     color: aqua !important;
     box-shadow: 1px 1px 3px 3px aqua;
 }
+.btn-option-2
+{
+    font-size: large;
+}
+.back-btn
+{
+    position: absolute;
+    left: 10px;
+    color: aqua !important;
+}
+a
+{
+    text-decoration: none !important;
+    color: aqua !important;
+}
 /*botones*/
 
 /*Labels*/

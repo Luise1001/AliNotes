@@ -67,7 +67,7 @@ function MyNotes($userID)
 {
     require '../conexion.php';
 
-    $consulta_sql = "SELECT * FROM notas WHERE Id_usuario=?";
+    $consulta_sql = "SELECT * FROM notas WHERE Id_usuario=? ORDER BY Actualizado DESC";
     $preparar_sql = $pdo->prepare($consulta_sql);
     $preparar_sql->execute(array($userID));
     $resultado = $preparar_sql->fetchAll();

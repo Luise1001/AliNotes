@@ -28,6 +28,7 @@
  <div class="my-notes"></div>
 
 </div>
+<?php include_once 'modals.php';?>
 
     <script src="js/consulta/notas.js"></script>
     <?php include_once 'scripts.php';?>
