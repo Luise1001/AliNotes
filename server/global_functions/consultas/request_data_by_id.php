@@ -1,12 +1,12 @@
 <?php
 
-function AdminLevel($id)
+function AdminLevel($userID)
 {
     require '../conexion.php';
 
     $consulta_sql = "SELECT * FROM usuarios WHERE Id=?";
     $preparar_sql = $pdo->prepare($consulta_sql);
-    $preparar_sql->execute(array($id));
+    $preparar_sql->execute(array($userID));
     $resultado = $preparar_sql->fetchAll();
     
     if($resultado)
@@ -21,13 +21,13 @@ function AdminLevel($id)
 
 }
 
-function UserPassword($id, $nivel)
+function UserPassword($userID, $nivel)
 {
     require '../conexion.php';
 
     $consulta_sql = "SELECT * FROM usuarios WHERE Id=? AND Nivel=?";
     $preparar_sql = $pdo->prepare($consulta_sql);
-    $preparar_sql->execute(array($id, $nivel));
+    $preparar_sql->execute(array($userID, $nivel));
     $resultado = $preparar_sql->fetchAll();
     
     if($resultado)
@@ -43,13 +43,33 @@ function UserPassword($id, $nivel)
 }
 
 
-function UserData($id)
+function UserData($userID)
 {
     require '../conexion.php';
 
     $consulta_sql = "SELECT * FROM usuarios WHERE Id=?";
     $preparar_sql = $pdo->prepare($consulta_sql);
-    $preparar_sql->execute(array($id));
+    $preparar_sql->execute(array($userID));
+    $resultado = $preparar_sql->fetchAll();
+    
+    if($resultado)
+    {
+      return $resultado;
+    }
+    else
+    {
+      return false;
+    }
+
+}
+
+function MyNotes($userID)
+{
+    require '../conexion.php';
+
+    $consulta_sql = "SELECT * FROM notas WHERE Id_usuario=?";
+    $preparar_sql = $pdo->prepare($consulta_sql);
+    $preparar_sql->execute(array($userID));
     $resultado = $preparar_sql->fetchAll();
     
     if($resultado)

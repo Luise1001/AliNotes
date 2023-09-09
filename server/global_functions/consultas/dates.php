@@ -86,3 +86,42 @@ function TransformDay($day)
     break;
 }
 }
+
+function TimeDifference($date_1, $date_2, $indice)
+{
+   $date_1 = new DateTime($date_1);
+   $date_2 = new DateTime($date_2);
+
+   $intervalo = $date_1->diff($date_2);
+   $horas = $intervalo->h;
+   $minutos = $intervalo->i;
+   $segundos = $intervalo->s;
+   $dias = $intervalo->d;
+   $meses = $intervalo->m;
+   $years = $intervalo->y;
+
+   if($indice === 'hora')
+   {
+       return $horas;
+   }
+   if($indice === 'minutos')
+   {
+       return $minutos;
+   }
+   if($indice === 'segundos')
+   {
+       return $segundos;
+   }
+   if($indice === 'dias')
+   {
+       return $dias;
+   }
+   if($meses === 'meses')
+   {
+       return $meses;
+   }
+   if($indice === 'years')
+   {
+       return $years;
+   }
+}

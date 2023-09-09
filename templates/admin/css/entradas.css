@@ -1,0 +1,47 @@
+/*inputs*/
+.input-option-1
+{
+    width: 100%;
+    background: #1A4A5A;
+    color: aqua;
+    border-radius: 10px;
+    border: none;
+}
+
+/*inputs*/
+
+/*botones*/
+.btn-option-1
+{
+    width: 100px !important;
+    background: aqua !important;
+    color: #0F2C40 !important;
+    margin: 10px;
+}
+.btn-option-1:hover
+{
+    background: transparent !important;
+    color: aqua !important;
+    box-shadow: 1px 1px 3px 3px aqua;
+}
+/*botones*/
+
+/*Labels*/
+.label-option-1
+{
+    color: aqua;
+    display: block;
+    padding-top: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    font-weight: bold;
+
+}
+/*Labels*/
+
+/*span*/
+.obligatory-span
+{
+    color: red;
+}
+/*span*/

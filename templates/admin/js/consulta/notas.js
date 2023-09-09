@@ -19,7 +19,7 @@ function mis_notas()
     .done(function(res)
     {
       $('.header-icons').html(res.botones);
-      $('.my-notes').html(res.header);
+      $('.my-notes').html(res.notas);
     })
     .fail(function(err)
     {

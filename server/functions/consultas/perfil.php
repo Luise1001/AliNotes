@@ -4,21 +4,12 @@ function mi_perfil()
 {
     include_once '../conexion.php';
     $userID = UserID($_SESSION['admin']);
-    $foto = SearchProfilePhoto($userID, 'perfil');
+    $foto = SearchProfilePhoto($userID);
     $user_data = UserData($userID);
     $respuesta = 
     [
         'header'=> ''
     ];
-
-    if($foto)
-    {
-        $foto = "../../images/arts/profile/users/$userID/photo/perfil.jpg";
-    }
-    else
-    {
-        $foto = "../../images/arts/profile/jane_doe/user.png";
-    }
     
     if($user_data)
     {

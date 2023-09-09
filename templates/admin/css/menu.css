@@ -5,6 +5,7 @@
     height: 50px;
     position: fixed;
     top: 0px;
+    z-index: 3;
 
 }
 .titulo-app
@@ -15,6 +16,19 @@
     padding-left: 20px;
     padding-top: 5px;
 
+}
+.header-icons
+{
+    position: fixed;
+    display: flex;
+    top: 5px;
+    right: 30px;
+    color: aqua;
+}
+.header-icons-item
+{
+    padding-left: 10px;
+    color: aqua;
 }
 .toggle-btn
 {
@@ -56,6 +70,7 @@
     justify-content: space-between;
     text-align: center;
     padding: 5px 10px 0px 10px;
+    z-index: 3;
 }
 .footer-icons
 {

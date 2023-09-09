@@ -1,15 +1,16 @@
 <?php
 
-function SearchProfilePhoto($id, $foto)
+function SearchProfilePhoto($id)
 {
-    $ruta = "../../images/arts/profile/users/$id/photo/$foto.jpg";
+    $ruta = "../../images/arts/profile/users/$id/photo/perfil.jpg";
 
     if(file_exists($ruta))
     {
-        return true;
+        return $ruta;
     }
     else
     {
-        return false;
+        $ruta = "../../images/arts/profile/jane_doe/user.png";   
+        return $ruta;
     }
 }

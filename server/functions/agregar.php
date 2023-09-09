@@ -1,7 +1,8 @@
 <?php
 
 require '../global_functions/agregar/global_functions.php';
-include_once 'functions/agregar/scripts.php';
+require '../global_functions/consultas/global_functions.php';
+include_once 'agregar/scripts.php';
 
 if($_POST)
 {
@@ -9,6 +10,9 @@ if($_POST)
     {
         $page = $_POST['page'];
 
-   
+       if($page === 'nueva_nota')
+       {
+          nueva_nota();
+       }
     }
 }

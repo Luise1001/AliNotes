@@ -21,6 +21,7 @@ $tablas =
   ' CREATE TABLE IF NOT EXISTS notas
   (
     Id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    Titulo VARCHAR(50) NOT NULL,
     Contenido TEXT NOT NULL,
     Id_usuario INT UNSIGNED NOT NULL,
     Fecha DATE  NOT NULL,
