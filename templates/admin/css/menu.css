@@ -30,22 +30,14 @@
     padding-left: 10px;
     color: aqua;
 }
-.toggle-btn
-{
-    color: aqua;
-    font-size: x-large;
-    position: fixed;
-    right: 10px;
-    top: 0px;
-    cursor: pointer;
-}
 #options
 {
     color: aqua !important;
 }
 .options-menu
 {
-    right: 0px;
+    width: fit-content !important;
+    right: 0px !important;
     background: #0F2C40 !important;
     border: solid 2px aqua !important;
     text-align: center !important;

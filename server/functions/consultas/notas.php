@@ -16,7 +16,7 @@ function mis_notas()
         'botones'=>$botones,
         'notas'=> ''
     ];
-
+   
     if($mis_notas)
     {
       foreach($mis_notas as $notas)
@@ -34,14 +34,15 @@ function mis_notas()
           <div class='card notes-items' role='alert' aria-live='assertive' aria-atomic='true'>
               <div class='toast-header'>
                  <img src=$foto width='32' height='32' class='rounded me-2' alt='Perfil'>
-                 <strong class='me-auto' data-bs-toggle='collapse' data-bs-target='.body-$id'>$titulo</strong>
+                 <strong class='me-auto' data-bs-toggle='collapse' data-bs-target='.body-$id' data-bs-auto-close='true'>$titulo</strong>
                  <small class='card-time'>$fecha_movimiento</small>
-                 <div class='btn-option-2'>
-                 <a id='setting_nota'><span><i class='fas fa-ellipsis-v'></i></span></a>  
-           
+                 <div> 
+                 <button class=' btn-option-2' data-bs-toggle='dropdown' data-bs-auto-close='true' aria-expanded='false'>
+                 <span><i class='fas fa-ellipsis-v'></i></span>
+               </button>
                  <ul class='dropdown-menu card-menu'>
                   <li class='dropdown-item card-menu-item'><a class='btn-edit-nota' id='$id' titulo='$titulo' nota='$nota' data-toggle='modal' data-target='#modal_editar_nota'>Editar</a></li>
-                  <li class='dropdown-item card-menu-item'>Eliminar</li>
+                  <li class='dropdown-item card-menu-item'><a class='btn-eliminar-nota' id='$id'>Eliminar</a></li>
                  </ul>
                  </div>
              </div>

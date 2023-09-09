@@ -9,7 +9,9 @@
 <!-- Editar -->
 <script src="js/editar/perfil.js"></script>
 <script src="js/editar/notas.js"></script>
+
 <!-- Eliminar -->
+<script src="js/eliminar/notas.js"></script>
 
 
 

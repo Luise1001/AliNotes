@@ -27,6 +27,19 @@
 .btn-option-2
 {
     font-size: large;
+    background: none;
+    border: none;
+    color: aqua;
+}
+.btn-option-3
+{
+    position: fixed;
+    top: 0px;
+    right: 5px;
+    color: aqua;
+    background: none;
+    border: none;
+    font-size: x-large;
 }
 .back-btn
 {

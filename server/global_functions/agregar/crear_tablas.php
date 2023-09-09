@@ -24,6 +24,7 @@ $tablas =
     Titulo VARCHAR(50) NOT NULL,
     Contenido TEXT NOT NULL,
     Id_usuario INT UNSIGNED NOT NULL,
+    Eliminado INT(2) NULL DEFAULT(0),
     Fecha DATE  NOT NULL,
     Actualizado TIMESTAMP NOT NULL DEFAULT(CURRENT_TIMESTAMP),
     FOREIGN KEY (Id_usuario) REFERENCES usuarios (Id)

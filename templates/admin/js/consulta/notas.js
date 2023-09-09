@@ -27,17 +27,14 @@ function mis_notas()
     })
 }
 
-
-$(document).on('click', '#setting_nota', function()
+$(document).on('click', function(e)
 {
-  this.classList.toggle("active");
-  let dropdownContent = this.nextElementSibling;
-  if (dropdownContent.style.display === "block") 
-  {
-    dropdownContent.style.display = "none";
-  } 
-  else
+   let clic = e.target;
+
+   if(!clic.classList.contains('container-notes'))
    {
-    dropdownContent.style.display = "block";
-  }
+    document.querySelector('.container-notes').classList.remove('show')
+   }
+
 })
+
