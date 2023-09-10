@@ -53,8 +53,12 @@ function mis_notas()
           ";
       }
 
-      echo json_encode($respuesta);
+      
+    }
+    else
+    {
+        $respuesta['notas'] = EmptyPage('Sin Notas Para Mostrar');
     }
 
-    
+    echo json_encode($respuesta);
 }

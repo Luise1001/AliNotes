@@ -89,6 +89,23 @@
 }
 /*Notas*/
 
+/*listas*/
+.container-listas
+{
+   background: #0F2C40;
+   position: relative;
+   text-align: center;
+}
+.add-listas-header
+{
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
+  color: aqua;
+}
+/*listas*/
+
 /*modals*/
 .swal-modal
 {

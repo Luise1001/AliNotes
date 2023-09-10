@@ -14,5 +14,9 @@ if($_POST)
        {
           nueva_nota();
        }
+       if($page === 'nueva_lista')
+       {
+         nueva_lista();
+       }
     }
 }

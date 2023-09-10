@@ -5,6 +5,7 @@
 
 <!-- Agregar -->
 <script src="js/agregar/notas.js"></script>
+<script src="js/agregar/listas.js"></script>
 
 <!-- Editar -->
 <script src="js/editar/perfil.js"></script>

@@ -29,5 +29,9 @@ if($_POST)
         {
             mis_notas();
         }
+        if($page === 'mis_listas')
+        {
+            mis_listas();
+        }
     }
 }

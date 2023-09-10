@@ -83,3 +83,24 @@ function MyNotes($userID)
     }
 
 }
+
+function Mylists($userID)
+{
+    require '../conexion.php';
+    $eliminado = 1;
+
+    $consulta_sql = "SELECT * FROM listas WHERE Id_usuario=? AND Eliminado !=? ORDER BY Actualizado DESC";
+    $preparar_sql = $pdo->prepare($consulta_sql);
+    $preparar_sql->execute(array($userID, $eliminado));
+    $resultado = $preparar_sql->fetchAll();
+    
+    if($resultado)
+    {
+      return $resultado;
+    }
+    else
+    {
+      return false;
+    }
+
+}

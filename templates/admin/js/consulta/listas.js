@@ -1,8 +1,8 @@
-$(document).ready(mis_notas());
+$(document).ready(mis_listas());
 
-function mis_notas()
+function mis_listas()
 {
-    let page = 'mis_notas';
+    let page = 'mis_listas';
 
     $.ajax
     ({
@@ -19,7 +19,7 @@ function mis_notas()
     .done(function(res)
     {
       $('.header-icons').html(res.botones);
-      $('.my-notes').html(res.notas);
+      $('.my-lists').html(res.listas);
     })
     .fail(function(err)
     {
