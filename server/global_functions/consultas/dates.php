@@ -87,55 +87,86 @@ function TransformDay($day)
 }
 }
 
-function TimeDifference($date_1, $date_2, $indice)
+function TimeDifference($fecha_ini, $fecha_final)
 {
-   $date_1 = new DateTime($date_1);
-   $date_2 = new DateTime($date_2);
+   $inicial = date_create($fecha_ini);
+   $final = date_create($fecha_final);
 
-   $intervalo = $date_1->diff($date_2);
+   $intervalo = date_diff($inicial, $final);
    $horas = $intervalo->h;
    $minutos = $intervalo->i;
    $segundos = $intervalo->s;
    $dias = $intervalo->d;
    $meses = $intervalo->m;
    $years = $intervalo->y;
+   
+   $respuesta = '';
 
-   if($indice === 'hora')
+   if(!$minutos && !$horas && !$dias)
    {
-       return $horas;
+     $respuesta = "Justo Ahora";
    }
-   if($indice === 'minutos')
-   {
-      if($minutos === 0)
-      {
-        $minutos = 'Justo Ahora';
-      }
-      if($minutos > 1 && $minutos <60)
-      {
-        $respuesta = "Hace $minutos minutos";
-        return $respuesta;
-      }
-      if($minutos > 60)
-      {
-        $minutos = "Hace $horas horas";
-      }
 
-       return $minutos;
-   }
-   if($indice === 'segundos')
+   if($minutos)
    {
-       return $segundos;
+     if($minutos === 1)
+     {
+        $respuesta = "Hace $minutos Minuto";
+     }
+     else
+     {
+        $respuesta = "Hace $minutos Minutos";
+     }
+
    }
-   if($indice === 'dias')
+
+   if($horas)
    {
-       return $dias;
+    if($horas === 1)
+    {
+        $respuesta = "Hace $horas Hora";
+    }
+    else
+    {
+        $respuesta = "Hace $horas Horas";
+    }
    }
-   if($meses === 'meses')
+
+   if($dias)
    {
-       return $meses;
+     if($dias === 1)
+     {
+        $respuesta = "Ayer";
+     }
+     else
+     {
+         $respuesta = "Hace $dias Dias";
+     }
    }
-   if($indice === 'years')
+
+   if($meses)
    {
-       return $years;
+     if($meses === 1)
+     {
+        $respuesta = "Hace $meses Mes";
+     }
+     else
+     {
+        $respuesta = "Hace $meses Meses";
+     }
    }
+
+   if($years)
+   {
+     if($years === 1)
+     {
+         $respuesta = "Hace $years Año";
+     }
+     else
+     {
+         $respuesta = "Hace $years Años";
+     }
+   }
+
+   return $respuesta;
 }

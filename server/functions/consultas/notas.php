@@ -27,7 +27,7 @@ function mis_notas()
           $fecha = $notas['Fecha'];
           $actualizado = $notas['Actualizado'];
           $fecha_actual = CurrentTime();
-          $fecha_movimiento = TimeDifference($actualizado, $fecha_actual, 'minutos');
+          $fecha_movimiento = TimeDifference($actualizado,$fecha_actual);
 
           $respuesta['notas'] .= 
           "
