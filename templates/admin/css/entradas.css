@@ -7,6 +7,22 @@
     border-radius: 10px;
     border: none;
 }
+.input-option-2
+{
+  width: 85%;
+  border: none;
+  border-radius: 10px;
+  background: #1A4A5A;
+  margin-bottom: 10px;
+}
+.input-option-3
+{
+    background: #1A4A5A;
+    border: none;
+    border-radius: 10px;
+    color: aqua;
+
+}
 
 /*inputs*/
 
@@ -41,6 +57,12 @@
     border: none;
     font-size: x-large;
 }
+.btn-option-4
+{
+  background: none;
+  color: aqua !important;
+  margin-bottom: 10px;
+}
 .back-btn
 {
     position: absolute;
@@ -65,6 +87,16 @@ a
     font-weight: bold;
 
 }
+.label-option-2
+{
+    color: aqua;
+    display: block;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    font-weight: bold;
+    text-decoration: underline !important;
+
+}
 /*Labels*/
 
 /*span*/
@@ -72,4 +104,23 @@ a
 {
     color: red;
 }
+.span-option-1
+{
+    background: #1A4A5A !important;
+    border: none !important;
+    border-right: solid grey !important;
+    color: aqua !important;
+
+}
 /*span*/
+
+/*Selects*/
+.select-option-1
+{
+  background: #1A4A5A;
+  color: aqua;
+  border: none;
+  border-radius: 10px;
+  width: 100px;
+}
+/*Selects*/

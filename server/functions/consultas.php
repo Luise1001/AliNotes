@@ -33,5 +33,9 @@ if($_POST)
         {
             mis_listas();
         }
+        if($page === 'lista_individual')
+        {
+            lista_individual();
+        }
     }
 }

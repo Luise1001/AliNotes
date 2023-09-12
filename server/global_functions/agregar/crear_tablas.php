@@ -39,7 +39,43 @@ $tablas =
     Actualizado TIMESTAMP NOT NULL DEFAULT(CURRENT_TIMESTAMP),
     FOREIGN KEY (Id_usuario) REFERENCES usuarios (Id)
   )',
-
+  ' CREATE TABLE IF NOT EXISTS seccion_lista
+  (
+    Id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    Titulo VARCHAR(50) NOT NULL,
+    Id_lista INT UNSIGNED NOT NULL,
+    Id_usuario INT UNSIGNED NOT NULL,
+    Fecha DATE  NOT NULL,
+    Actualizado TIMESTAMP NOT NULL DEFAULT(CURRENT_TIMESTAMP),
+    FOREIGN KEY (Id_lista) REFERENCES listas (Id),
+    FOREIGN KEY (Id_usuario) REFERENCES usuarios (Id)
+  )',
+  ' CREATE TABLE IF NOT EXISTS items_para_lista
+  (
+    Id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    Descripcion VARCHAR(100) NOT NULL,
+    Tipo_unidad CHAR(10) NULL DEFAULT(NULL),
+    Cantidad INT NULL DEFAULT(NULL),
+    Id_usuario INT UNSIGNED NOT NULL,
+    Fecha DATE  NOT NULL,
+    Actualizado TIMESTAMP NOT NULL DEFAULT(CURRENT_TIMESTAMP),
+    FOREIGN KEY (Id_usuario) REFERENCES usuarios (Id)
+  )',
+  ' CREATE TABLE IF NOT EXISTS item_lista
+  (
+    Id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    Id_item INT UNSIGNED NOT NULL,
+    Observacion VARCHAR(100) NULL DEFAULT(NULL),
+    Id_seccion INT UNSIGNED NULL DEFAULT(NULL),
+    Id_lista INT UNSIGNED NOT NULL,
+    Id_usuario INT UNSIGNED NOT NULL,
+    Fecha DATE  NOT NULL,
+    Actualizado TIMESTAMP NOT NULL DEFAULT(CURRENT_TIMESTAMP),
+    FOREIGN KEY (Id_item) REFERENCES items_para_lista (Id),
+    FOREIGN KEY (Id_seccion) REFERENCES seccion_lista (Id),
+    FOREIGN KEY (Id_lista) REFERENCES listas (Id),
+    FOREIGN KEY (Id_usuario) REFERENCES usuarios (Id)
+  )',
 ];
 
 foreach($tablas as $tabla)

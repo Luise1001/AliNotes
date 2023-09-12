@@ -11,7 +11,7 @@
         </div>
     <i class="fa-solid fa-pen-to-square"></i> Editar Nota
     </div>
-  <div class="add-notes-body">
+  <div class="edit-notes-body">
     <input type="hidden" id="nota_id" name="nota_id">
     <label class="label-option-1" for="edit_nota_titulo">Titulo <span class="obligatory-span">*</span></label>
     <input class="input-option-1" id="edit_nota_titulo" name="edit_nota_titulo" type="text" placeholder="Ej. Receta de Comida" >
@@ -20,7 +20,7 @@
    
   </div>
 </div>
- <div class="add-notes-footer">
+ <div class="edit-notes-footer">
  <button id="editar_nota" name="editar_nota" data-dismiss="modal" class="btn btn-option-1">Guardar</button>
  </div>
  </div> 

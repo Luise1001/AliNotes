@@ -19,5 +19,9 @@ if($_POST)
         {
             editar_nota();
         }
+        if($page === 'editar_titulo_lista')
+        {
+            editar_titulo_lista();
+        }
     }
 }
