@@ -58,24 +58,48 @@ body
 {
     display: none;
 }
+
+/*modals*/
 .swal-modal
 {
     background: #0F2C40;
+    border: solid aqua;
+    border-radius: 10px;
+}
+.swal-icon
+{
+  display: none;
 }
 .swal-title, .swal-text
 {
     color: aqua;
+    font-size: medium;
 }
 .swal-button
 {
-    width: 100px;
-    color: #0F2C40;
-    background: aqua;
+    color: aqua !important;
+    background: transparent !important;
+}
+.swal-button:focus
+{
+   box-shadow: none !important;
 }
 .swal-footer
 {
     text-align: center;
 }
+.modal-content
+{
+  position: fixed !important;
+  left: 0px;
+  width: 100%;
+  background: #0F2C40 !important;
+  color: aqua !important;
+  text-align: center;
+  border-radius: 20px !important;
+  border: solid 2px !important;
+}
+/*modals*/
 
 @media screen and (max-width: 500px)
 {

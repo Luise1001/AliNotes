@@ -143,16 +143,26 @@ body
 .swal-modal
 {
     background: #0F2C40;
+    border: solid aqua;
+    border-radius: 10px;
+}
+.swal-icon
+{
+  display: none;
 }
 .swal-title, .swal-text
 {
     color: aqua;
+    font-size: medium;
 }
 .swal-button
 {
-    width: 100px;
-    color: #0F2C40;
-    background: aqua;
+    color: aqua !important;
+    background: transparent !important;
+}
+.swal-button:focus
+{
+   box-shadow: none !important;
 }
 .swal-footer
 {

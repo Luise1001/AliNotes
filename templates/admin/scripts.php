@@ -15,7 +15,7 @@
 
 <!-- Eliminar -->
 <script src="js/eliminar/notas.js"></script>
-
+<script src="js/eliminar/listas.js"></script>
 
 
 
