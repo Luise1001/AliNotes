@@ -15,6 +15,10 @@ if($_POST)
        {
           nueva_nota();
        }
+       if($page === 'nueva_tarea')
+       {
+          nueva_tarea();
+       }
        if($page === 'nueva_lista')
        {
          nueva_lista();

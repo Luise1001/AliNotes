@@ -83,6 +83,26 @@ function MyNotes($userID)
     }
 
 }
+function Mytasks($userID)
+{
+    require '../conexion.php';
+    $eliminado = 1;
+
+    $consulta_sql = "SELECT * FROM tareas WHERE Id_usuario=? AND Eliminado !=? ORDER BY Actualizado DESC";
+    $preparar_sql = $pdo->prepare($consulta_sql);
+    $preparar_sql->execute(array($userID, $eliminado));
+    $resultado = $preparar_sql->fetchAll();
+    
+    if($resultado)
+    {
+      return $resultado;
+    }
+    else
+    {
+      return false;
+    }
+
+}
 
 function Mylists($userID)
 {

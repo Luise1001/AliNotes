@@ -19,9 +19,22 @@ if($_POST)
         {
             editar_nota();
         }
+        if($page === 'editar_tarea')
+        {
+            editar_tarea();
+        }
+        if($page === 'completar_tarea')
+        {
+            completar_tarea();
+        }
         if($page === 'editar_titulo_lista')
         {
             editar_titulo_lista();
         }
+        if($page === 'hide_show_lista')
+        {
+            hide_show_lista();
+        }
+        
     }
 }

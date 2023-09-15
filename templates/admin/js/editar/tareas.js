@@ -1,18 +1,24 @@
-$(document).on('click', '.btn-edit-titulo-lista', function(data)
+$(document).on('click', '.btn-editar-tarea', function(data)
 {
     let id = data.currentTarget.id;
-    let titulo = data.currentTarget.attributes.titulo.value;
+    let tarea = data.currentTarget.attributes.tarea.value;
 
-   $('#titulo_lista_id').val(id);
-   $('#edit_lista_titulo').val(titulo);
+
+    $('#task_id').val(id);
+    $('#edit_task').val(tarea);
 })
 
-$(document).on('click', '#editar_titulo_lista', function()
+$(document).on('click', '#editar_task', function()
 {
-    let id = $('#titulo_lista_id').val();
-    let titulo = $('#edit_lista_titulo').val();
+   editar_tarea();
+})
 
-    let page = 'editar_titulo_lista';
+function editar_tarea()
+{
+    let id = $('#task_id').val();
+    let tarea = $('#edit_task').val();
+
+    let page = 'editar_tarea';
 
     $.ajax
     ({
@@ -24,7 +30,7 @@ $(document).on('click', '#editar_titulo_lista', function()
        {
           page: page,
           id:id,
-          titulo:titulo
+          tarea: tarea
        }
   
     })
@@ -36,7 +42,7 @@ $(document).on('click', '#editar_titulo_lista', function()
 
        if(accion === 'success')
        {
-         mis_listas();
+         mis_tareas();
        }
        else
        {
@@ -47,19 +53,20 @@ $(document).on('click', '#editar_titulo_lista', function()
     {
         console.log(err);
     })
+}
+
+$(document).on('click', '.finish-task', function(data)
+{
+   let id = data.currentTarget.attributes.tarea.value;
+   let completado = data.currentTarget.attributes.completado.value;
+
+   completar_tarea(id, completado);
 })
 
-$(document).on('click', '.hide-show', function(data)
+function completar_tarea(id, completado)
 {
-    let lista = data.currentTarget.attributes.lista.value;
-    let visible = data.currentTarget.attributes.visible.value;
-   
-    hide_show_lista(lista, visible);
-})
-
-function hide_show_lista(lista, visible)
-{
-   let page = 'hide_show_lista';
+  
+   let page = 'completar_tarea';
 
    $.ajax
    ({
@@ -70,8 +77,8 @@ function hide_show_lista(lista, visible)
       data: 
       {
          page: page,
-         lista: lista,
-         visible: visible
+         id:id,
+         completado: completado
       }
  
    })
@@ -83,7 +90,7 @@ function hide_show_lista(lista, visible)
 
       if(accion === 'success')
       {
-        mis_listas();
+        mis_tareas();
       }
       else
       {

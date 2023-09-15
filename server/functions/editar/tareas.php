@@ -1,6 +1,6 @@
 <?php
 
-function editar_titulo_lista()
+function editar_tarea()
 {
     include_once '../conexion.php';
     $userID = UserID($_SESSION['admin']);
@@ -12,22 +12,21 @@ function editar_titulo_lista()
         'accion'=> 'warning'
     ];
 
-    if(isset($_POST['id']) && isset($_POST['titulo']))
+    if(isset($_POST['id']) && isset($_POST['tarea']))
     {
         $id = $_POST['id'];
-        $titulo = $_POST['titulo'];
+        $tarea = $_POST['tarea'];
 
         $id = filter_var($id, FILTER_SANITIZE_STRING);
-        $titulo = filter_var($titulo, FILTER_SANITIZE_STRING);
+        $tarea = filter_var($tarea, FILTER_SANITIZE_STRING);
+        $tarea = ucfirst($tarea);
 
-        $titulo = ucwords($titulo);
-
-        if($id && $titulo)
+        if($id && $tarea)
         {
-            $editsql = 'UPDATE listas SET Titulo=?, Actualizado=? WHERE Id=? AND Id_usuario=?';
+            $editsql = 'UPDATE tareas SET Tarea=?, Actualizado=? WHERE Id=? AND Id_usuario=?';
             $editar_sentence = $pdo->prepare($editsql);
-        
-            if($editar_sentence->execute(array($titulo, $actualizado, $id, $userID)))
+
+            if($editar_sentence->execute(array($tarea, $actualizado, $id, $userID)))
             {
                 $respuesta = 
                 [
@@ -52,15 +51,16 @@ function editar_titulo_lista()
             [
                 'titulo'=>'Ups!',
                 'cuerpo'=> 'No se Pueden Guardar Campos Vacíos.',
-                'accion'=> 'warning'
-            ];   
+                'accion'=> 'error'
+            ];
         }
-       
+
         echo json_encode($respuesta);
+
     }
 }
 
-function hide_show_lista()
+function completar_tarea()
 {
     include_once '../conexion.php';
     $userID = UserID($_SESSION['admin']);
@@ -72,29 +72,29 @@ function hide_show_lista()
         'accion'=> 'warning'
     ];
 
-    if(isset($_POST['lista']) && isset($_POST['visible']))
+    if(isset($_POST['id']) && isset($_POST['completado']))
     {
-        $id_lista = $_POST['lista'];
-        $visible = $_POST['visible'];
+        $id = $_POST['id'];
+        $completado = $_POST['completado'];
 
-        $id_lista = filter_var($id_lista, FILTER_SANITIZE_STRING);
-        $visible = filter_var($visible, FILTER_SANITIZE_STRING);
+        $id = filter_var($id, FILTER_SANITIZE_STRING);
+        $completado = filter_var($completado, FILTER_SANITIZE_STRING);
 
-        if($visible == 1)
+        if($completado === '1')
         {
-            $visible = 0;
+            $completado = 0;
         }
         else
         {
-            $visible = 1;
+            $completado = 1;
         }
 
-        if($id_lista)
+        if($id)
         {
-            $editsql = 'UPDATE listas SET Visible=?, Actualizado=? WHERE Id=? AND Id_usuario=?';
+            $editsql = 'UPDATE tareas SET Completado=?, Actualizado=? WHERE Id=? AND Id_usuario=?';
             $editar_sentence = $pdo->prepare($editsql);
-        
-            if($editar_sentence->execute(array($visible, $actualizado, $id_lista, $userID)))
+
+            if($editar_sentence->execute(array($completado, $actualizado, $id, $userID)))
             {
                 $respuesta = 
                 [
@@ -108,12 +108,22 @@ function hide_show_lista()
                 $respuesta = 
                 [
                     'titulo'=>'Ups!',
-                    'cuerpo'=> 'No se Pudo Editar El Registro.',
+                    'cuerpo'=> 'No se Pudo Guardar El Registro.',
                     'accion'=> 'error'
                 ]; 
             }
         }
+        else
+        {
+            $respuesta = 
+            [
+                'titulo'=>'Ups!',
+                'cuerpo'=> 'No se Pueden Guardar Campos Vacíos.',
+                'accion'=> 'error'
+            ];
+        }
 
         echo json_encode($respuesta);
+
     }
 }

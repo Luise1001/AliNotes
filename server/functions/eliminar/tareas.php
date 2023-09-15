@@ -1,0 +1,46 @@
+<?php
+
+function eliminar_tarea()
+{
+    include_once '../conexion.php';
+    $userID = UserID($_SESSION['admin']);
+    $actualizado = CurrentTime();
+
+    if(isset($_POST['id']))
+    {
+        $id = $_POST['id'];
+        $eliminado = 1;
+        $respuesta = 
+        [
+            'titulo'=>'warning',
+            'cuerpo'=> 'warning',
+            'accion'=> 'warning'
+        ];
+
+        $editsql = 'UPDATE tareas SET Eliminado=?, Actualizado=? WHERE Id=? AND Id_usuario=?';
+        $editar_sentence = $pdo->prepare($editsql);
+        if($editar_sentence->execute(array($eliminado, $actualizado, $id, $userID)))
+        {
+            $respuesta = 
+            [
+                'titulo'=>'Operación Exitosa',
+                'cuerpo'=> '',
+                'accion'=> 'success'
+            ];
+        }
+        else
+        {
+            $respuesta = 
+            [
+                'titulo'=>'Ups!',
+                'cuerpo'=> 'No se Pudo Eliminar El Registro.',
+                'accion'=> 'error'
+            ];
+        }
+
+        echo json_encode($respuesta);
+    }
+
+
+
+}

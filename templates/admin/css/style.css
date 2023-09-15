@@ -94,6 +94,34 @@ body
 }
 /*Notas*/
 
+/*tareas*/
+.container-tasks
+{
+    background: #0F2C40;
+    position: relative;
+    text-align: center;
+    border-radius: 0px 0px 10px 10px;
+}
+.add-task
+{
+  padding-top: 5px;
+}
+.info-title
+{
+  position: absolute;
+  right: 15px;
+  top: 0px;
+}
+.add-task-header
+{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: large;
+    text-align: center;
+    color: aqua;
+}
+/*tareas*/
+
 /*listas*/
 .container-listas
 {
@@ -180,3 +208,12 @@ body
   border: solid 2px !important;
 }
 /*modals*/
+
+/*carousels*/
+.carousel-indicators
+{
+  position: relative !important;
+  bottom: unset !important;
+  margin-bottom: 5px !important;
+}
+/*carousels*/

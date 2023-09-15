@@ -29,6 +29,10 @@ if($_POST)
         {
             mis_notas();
         }
+        if($page === 'mis_tareas')
+        {
+            mis_tareas();
+        }
         if($page === 'mis_listas')
         {
             mis_listas();

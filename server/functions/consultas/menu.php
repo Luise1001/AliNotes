@@ -30,7 +30,7 @@ function footer_menu()
     $menu = 
     '
     <a href="../admin/notas"><i class="fa-solid fa-comment fa-2x footer-icons"><span class="span-icon">Notas</span></i></a>
-    <a href="../admin/listas"><i class="fa-solid fa-clipboard-list fa-2x footer-icons"><span class="span-icon">Listas</span></i></a>
+    <a href="../admin/tareas"><i class="fa-solid fa-list-check fa-2x footer-icons"><span class="span-icon">Tareas</span></i></a>
     <a href="../home/inicio"><i class="fas fa-home fa-2x footer-icons"><span class="span-icon">Inicio</span></i></a>
     <a href="#"><i class="fas fa-file-alt fa-2x footer-icons"><span class="span-icon">Pedidos</span></i></a>
     <a href="../admin/mi_perfil"><i class="fa-solid fa-user fa-2x footer-icons"><span class="span-icon">Perfil</span></i></a>

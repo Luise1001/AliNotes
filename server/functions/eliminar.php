@@ -13,6 +13,10 @@ if($_POST)
         {
             eliminar_nota();
         }
+        if($page === 'eliminar_tarea')
+        {
+            eliminar_tarea();
+        }
         if($page === 'eliminar_lista')
         {
             eliminar_lista();

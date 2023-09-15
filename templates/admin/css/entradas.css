@@ -27,6 +27,11 @@
 /*inputs*/
 
 /*botones*/
+.btn
+{
+    margin: 0px;
+    padding: 0px;
+}
 .btn-option-1
 {
     width: 100px !important;
@@ -63,6 +68,11 @@
   color: aqua !important;
   margin-bottom: 10px;
 }
+.btn-option-5
+{
+ cursor: pointer;
+
+}
 .back-btn
 {
     position: absolute;
@@ -96,6 +106,12 @@ a
     font-weight: bold;
     text-decoration: underline !important;
 
+}
+.label-option-3
+{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 /*Labels*/
 

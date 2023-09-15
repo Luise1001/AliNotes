@@ -24,8 +24,18 @@ function mis_listas()
           $id = $listas['Id'];
           $titulo = $listas['Titulo'];
           $actualizado = $listas['Actualizado'];
+          $visible = $listas['Visible'];
           $fecha_actual = CurrentTime();
           $fecha_movimiento = TimeDifference($actualizado, $fecha_actual);
+
+          if($visible === '1')
+          {
+             $eye = 'fa-eye-slash';
+          }
+          else
+          {
+            $eye = 'fa-eye';
+          }
 
           $respuesta['listas'] .= 
           "
@@ -33,6 +43,7 @@ function mis_listas()
               <div class='toast-header'>
                  <img src=$foto width='32' height='32' class='rounded me-2' alt='Perfil'>
                  <strong class='me-auto'><a href='lista_individual?id=$id'>$titulo</a></strong>
+                 <small class='card-time'><a lista='$id' visible='$visible' class='hide-show'><i class='fa-solid $eye'></i></a></small>
                  <small class='card-time'>$fecha_movimiento</small>
                  <div> 
                  <button class=' btn-option-2' data-bs-toggle='dropdown' data-bs-auto-close='true' aria-expanded='false'>

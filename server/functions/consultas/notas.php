@@ -24,7 +24,7 @@ function mis_notas()
           $id = $notas['Id'];
           $titulo = $notas['Titulo'];
           $nota = $notas['Contenido'];
-          $fecha = $notas['Fecha'];
+          $eliminado = $notas['Eliminado'];
           $actualizado = $notas['Actualizado'];
           $fecha_actual = CurrentTime();
           $fecha_movimiento = TimeDifference($actualizado,$fecha_actual);
@@ -34,7 +34,7 @@ function mis_notas()
           <div class='card notes-items' role='alert' aria-live='assertive' aria-atomic='true'>
               <div class='toast-header'>
                  <img src=$foto width='32' height='32' class='rounded me-2' alt='Perfil'>
-                 <strong class='me-auto' data-bs-toggle='collapse' data-bs-target='.body-$id' data-bs-auto-close='true'>$titulo</strong>
+                 <strong class='me-auto label-option-3' data-bs-toggle='collapse' data-bs-target='.body-$id' data-bs-auto-close='true'>$titulo</strong>
                  <small class='card-time'>$fecha_movimiento</small>
                  <div> 
                  <button class=' btn-option-2' data-bs-toggle='dropdown' data-bs-auto-close='true' aria-expanded='false'>
