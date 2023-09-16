@@ -41,3 +41,24 @@ function ItemID($descripcion)
       return false;
     }
 }
+
+function SectionID($titulo)
+{
+    require '../conexion.php';
+
+    $consulta_sql = "SELECT * FROM secciones WHERE Titulo=?";
+    $preparar_sql = $pdo->prepare($consulta_sql);
+    $preparar_sql->execute(array($titulo));
+    $resultado = $preparar_sql->fetchAll();
+    
+    if($resultado)
+    {
+      $section_id = $resultado[0]['Id'];
+      
+      return $section_id;
+    }
+    else
+    {
+      return false;
+    }
+}

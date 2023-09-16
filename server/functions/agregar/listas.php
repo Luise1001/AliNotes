@@ -55,6 +55,67 @@ function nueva_lista()
     }
 }
 
+function nueva_seccion()
+{
+    include_once '../conexion.php';
+    $userID = UserID($_SESSION['admin']);
+    $fecha = CurrentDate();
+    $respuesta = 
+    [
+        'titulo'=>'warning',
+        'cuerpo'=> 'warning',
+        'accion'=> 'warning'
+    ];
+
+    if(isset($_POST['seccion']))
+    {
+        $seccion = $_POST['seccion'];
+
+        $seccion = filter_var($seccion, FILTER_SANITIZE_STRING);
+        $seccion = ucfirst($seccion);
+
+        if($seccion)
+        {
+            $section_id = SectionID($seccion);
+
+            if(!$section_id)
+            {
+               $new_section = AddSection($seccion, $userID, $fecha);
+            }
+
+            if($new_section)
+            {
+                $respuesta = 
+                [
+                    'titulo'=>'Operación Exitosa',
+                    'cuerpo'=> '',
+                    'accion'=> 'success'
+                ];
+            }
+            else
+            {
+                $respuesta = 
+                [
+                    'titulo'=>'Ups!',
+                    'cuerpo'=> 'No Se Pudo Generar El Registro.',
+                    'accion'=> 'error'
+                ];
+            }
+        }
+        else
+        {
+            $respuesta = 
+            [
+                'titulo'=>'Ups!',
+                'cuerpo'=> 'No Se Pueden Registrar Datos Vacíos.',
+                'accion'=> 'warning'
+            ];
+        }
+
+        echo json_encode($respuesta);
+    }
+}
+
 function nuevo_item_lista()
 {
     include_once '../conexion.php';
@@ -67,36 +128,49 @@ function nuevo_item_lista()
         'accion'=> 'warning'
     ];
 
-    if(isset($_POST['id']) && isset($_POST['item']))
+
+    if(isset($_POST['lista']) && isset($_POST['tipo_unidad']) && isset($_POST['descripcion']) && isset($_POST['peso']) && isset($_POST['cantidad']))
     {
-        $id_lista = $_POST['id'];
-        $item = $_POST['item'];
+        $id_lista = $_POST['lista'];
+        $id_seccion = $_POST['seccion'];
+        $tipo_unidad = $_POST['tipo_unidad'];
+        $descripcion = $_POST['descripcion'];
+        $peso = $_POST['peso'];
+        $cantidad = $_POST['cantidad'];
+        $observacion = $_POST['observacion'];
 
         $id_lista = filter_var($id_lista, FILTER_SANITIZE_STRING);
-        $item = filter_var($item, FILTER_SANITIZE_STRING);
+        $id_seccion = filter_var($id_seccion, FILTER_SANITIZE_STRING);
+        $tipo_unidad = filter_var($tipo_unidad, FILTER_SANITIZE_STRING);
+        $descripcion = filter_var($descripcion, FILTER_SANITIZE_STRING);
+        $peso = filter_var($peso, FILTER_SANITIZE_STRING);
+        $cantidad = filter_var($cantidad, FILTER_SANITIZE_STRING);
+        $observacion = filter_var($observacion, FILTER_SANITIZE_STRING);
 
-        if($id_lista && $item)
+        $descripcion = ucwords($descripcion);
+        $observacion = ucwords($observacion);
+
+
+        if($id_lista && $tipo_unidad && $descripcion && $peso && $cantidad)
         {
-            $item_id = ItemID($item);
+            $item_id = ItemID($descripcion);
             if(!$item_id)
             {
-                $tipo_unidad = NULL;
-                $cantidad = NULL;
-
-              $add_item = AddItem($item, $tipo_unidad, $cantidad, $userID, $fecha);
+              $add_item = AddItem($descripcion, $tipo_unidad, $peso, $userID, $fecha);
 
               if($add_item)
               {
-                 $item_id = ItemID($item);
+                 $item_id = ItemID($descripcion);
               }
             }
 
 
-            $insert_sql = 'INSERT INTO item_lista (Id_item, Observacion, Id_seccion, Id_lista, Id_usuario, Fecha) VALUES (?,?,?,?,?,?)';
+            $insert_sql = 'INSERT INTO item_lista (Id_item, Observacion, Cantidad, Id_seccion, Id_lista, Id_usuario, Fecha) VALUES (?,?,?,?,?,?,?)';
             $sent = $pdo->prepare($insert_sql);
-            if($sent->execute(array($item_id, NULL,  NULL, $id_lista, $userID, $fecha)))
+            if($sent->execute(array($item_id, $observacion, $cantidad, $id_seccion, $id_lista, $userID, $fecha)))
             {
                 Actualizado('listas', $id_lista);
+                Actualizado('secciones', $id_seccion);
                 $respuesta = 
                 [
                     'titulo'=>'Operación Exitosa',

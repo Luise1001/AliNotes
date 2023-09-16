@@ -23,6 +23,27 @@
     color: aqua;
 
 }
+.form-control
+{
+    background-color: #1A4A5A !important;
+    border: solid 2px #0F2C40 !important;
+    border-radius: 10px !important;
+    color: aqua !important;
+
+}
+.form-control::placeholder
+{
+    color: grey !important;
+}
+.form-select
+{
+    background-color: #1A4A5A !important;
+    border: solid 2px #0F2C40 !important;
+    border-radius: 10px !important;
+    color: aqua !important;
+    background-image: url('../../../images/icons/favicon/arrow.png') !important;
+
+}
 
 /*inputs*/
 
@@ -127,6 +148,17 @@ a
     border-right: solid grey !important;
     color: aqua !important;
 
+}
+.accordion-button::after
+{
+    background-image: url('../../../images/icons/favicon/arrow.png') !important;
+}
+.input-group-text
+{
+  background-color: #1A4A5A !important;
+  color: aqua !important;
+  border: solid 2px #0F2C40 !important;
+  border-radius: 10px !important;
 }
 /*span*/
 

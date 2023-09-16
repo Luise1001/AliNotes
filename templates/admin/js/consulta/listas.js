@@ -20,6 +20,7 @@ function mis_listas()
     {
       $('.header-icons').html(res.botones);
       $('.my-lists').html(res.listas);
+      $('.hidden-lists').html(res.ocultas);
     })
     .fail(function(err)
     {

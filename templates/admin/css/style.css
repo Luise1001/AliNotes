@@ -15,6 +15,7 @@ body
 .my-profile-header
 {
     text-align: center;
+    color: aqua;
 
 }
 .profile-photo
@@ -37,6 +38,7 @@ body
 .my-profile-body
 {
     text-align: center;
+    color: aqua;
 }
 /*Mi Perfil*/
 
@@ -123,7 +125,7 @@ body
 /*tareas*/
 
 /*listas*/
-.container-listas
+.container-lists
 {
    background: #0F2C40;
    position: relative;
@@ -131,7 +133,7 @@ body
    border-radius: 0px 0px 10px 10px;
    padding-bottom: 10px;
 }
-.add-listas-header
+.add-list-header
 {
   font-family: 'Times New Roman', Times, serif;
   font-weight: bold;
@@ -150,20 +152,28 @@ body
   font-size: large;
   font-weight: bold;
 }
-.listas-items
+.list-items
 {
   margin: 5px;
   padding: 5px;
   background: #0F2C40 !important;
   color: aqua !important;
 }
-.edit-titulo-lista
-{
-  padding-top: 10px;
-}
 .add-item-options
 {
   margin-top: 10px;
+}
+.accordion-item
+{
+   background: #1A4A5A !important;
+   border: none !important;
+   margin-top: 5px;
+}
+.accordion-button
+{
+  background: #0F2C40 !important;
+  color: aqua !important;
+  box-shadow: none !important;
 }
 /*listas*/
 

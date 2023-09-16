@@ -32,14 +32,7 @@ function mis_tareas()
         if($completado)
         {
             $check = "<i class='fa-solid fa-check-double'></i>";
-        }
-        else
-        {
-            $check = "<i class='fa-solid fa-check'></i>";
-        }
 
-        if($completado)
-        {
             $respuesta['completadas'] .= 
             "
             <div class='card notes-items' role='alert' aria-live='assertive' aria-atomic='true'>
@@ -66,6 +59,8 @@ function mis_tareas()
         }
         else
         {
+           $check = "<i class='fa-solid fa-check'></i>";
+
             $respuesta['tareas'] .= 
             "
             <div class='card notes-items' role='alert' aria-live='assertive' aria-atomic='true'>

@@ -6,3 +6,5 @@ include_once 'perfil.php';
 include_once 'notas.php';
 include_once 'tareas.php';
 include_once 'listas.php';
+include_once 'secciones.php';
+include_once 'unidades.php';

@@ -1,4 +1,4 @@
-$(document).on('click', '#guardar_listas', function()
+$(document).on('click', '#save_list', function()
 {
     nueva_lista();
 })

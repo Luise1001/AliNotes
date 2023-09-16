@@ -23,6 +23,10 @@ if($_POST)
        {
          nueva_lista();
        }
+       if($page === 'nueva_seccion')
+       {
+         nueva_seccion();
+       }
        if($page === 'nuevo_item_lista')
        {
           nuevo_item_lista();

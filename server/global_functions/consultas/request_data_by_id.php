@@ -125,6 +125,47 @@ function Mylists($userID)
 
 }
 
+function Sections($userID)
+{
+    require '../conexion.php';
+    
+    $consulta_sql = "SELECT * FROM secciones WHERE Id_usuario=? ORDER BY Actualizado DESC";
+    $preparar_sql = $pdo->prepare($consulta_sql);
+    $preparar_sql->execute(array($userID));
+    $resultado = $preparar_sql->fetchAll();
+    
+    if($resultado)
+    {
+      return $resultado;
+    }
+    else
+    {
+      return false;
+    }
+
+}
+
+function ListSections($id_lista, $userID)
+{
+  require '../conexion.php';
+
+  $consulta_sql = "SELECT * FROM item_lista INNER JOIN items_para_lista ON item_lista.Id_item = items_para_lista.Id 
+  INNER JOIN secciones ON item_lista.Id_seccion = secciones.Id
+  WHERE item_lista.Id_lista=? AND item_lista.Id_usuario=? Group BY item_lista.Id_seccion ORDER BY secciones.Actualizado DESC";
+  $preparar_sql = $pdo->prepare($consulta_sql);
+  $preparar_sql->execute(array($id_lista, $userID));
+  $resultado = $preparar_sql->fetchAll();
+  
+  if($resultado)
+  {
+    return $resultado;
+  }
+  else
+  {
+    return false;
+  }
+}
+
 function ListTitle($id_lista, $userID)
 {
     require '../conexion.php';
@@ -149,14 +190,15 @@ function ListTitle($id_lista, $userID)
 
 
 
-function InsideMyList($id_lista, $userID)
+function InsideMyList($id_lista, $id_seccion, $userID)
 {
   require '../conexion.php';
 
   $consulta_sql = "SELECT * FROM item_lista INNER JOIN items_para_lista ON item_lista.Id_item = items_para_lista.Id 
-  WHERE item_lista.Id_lista=? AND item_lista.Id_usuario=? ORDER BY item_lista.Actualizado DESC";
+  INNER JOIN secciones ON item_lista.Id_seccion = secciones.Id
+  WHERE item_lista.Id_lista=? AND item_lista.Id_usuario=? AND item_lista.Id_seccion=? ORDER BY item_lista.Actualizado DESC";
   $preparar_sql = $pdo->prepare($consulta_sql);
-  $preparar_sql->execute(array($id_lista, $userID));
+  $preparar_sql->execute(array($id_lista, $userID, $id_seccion));
   $resultado = $preparar_sql->fetchAll();
   
   if($resultado)

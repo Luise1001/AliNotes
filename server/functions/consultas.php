@@ -41,5 +41,13 @@ if($_POST)
         {
             lista_individual();
         }
+        if($page === 'secciones')
+        {
+           secciones();
+        }
+        if($page === 'unidades')
+        {
+            unidades();
+        }
     }
 }
