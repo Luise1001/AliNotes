@@ -35,6 +35,10 @@ if($_POST)
         {
             hide_show_lista();
         }
+        if($page === 'editar_item_lista')
+        {
+            editar_item_lista();
+        }
         
     }
 }

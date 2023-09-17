@@ -14,11 +14,13 @@
 <script src="js/editar/notas.js"></script>
 <script src="js/editar/tareas.js"></script>
 <script src="js/editar/listas.js"></script>
+<script src="js/editar/lista_individual.js"></script>
 
 <!-- Eliminar -->
 <script src="js/eliminar/notas.js"></script>
 <script src="js/eliminar/tareas.js"></script>
 <script src="js/eliminar/listas.js"></script>
+<script src="js/eliminar/lista_individual.js"></script>
 
 
 

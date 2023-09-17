@@ -45,9 +45,17 @@ if($_POST)
         {
            secciones();
         }
+        if($page === 'secciones_en_editar')
+        {
+            secciones_en_editar();
+        }
         if($page === 'unidades')
         {
             unidades();
+        }
+        if($page === 'unidades_en_editar')
+        {
+            unidades_en_editar();
         }
     }
 }

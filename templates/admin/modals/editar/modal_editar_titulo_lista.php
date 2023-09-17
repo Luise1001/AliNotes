@@ -4,20 +4,20 @@
     <div class="modal-content">
 
     <div class="container">
- <div class="edit-titulo-lista">
-    <div class="add-listas-header">
+ <div class="add-list">
+    <div class="add-list-header">
         <div class="div-back-btn">
         <button class="btn back-btn" data-dismiss="modal"><i class="fa-solid fa-arrow-left"></i></button>
         </div>
     <i class="fa-solid fa-pen-to-square"></i> Editar Titulo
     </div>
-  <div class="edit-titulo-lista-body">
+  <div class="add-list-body">
     <input type="hidden" id="titulo_lista_id" name="titulo_lista_id">
     <label class="label-option-1" for="edit_lista_titulo">Titulo <span class="obligatory-span">*</span></label>
     <input class="input-option-1" id="edit_lista_titulo" name="edit_lista_titulo" type="text" placeholder="Ej. Lista de Compras" >
   </div>
 </div>
- <div class="edit-titulo-lista-footer">
+ <div class="add-list-footer">
  <button id="editar_titulo_lista" name="editar_titulo_lista" data-dismiss="modal" class="btn btn-option-1">Guardar</button>
  </div>
  </div> 

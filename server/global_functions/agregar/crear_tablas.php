@@ -102,6 +102,31 @@ foreach($tablas as $tabla)
     $pdo->exec($tabla);
 }
 
+
+$unidades = array('Unidad', 'Bulto', 'Caja', 'Saco', 'Frasco', 'Botella');
+
+foreach($unidades as $unit)
+{
+  date_default_timezone_set("America/Caracas");
+  $fecha = date('Y-m-d');
+
+  $consulta_sql = "SELECT * FROM unidades WHERE Nombre= ?";
+  $preparar_sql = $pdo->prepare($consulta_sql);
+  $preparar_sql->execute(array($unit));
+  $resultado = $preparar_sql->fetchAll();
+
+  if(!$resultado)
+  {
+    $insert_sql = 'INSERT INTO unidades (Nombre, Fecha) VALUES (?,?)';
+    $sent = $pdo->prepare($insert_sql);
+    $sent->execute(array($unit, $fecha));
+  }
+}
+
+
+
+
+
 // $letra = 'G';
 // $rif = '200168757';
 // $empresa = 'Delivery Vargas, S.A';

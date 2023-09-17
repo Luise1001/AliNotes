@@ -30,3 +30,43 @@ function EmptyPage($contenido)
 
  return $respuesta;
 }
+
+function ProcessUnits($unidad)
+{
+    $respuesta = '';
+
+    if($unidad)
+    {
+        if($unidad === 'Unidad')
+        {
+            $respuesta = 'Unidades';
+        }
+        if($unidad === 'Bulto')
+        {
+            $respuesta = 'Bultos';
+        }
+        if($unidad === 'Caja')
+        {
+            $respuesta = 'Cajas';
+        }
+        if($unidad === 'Saco')
+        {
+            $respuesta = 'Sacos';
+        }
+        if($unidad === 'Frasco')
+        {
+            $respuesta = 'Frascos';
+        }
+        if($unidad === 'Botella')
+        {
+            $respuesta = 'Botellas';
+        }
+
+        return $respuesta;
+    }
+    else
+    {
+        return false;
+    }
+
+}

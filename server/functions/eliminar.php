@@ -21,5 +21,9 @@ if($_POST)
         {
             eliminar_lista();
         }
+        if($page === 'eliminar_item_lista')
+        {
+            eliminar_item_lista();
+        }
     }
 }

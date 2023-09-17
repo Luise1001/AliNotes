@@ -21,13 +21,13 @@ function UserID($correo)
     }
 }
 
-function ItemID($descripcion)
+function ItemID($descripcion, $unidad)
 {
     require '../conexion.php';
 
-    $consulta_sql = "SELECT * FROM items_para_lista WHERE Descripcion=?";
+    $consulta_sql = "SELECT * FROM items_para_lista WHERE Descripcion=? AND Tipo_unidad=?";
     $preparar_sql = $pdo->prepare($consulta_sql);
-    $preparar_sql->execute(array($descripcion));
+    $preparar_sql->execute(array($descripcion, $unidad));
     $resultado = $preparar_sql->fetchAll();
     
     if($resultado)

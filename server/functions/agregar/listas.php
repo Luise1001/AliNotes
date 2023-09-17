@@ -138,6 +138,7 @@ function nuevo_item_lista()
         $peso = $_POST['peso'];
         $cantidad = $_POST['cantidad'];
         $observacion = $_POST['observacion'];
+        $kilos = $peso * $cantidad;
 
         $id_lista = filter_var($id_lista, FILTER_SANITIZE_STRING);
         $id_seccion = filter_var($id_seccion, FILTER_SANITIZE_STRING);
@@ -153,40 +154,54 @@ function nuevo_item_lista()
 
         if($id_lista && $tipo_unidad && $descripcion && $peso && $cantidad)
         {
-            $item_id = ItemID($descripcion);
+            $item_id = ItemID($descripcion, $tipo_unidad);
             if(!$item_id)
             {
               $add_item = AddItem($descripcion, $tipo_unidad, $peso, $userID, $fecha);
 
               if($add_item)
               {
-                 $item_id = ItemID($descripcion);
+                 $item_id = ItemID($descripcion, $tipo_unidad);
               }
             }
 
+            $itemOnList = ItemOnList($id_lista, $item_id, $userID);
 
-            $insert_sql = 'INSERT INTO item_lista (Id_item, Observacion, Cantidad, Id_seccion, Id_lista, Id_usuario, Fecha) VALUES (?,?,?,?,?,?,?)';
-            $sent = $pdo->prepare($insert_sql);
-            if($sent->execute(array($item_id, $observacion, $cantidad, $id_seccion, $id_lista, $userID, $fecha)))
+            if($itemOnList)
             {
-                Actualizado('listas', $id_lista);
-                Actualizado('secciones', $id_seccion);
                 $respuesta = 
                 [
-                    'titulo'=>'Operación Exitosa',
-                    'cuerpo'=> '',
-                    'accion'=> 'success'
+                    'titulo'=>'Atención',
+                    'cuerpo'=> 'Item Duplicado',
+                    'accion'=> 'warning'
                 ];
             }
             else
             {
-                $respuesta = 
-                [
-                    'titulo'=>'Ups!',
-                    'cuerpo'=> 'No Se Pudo Generar El Registro.',
-                    'accion'=> 'error'
-                ];
+                $insert_sql = 'INSERT INTO item_lista (Id_item, Observacion, Cantidad, Kilos, Id_seccion, Id_lista, Id_usuario, Fecha) VALUES (?,?,?,?,?,?,?,?)';
+                $sent = $pdo->prepare($insert_sql);
+                if($sent->execute(array($item_id, $observacion, $cantidad, $kilos, $id_seccion, $id_lista, $userID, $fecha)))
+                {
+                    Actualizado('listas', $id_lista);
+                    Actualizado('secciones', $id_seccion);
+                    $respuesta = 
+                    [
+                        'titulo'=>'Operación Exitosa',
+                        'cuerpo'=> '',
+                        'accion'=> 'success'
+                    ];
+                }
+                else
+                {
+                    $respuesta = 
+                    [
+                        'titulo'=>'Ups!',
+                        'cuerpo'=> 'No Se Pudo Generar El Registro.',
+                        'accion'=> 'error'
+                    ];
+                }
             }
+
         }
         else
         {

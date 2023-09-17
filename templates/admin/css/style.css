@@ -121,6 +121,7 @@ body
     font-size: large;
     text-align: center;
     color: aqua;
+    padding-top: 10px;
 }
 /*tareas*/
 
@@ -140,6 +141,7 @@ body
   font-size: large;
   text-align: center;
   color: aqua;
+  padding-top: 10px;
 }
 .list-title
 {
@@ -174,6 +176,12 @@ body
   background: #0F2C40 !important;
   color: aqua !important;
   box-shadow: none !important;
+}
+.card-comment
+{
+   position: absolute;
+   padding-top: 30px;
+   padding-left: 30px;
 }
 /*listas*/
 

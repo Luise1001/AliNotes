@@ -210,3 +210,22 @@ function InsideMyList($id_lista, $id_seccion, $userID)
     return false;
   }
 }
+
+function ItemOnList($id_lista, $id_item, $userID)
+{
+  require '../conexion.php';
+
+  $consulta_sql = "SELECT * FROM item_lista  WHERE Id_item=? AND Id_lista=? AND Id_usuario=?";
+  $preparar_sql = $pdo->prepare($consulta_sql);
+  $preparar_sql->execute(array($id_item, $id_lista, $userID));
+  $resultado = $preparar_sql->fetchAll();
+  
+  if($resultado)
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
