@@ -11,6 +11,8 @@
  
  </div>
 
+ <?php include_once 'modals.php';?>
+
     <script src="js/consulta/mi_perfil.js"></script>
     <?php include_once 'scripts.php';?>
 </body>

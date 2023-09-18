@@ -91,6 +91,15 @@ function nuevo_usuario()
                     $user_name = $user_explode[0];
                     $nivel = 0;
 
+                    $chekUser = CheckUserName($user_name);
+
+                    if($chekUser)
+                    {
+                        $user_name = UserRandom($user_name);
+                    }
+
+                    $user_name = ucfirst($user_name);
+                    
                     $insert_sql = 'INSERT INTO usuarios (User_name, Correo, Pass, Nivel, Fecha) VALUES (?,?,?,?,?)';
                     $sent = $pdo->prepare($insert_sql);
                     

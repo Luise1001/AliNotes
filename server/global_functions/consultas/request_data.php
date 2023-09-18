@@ -40,3 +40,22 @@ function ShowCode($correo)
         return false;
     }
 }
+
+function CheckUserName($username)
+{
+    require '../conexion.php';
+
+    $consulta_sql = "SELECT * FROM usuarios WHERE User_name=?";
+    $preparar_sql = $pdo->prepare($consulta_sql);
+    $preparar_sql->execute(array($username));
+    $resultado = $preparar_sql->fetchAll();
+
+    if($resultado)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}

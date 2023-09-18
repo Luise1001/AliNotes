@@ -35,18 +35,13 @@ function mi_perfil()
         <h1>$user_name</h1>
         <p>$correo</p>
         <p>$nivel</p>
-        <a class='btn' id='edit_user_btn'
-        name='$userID' user='$user_name'
-        title='Editar' data-toggle='modal' data-target='#editar_usuario'>
+        <a class='btn' id='edit_user_btn' name='$userID' user='$user_name' title='Editar'
+        data-toggle='modal' data-target='#modal_editar_user_name'>
         <i class='fas fa-user-edit'></i>
-    
         </a>
         </div>
         ";
     }
-
-
-
 
     echo json_encode($respuesta);
 }
