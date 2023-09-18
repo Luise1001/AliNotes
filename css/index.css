@@ -58,6 +58,11 @@ body
 {
     display: none;
 }
+.sing-up
+{
+    text-align: center;
+    color: aqua;
+}
 
 /*modals*/
 .swal-modal
@@ -99,6 +104,36 @@ body
   border-radius: 20px !important;
   border: solid 2px !important;
 }
+.back-btn
+{
+ position: absolute;
+ color: aqua !important;
+ left: 0px;
+}
+.modal-code-header
+{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 10px;
+}
+.label-option-1
+{
+
+}
+.code-alert
+{
+    font-size: small;
+    color: grey;
+
+}
+.btn-option-1
+{
+    color: #0f2c40 !important;
+    background: aqua !important;
+    margin: 10px;
+}
 /*modals*/
 
 @media screen and (max-width: 500px)
@@ -117,6 +152,5 @@ body
     color: aqua;
     font-family: 'Times New Roman', Times, serif;
 
- }
-    
+ }    
 }

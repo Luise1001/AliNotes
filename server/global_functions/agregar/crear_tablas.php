@@ -95,6 +95,14 @@ $tablas =
     FOREIGN KEY (Id_lista) REFERENCES listas (Id),
     FOREIGN KEY (Id_usuario) REFERENCES usuarios (Id)
   )',
+  ' CREATE TABLE IF NOT EXISTS codigos_enviados
+  (
+    Id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    Codigo VARCHAR(15) NOT NULL,
+    Correo VARCHAR(50) NOT NULL,
+    Fecha DATE  NOT NULL,
+    Actualizado TIMESTAMP NOT NULL DEFAULT(CURRENT_TIMESTAMP)
+  )',
 ];
 
 foreach($tablas as $tabla)

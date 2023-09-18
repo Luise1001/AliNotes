@@ -31,5 +31,13 @@ if($_POST)
        {
           nuevo_item_lista();
        }
+       if($page === 'enviar_codigo')
+       {
+          enviar_codigo();
+       }
+       if($page === 'nuevo_usuario')
+       {
+          nuevo_usuario();
+       }
     }
 }
