@@ -254,4 +254,3 @@ function lista_individual()
      echo json_encode($respuesta);
    }
 }
-
