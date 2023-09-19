@@ -85,8 +85,25 @@ function ManifestTemplate($cliente, $items, $barco)
 
     $cliente = str_replace(',', '', $cliente);
 
-    $filename = "Manifiesto de $cliente.docx"; 
+    $ruta = "../docs/manifiestos/user_$userID/";
+    $fecha = Date('d-m-y');
+    $filename = "Manifiesto de $cliente $fecha.docx"; 
     $word->save($filename,"Word2007");
+
+    if(file_exists($filename))
+    {
+        if(!file_exists($ruta))
+        {
+           $dir = mkdir($ruta, 0777, true);
+           copy($filename, $ruta.$filename);
+           unlink($filename);
+        }
+        else
+        {
+            copy($filename, $ruta.$filename);
+            unlink($filename);
+        }
+    }
 
 }
 
@@ -277,8 +294,26 @@ function PlanillaTemplate($cliente, $responsable, $items, $total_items, $vehicul
     $word->setDefaultFontName('Times New Roman');
  
     $cliente = str_replace(',', '', $cliente['Nombre']);
-    $filename = "Planilla de $cliente.docx"; 
+
+    $ruta = "../docs/planillas/user_$userID/";
+    $fecha = Date('d-m-y');
+    $filename = "Planilla de $cliente $fecha.docx"; 
     $word->save($filename,"Word2007");
+
+    if(file_exists($filename))
+    {
+        if(!file_exists($ruta))
+        {
+           $dir = mkdir($ruta, 0777, true);
+           copy($filename, $ruta.$filename);
+           unlink($filename);
+        }
+        else
+        {
+            copy($filename, $ruta.$filename);
+            unlink($filename);
+        }
+    }
  
 }
 
