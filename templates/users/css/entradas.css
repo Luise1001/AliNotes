@@ -72,6 +72,9 @@
     background: none;
     border: none;
     color: aqua;
+    position: absolute;
+    top: 0px;
+    right: 0px;
 }
 .btn-option-3
 {
@@ -99,6 +102,15 @@
     position: absolute;
     left: 10px;
     color: aqua !important;
+}
+.history-back
+{
+    position: absolute;
+    left: 0px;
+    background: #0f2c40;
+    color: aqua;
+    border: none;
+    height: 20px;
 }
 a
 {

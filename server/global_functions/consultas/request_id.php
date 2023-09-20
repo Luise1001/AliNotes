@@ -42,13 +42,13 @@ function ItemID($descripcion, $unidad)
     }
 }
 
-function SectionID($titulo)
+function SectionID($titulo, $userID)
 {
     require '../conexion.php';
 
-    $consulta_sql = "SELECT * FROM secciones WHERE Titulo=?";
+    $consulta_sql = "SELECT * FROM secciones WHERE Titulo=? AND Id_usuario=?";
     $preparar_sql = $pdo->prepare($consulta_sql);
-    $preparar_sql->execute(array($titulo));
+    $preparar_sql->execute(array($titulo, $userID));
     $resultado = $preparar_sql->fetchAll();
     
     if($resultado)

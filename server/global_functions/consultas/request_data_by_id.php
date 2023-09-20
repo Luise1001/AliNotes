@@ -211,6 +211,27 @@ function InsideMyList($id_lista, $id_seccion, $userID)
   }
 }
 
+function ItemForList($id_item, $id_lista, $userID)
+{
+  require '../conexion.php';
+
+  $consulta_sql = "SELECT * FROM item_lista INNER JOIN items_para_lista ON item_lista.Id_item = items_para_lista.Id 
+  INNER JOIN secciones ON item_lista.Id_seccion = secciones.Id
+  WHERE item_lista.Id_item=? AND item_lista.Id_lista=? AND item_lista.Id_usuario=? ORDER BY item_lista.Actualizado DESC";
+  $preparar_sql = $pdo->prepare($consulta_sql);
+  $preparar_sql->execute(array($id_item, $id_lista, $userID));
+  $resultado = $preparar_sql->fetchAll();
+  
+  if($resultado)
+  {
+    return $resultado;
+  }
+  else
+  {
+    return false;
+  }
+}
+
 function ItemOnList($id_lista, $id_item, $userID)
 {
   require '../conexion.php';

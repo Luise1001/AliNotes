@@ -179,9 +179,21 @@ body
 }
 .card-comment
 {
-   position: absolute;
-   padding-top: 30px;
-   padding-left: 30px;
+ position: relative;
+ left: 40px;
+}
+.item-header
+{
+  padding: 5px;
+}
+.me-auto
+{
+   margin: 0px !important;
+}
+.section-sl, .item-sl
+{
+  position: relative;
+  margin-right: 5px;
 }
 /*listas*/
 

@@ -35,6 +35,7 @@ function ManifestTemplate($cliente, $items, $barco)
 {
     require '../conexion.php';
     require '../../vendor/autoload.php';
+    $userID = UserID($_SESSION['admin']);
     $fecha = Date('d/m/Y');
     $year = Date('Y');
 
@@ -66,17 +67,28 @@ function ManifestTemplate($cliente, $items, $barco)
     $table1->addCell(8000)->addText("$cliente",$styleHeader, $celdas); 
     $table1->addCell(4500)->addText("", $styleHeader, $celdas); 
 
-    foreach($items as $item)
+    foreach($items as $article)
     {
+       foreach($article as $item)
+       {
         $cantidad = $item['Cantidad'];
-        $unidad = ProcessUnits($item['Tipo_unidad']);
+        if($cantidad > 1)
+        {
+            $unidad = ProcessUnits($item['Tipo_unidad']);
+        }
+        else
+        {
+          $unidad = $item['Tipo_unidad'];
+        }
+        
         $unidad = strtoupper($unidad);
         $descripcion = strtoupper($item['Descripcion']);
         $kilos = $item['Kilos'].'KG.';
         $table1->addRow(); 
         $table1->addCell(3500)->addText("$cantidad", null, $celdas); 
-        $table1->addCell(8000)->addText("$unidad $descripcion", null, array('spaceAfter'=>0)); 
+        $table1->addCell(8000)->addText("$unidad DE $descripcion", null, array('spaceAfter'=>0)); 
         $table1->addCell(4500)->addText("$kilos", null, $celdas); 
+       }
     };
 
 

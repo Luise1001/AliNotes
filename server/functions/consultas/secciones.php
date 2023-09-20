@@ -23,7 +23,7 @@ function secciones()
   }
   else
   {
-     $respuesta['secciones'] = '<option value="2">Sin Sección</option>';
+     $respuesta['secciones'] = "<option value='0'>Agregue Una Sección</option>";
   }
 
   echo json_encode($respuesta);

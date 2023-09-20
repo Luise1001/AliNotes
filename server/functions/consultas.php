@@ -41,6 +41,10 @@ if($_POST)
         {
             lista_individual();
         }
+        if($page === 'generar_listado')
+        {
+            generar_listado();
+        }
         if($page === 'secciones')
         {
            secciones();

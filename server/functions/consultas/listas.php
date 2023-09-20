@@ -168,7 +168,7 @@ function lista_individual()
    {
      $id_lista = $_POST['id'];
      $titulo = ListTitle($id_lista, $userID);
-     $respuesta['titulo'] = $titulo;
+     $respuesta['titulo'] = "<div><button class='history-back' onclick=history.back()><i class='fa-solid fa-arrow-left'></i></button>$titulo</div>";
      $list_sections = ListSections($id_lista, $userID);
 
      if($list_sections)
@@ -184,7 +184,7 @@ function lista_individual()
             <div class='accordion-item'>
               <h2 class='accordion-header'>
                <button class='accordion-button' type='button' data-bs-toggle='collapse' data-bs-target='#$id_section' aria-expanded='true' aria-controls='$id_section'>
-                  $section_name
+                 <input id='section_$id_section' onchange='SelectAll($id_section)'  class='section-sl' type='checkbox'> $section_name
                </button>
              </h2>
              <div id='$id_section' class='accordion-collapse collapse show'>
@@ -218,8 +218,8 @@ function lista_individual()
              $respuesta['contenido'] .= 
              "
              <div class='card list-items' role='alert' aria-live='assertive' aria-atomic='true'>
-                 <div class='toast-header'>
-                    <p class='me-auto'>$cantidad - $unidad de $descripcion - $kilos Kg.</p>
+                 <div class='item-header'>
+                    <p class='me-auto'><input id='item_$id_item' onchange='SelectOne($id_item)'  section='$id_seccion' item='$id_item' class='item-sl item-$id_section' type='checkbox'> $cantidad - $unidad de $descripcion - $kilos Kg.</p>
                     <small class='card-comment'>$observacion</small>
                     <div> 
                     <button class=' btn-option-2' data-bs-toggle='dropdown' data-bs-auto-close='true' aria-expanded='false'>
@@ -253,4 +253,35 @@ function lista_individual()
     
      echo json_encode($respuesta);
    }
+}
+
+
+function generar_listado()
+{
+   include_once '../conexion.php';
+   $userID = UserID($_SESSION['admin']);
+   $respuesta = 
+   [
+      'items'=> []
+   ];
+
+   if(isset($_POST['id_lista']) && isset($_POST['array_items']))
+   {
+      $id_lista = $_POST['id_lista'];
+      $array_items = $_POST['array_items'];
+      $ItemForList = [];
+
+      foreach($array_items as $item)
+      {
+        array_push($ItemForList, ItemForList($item, $id_lista, $userID));
+         
+      }
+
+      ManifestTemplate('luis', $ItemForList, 'barco');
+
+      echo json_encode($ItemForList);
+  
+   }
+
+
 }

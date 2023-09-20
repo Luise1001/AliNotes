@@ -76,11 +76,15 @@ function nueva_seccion()
 
         if($seccion)
         {
-            $section_id = SectionID($seccion);
+            $section_id = SectionID($seccion, $userID);
 
             if(!$section_id)
             {
                $new_section = AddSection($seccion, $userID, $fecha);
+            }
+            else
+            {
+                $new_section = false;
             }
 
             if($new_section)
