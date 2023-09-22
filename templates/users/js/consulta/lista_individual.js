@@ -163,7 +163,7 @@ function generar_listado(array_items)
    })
    .done(function(res)
    {
-    console.log(res)
+     $('.header-icons').html(res.botones);
    })
    .fail(function(err)
    {

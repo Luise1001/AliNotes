@@ -262,6 +262,7 @@ function generar_listado()
    $userID = UserID($_SESSION['admin']);
    $respuesta = 
    [
+      'botones'=>'',
       'items'=> []
    ];
 
@@ -277,9 +278,7 @@ function generar_listado()
          
       }
 
-      ManifestTemplate('luis', $ItemForList, 'barco');
-
-      echo json_encode($ItemForList);
+      echo json_encode($respuesta);
   
    }
 

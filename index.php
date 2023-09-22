@@ -110,8 +110,8 @@
 
 
 <div class=" container index-footer">
-    <h1>Alien's Notes</h1>
-    <p>V1.0.2023.09.01</p>
+    <h1 class="app-name">AliNotes</h1>
+    <p class="app-version">V1.0.2023.09.01</p>
 </div>
 
 <script src="js/index.js"></script>

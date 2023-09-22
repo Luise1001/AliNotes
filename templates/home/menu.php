@@ -1,5 +1,5 @@
 <div class="header-menu">
-  <div class="titulo-app">Alien's Notes</div>
+  <div class="titulo-app">AliNotes</div>
     <div  class="toggle-btn">
       <a id="options"><span><i class="fas fa-ellipsis-v"></i></span></a>  
 

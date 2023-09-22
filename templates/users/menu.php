@@ -1,5 +1,5 @@
 <div class="header-menu">
-  <div class="titulo-app">Alien's Notes</div>
+  <div class="titulo-app">AliNotes</div>
   <div class="header-icons"></div>
     
     <button  class='btn-option-3' data-bs-toggle='dropdown' data-bs-auto-close='true' aria-expanded='false'>
