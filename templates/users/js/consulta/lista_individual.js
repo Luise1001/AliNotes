@@ -163,6 +163,7 @@ function generar_listado(array_items)
    })
    .done(function(res)
    {
+     $('.titulo-app').html(res.titulo);
      $('.header-icons').html(res.botones);
    })
    .fail(function(err)

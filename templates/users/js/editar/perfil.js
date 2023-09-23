@@ -85,3 +85,137 @@ function editar_user_name()
     console.log(err)
   })
 }
+
+$(document).on('click', '#edit_user_personal_info', function(data)
+{
+  let id = data.currentTarget.attributes.personal.value;
+  let nombre = data.currentTarget.attributes.nombre.value;
+  let apellido = data.currentTarget.attributes.apellido.value;
+  let letra = data.currentTarget.attributes.letra.value;
+  let cedula = data.currentTarget.attributes.cedula.value;
+
+  $('#personal_id').val(id);
+  $('#edit_nombre').val(nombre);
+  $('#edit_apellido').val(apellido);
+  $('#edit_tipo_id').val(letra);
+  $('#edit_cedula').val(cedula);
+})
+
+$(document).on('click', '#editar_personal_info', function()
+{
+   editar_personal_info();
+})
+
+function editar_personal_info()
+{
+  let id = $('#personal_id').val();
+  let nombre = $('#edit_nombre').val();
+  let apellido = $('#edit_apellido').val();
+  let letra = $('#edit_tipo_id').val();
+  let cedula = $('#edit_cedula').val();
+  
+  let page = "editar_personal_info";
+
+  $.ajax
+  ({
+     url: '../../server/functions/editar.php',
+     type: 'POST',
+     dataType: 'json',
+     data: 
+     {
+        page: page,
+        id: id,
+        nombre: nombre,
+        apellido: apellido,
+        letra: letra,
+        cedula: cedula
+     }
+
+  })
+  .done(function(res)
+  { 
+    let titulo = res.titulo;
+    let cuerpo = res.cuerpo;
+    let accion = res.accion;
+
+    if(accion === 'success')
+    {
+      mi_perfil();
+    }
+    else
+    {
+       swal(titulo, cuerpo, accion);
+    }
+  })
+  .fail(function(err)
+  {
+    console.log(err)
+  })
+}
+
+$(document).on('click', '#edit_user_juridica_info', function(data)
+{
+  let id = data.currentTarget.attributes.business.value;
+  let razon_social = data.currentTarget.attributes.razon.value;
+  let direccion = data.currentTarget.attributes.direccion.value;
+  let letra = data.currentTarget.attributes.letra.value;
+  let rif = data.currentTarget.attributes.rif.value;
+
+  $('#business_id').val(id);
+  $('#edit_razon_social').val(razon_social);
+  $('#edit_direccion').val(direccion);
+  $('#edit_tipo_id_emp').val(letra);
+  $('#edit_rif').val(rif);
+})
+
+$(document).on('click', '#editar_juridica_info', function()
+{
+   editar_juridica_info();
+})
+
+function editar_juridica_info()
+{
+  let id = $('#business_id').val();
+  let razon_social = $('#edit_razon_social').val();
+  let direccion = $('#edit_direccion').val();
+  let letra = $('#edit_tipo_id_emp').val();
+  let rif = $('#edit_rif').val();
+
+  let page = "editar_juridica_info";
+
+  $.ajax
+  ({
+     url: '../../server/functions/editar.php',
+     type: 'POST',
+     dataType: 'json',
+     data: 
+     {
+        page: page,
+        id: id,
+        razon_social: razon_social,
+        direccion: direccion,
+        letra: letra,
+        rif: rif
+     }
+
+  })
+  .done(function(res)
+  { 
+    let titulo = res.titulo;
+    let cuerpo = res.cuerpo;
+    let accion = res.accion;
+
+    if(accion === 'success')
+    {
+      mi_perfil();
+    }
+    else
+    {
+       swal(titulo, cuerpo, accion);
+    }
+  })
+  .fail(function(err)
+  {
+    console.log(err)
+  })
+}

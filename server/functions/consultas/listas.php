@@ -260,9 +260,15 @@ function generar_listado()
 {
    include_once '../conexion.php';
    $userID = UserID($_SESSION['admin']);
+   $botones = 
+   '
+    <a class="header-icons-item accordon-button" data-bs-toggle="collapse" data-bs-target=".add-area" aria-expanded="true"
+    aria-controls=".add-area" ><i class="fa-solid fa-plus"></i></a>
+   ';
    $respuesta = 
    [
-      'botones'=>'',
+      'titulo'=> 'AliNotes',
+      'botones'=> $botones,
       'items'=> []
    ];
 
@@ -278,9 +284,17 @@ function generar_listado()
          
       }
 
-      echo json_encode($respuesta);
+      $respuesta['titulo'] = '';
+      $respuesta['botones'] .=
+       '
+       <a class="header-icons-item accordon-button" ><i class="fas fa-share-alt"></i></a>
+
+       <a class="header-icons-item accordon-button" ><i class="fas fa-file-pdf"></i></a>
+
+       <a class="header-icons-item accordon-button" data-toggle="modal" data-target="#datos_manifiesto"><i class="fas fa-file-word"></i></a>
+        ';
   
    }
 
-
+   echo json_encode($respuesta);
 }

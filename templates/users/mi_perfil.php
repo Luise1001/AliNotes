@@ -8,6 +8,7 @@
     <?php include_once 'menu.php';?>
  <div class="contenido">
  <div class="user-header"></div>
+ <div class="personal-data"></div>
  
  </div>
 

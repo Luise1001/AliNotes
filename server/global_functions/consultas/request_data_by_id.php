@@ -43,7 +43,7 @@ function UserPassword($userID, $nivel)
 }
 
 
-function UserData($userID)
+function UserInfo($userID)
 {
     require '../conexion.php';
 
@@ -61,6 +61,44 @@ function UserData($userID)
       return false;
     }
 
+}
+
+function UserData($userID)
+{
+  require '../conexion.php';
+
+  $consulta_sql = "SELECT * FROM informacion_personal WHERE Id_usuario=?";
+  $preparar_sql = $pdo->prepare($consulta_sql);
+  $preparar_sql->execute(array($userID));
+  $resultado = $preparar_sql->fetchAll();
+  
+  if($resultado)
+  {
+    return $resultado;
+  }
+  else
+  {
+    return false;
+  }
+}
+
+Function UserBusinessData($userID)
+{
+  require '../conexion.php';
+
+  $consulta_sql = "SELECT * FROM empresas WHERE Id_usuario=?";
+  $preparar_sql = $pdo->prepare($consulta_sql);
+  $preparar_sql->execute(array($userID));
+  $resultado = $preparar_sql->fetchAll();
+  
+  if($resultado)
+  {
+    return $resultado;
+  }
+  else
+  {
+    return false;
+  }
 }
 
 function MyNotes($userID)

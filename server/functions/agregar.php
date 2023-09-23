@@ -10,7 +10,15 @@ if($_POST)
     if(isset($_POST['page']))
     {
         $page = $_POST['page'];
-
+        
+       if($page === 'agregar_informacion_personal')
+       {
+          agregar_informacion_personal();
+       } 
+       if($page === 'agregar_informacion_juridica')
+       {
+          agregar_informacion_juridica();
+       } 
        if($page === 'nueva_nota')
        {
           nueva_nota();

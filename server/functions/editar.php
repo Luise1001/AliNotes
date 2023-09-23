@@ -19,6 +19,14 @@ if($_POST)
         {
             editar_user_name();
         }
+        if($page === 'editar_personal_info')
+        {
+            editar_personal_info();
+        }
+        if($page === 'editar_juridica_info')
+        {
+            editar_juridica_info();
+        }
         if($page === 'editar_nota')
         {
             editar_nota();

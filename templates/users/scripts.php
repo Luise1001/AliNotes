@@ -4,6 +4,7 @@
 <script src="js/consulta/menu.js"></script>
 
 <!-- Agregar -->
+<script src="js/agregar/perfil.js"></script>
 <script src="js/agregar/notas.js"></script>
 <script src="js/agregar/tareas.js"></script>
 <script src="js/agregar/listas.js"></script>
