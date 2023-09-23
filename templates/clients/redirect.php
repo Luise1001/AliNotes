@@ -1,9 +1,10 @@
 <?php
  include_once '../../server/conexion.php';
- if(isset($_SESSION['admin']))
+ if(isset($_SESSION['AliNotes']))
  {
 
-   $userID = UserID($_SESSION['admin']);
+   $admin = $_SESSION['AliNotes']['admin'];
+   $userID = UserID($admin);
    $nivel = AdminLevel($userID);
 
    if($nivel != '2')
