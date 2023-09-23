@@ -33,6 +33,7 @@ function login()
         {
             $nivel = AdminLevel($userID);
             $password = UserPassword($userID, $nivel);
+            $user_name = UserName($userID);
 
             if(password_verify($pass, $password))
             {

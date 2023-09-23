@@ -63,6 +63,26 @@ function UserInfo($userID)
 
 }
 
+function UserName($userID)
+{
+    require '../conexion.php';
+
+    $consulta_sql = "SELECT * FROM usuarios WHERE Id=?";
+    $preparar_sql = $pdo->prepare($consulta_sql);
+    $preparar_sql->execute(array($userID));
+    $resultado = $preparar_sql->fetchAll();
+    
+    if($resultado)
+    {
+      return $resultado[0]['User_name'];
+    }
+    else
+    {
+      return false;
+    }
+
+}
+
 function UserData($userID, $nivel)
 {
   require '../conexion.php';

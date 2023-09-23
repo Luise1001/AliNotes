@@ -63,8 +63,10 @@ function mis_listas()
                     <span><i class='fas fa-ellipsis-v'></i></span>
                   </button>
                     <ul class='dropdown-menu card-menu'>
-                     <li class='dropdown-item card-menu-item'><a class='btn-edit-titulo-lista' id='$id' titulo='$titulo'  data-toggle='modal' data-target='#modal_editar_titulo_lista'>Editar</a></li>
-                     <li class='dropdown-item card-menu-item'><a class='btn-eliminar-titulo-lista' id='$id'>Eliminar</a></li>
+                     <li class='dropdown-item card-menu-item'><a class='btn-edit-titulo-lista' id='$id' titulo='$titulo'  data-toggle='modal' data-target='#modal_editar_titulo_lista'>
+                     <i class='fa-solid fa-edit'></i> Editar</a></li>
+                     <li class='dropdown-item card-menu-item'><a class='btn-eliminar-titulo-lista' id='$id'>
+                     <i class='fa-solid fa-trash'></i> Eliminar</a></li>
                     </ul>
                     </div>
                 </div>
@@ -121,8 +123,10 @@ function mis_listas()
                  <span><i class='fas fa-ellipsis-v'></i></span>
                </button>
                  <ul class='dropdown-menu card-menu'>
-                  <li class='dropdown-item card-menu-item'><a class='btn-edit-titulo-lista' id='$id' titulo='$titulo'  data-toggle='modal' data-target='#modal_editar_titulo_lista'>Editar</a></li>
-                  <li class='dropdown-item card-menu-item'><a class='btn-eliminar-titulo-lista' id='$id'>Eliminar</a></li>
+                  <li class='dropdown-item card-menu-item'><a class='btn-edit-titulo-lista' id='$id' titulo='$titulo'  data-toggle='modal' data-target='#modal_editar_titulo_lista'>
+                  <i class='fa-solid fa-edit'></i> Editar</a></li>
+                  <li class='dropdown-item card-menu-item'><a class='btn-eliminar-titulo-lista' id='$id'>
+                  <i class='fa-solid fa-trash'></i> Eliminar</a></li>
                  </ul>
                  </div>
              </div>
@@ -228,8 +232,10 @@ function lista_individual()
                     <ul class='dropdown-menu card-menu'>
                      <li class='dropdown-item card-menu-item'><a class='btn-editar-item-lista' ids='$id_section' seccion='$section_name' objeto='$id_item'
                        descripcion='$descripcion' unidad='$tipo_unidad' peso='$peso' cantidad='$cantidad' observacion='$observacion'
-                       data-toggle='modal' data-target='#modal_editar_item_lista'>Editar</a></li>
-                     <li class='dropdown-item card-menu-item'><a class='btn-eliminar-item-lista' id='$id_item'>Eliminar</a></li>
+                       data-toggle='modal' data-target='#modal_editar_item_lista'>
+                       <i class='fa-solid fa-edit'></i> Editar</a></li>
+                     <li class='dropdown-item card-menu-item'><a class='btn-eliminar-item-lista' id='$id_item'>
+                     <i class='fa-solid fa-trash'></i> Eliminar</a></li>
                     </ul>
                     </div>
                 </div>

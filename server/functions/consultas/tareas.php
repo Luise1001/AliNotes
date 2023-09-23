@@ -46,8 +46,10 @@ function mis_tareas()
                    <span><i class='fas fa-ellipsis-v'></i></span>
                  </button>
                    <ul class='dropdown-menu card-menu'>
-                    <li class='dropdown-item card-menu-item'><a class='btn-editar-tarea' id='$id' tarea='$contenido'  data-toggle='modal' data-target='#modal_editar_tarea'>Editar</a></li>
-                    <li class='dropdown-item card-menu-item'><a class='btn-eliminar-tarea' id='$id'>Eliminar</a></li>
+                    <li class='dropdown-item card-menu-item'><a class='btn-editar-tarea' id='$id' tarea='$contenido'  data-toggle='modal' data-target='#modal_editar_tarea'>
+                    <i class='fa-solid fa-edit'></i> Editar</a></li>
+                    <li class='dropdown-item card-menu-item'><a class='btn-eliminar-tarea' id='$id'>
+                    <i class='fa-solid fa-trash'></i> Eliminar</a></li>
                    </ul>
                    </div>
                </div>
@@ -74,8 +76,10 @@ function mis_tareas()
                    <span><i class='fas fa-ellipsis-v'></i></span>
                  </button>
                    <ul class='dropdown-menu card-menu'>
-                    <li class='dropdown-item card-menu-item'><a class='btn-editar-tarea' id='$id' tarea='$contenido'  data-toggle='modal' data-target='#modal_editar_tarea'>Editar</a></li>
-                    <li class='dropdown-item card-menu-item'><a class='btn-eliminar-tarea' id='$id'>Eliminar</a></li>
+                    <li class='dropdown-item card-menu-item'><a class='btn-editar-tarea' id='$id' tarea='$contenido'  data-toggle='modal' data-target='#modal_editar_tarea'>
+                    <i class='fa-solid fa-edit'></i> Editar</a></li>
+                    <li class='dropdown-item card-menu-item'><a class='btn-eliminar-tarea' id='$id'>
+                    <i class='fa-solid fa-trash'></i> Eliminar</a></li>
                    </ul>
                    </div>
                </div>

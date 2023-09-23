@@ -30,8 +30,10 @@ function mis_manifiestos()
                    <span><i class='fas fa-ellipsis-v'></i></span>
                  </button>
                    <ul class='dropdown-menu card-menu'>
-                    <li class='dropdown-item card-menu-item'><a class='btn-edit-barco'>Editar</a></li>
-                    <li class='dropdown-item card-menu-item'><a class='btn-eliminar-barco'>Eliminar</a></li>
+                    <li class='dropdown-item card-menu-item'><a href='../../server/docs/manifiestos/user_$userID/$archivo' >
+                    <i class='fa-solid fa-download'></i> Descargar</a></li>
+                    <li class='dropdown-item card-menu-item'><a class='btn-eliminar-barco'>
+                    <i class='fa-solid fa-trash'></i> Eliminar</a></li>
                    </ul>
                    </div>
                </div>

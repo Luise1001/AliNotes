@@ -41,8 +41,10 @@ function mis_notas()
                  <span><i class='fas fa-ellipsis-v'></i></span>
                </button>
                  <ul class='dropdown-menu card-menu'>
-                  <li class='dropdown-item card-menu-item'><a class='btn-edit-nota' id='$id' titulo='$titulo' nota='$nota' data-toggle='modal' data-target='#modal_editar_nota'>Editar</a></li>
-                  <li class='dropdown-item card-menu-item'><a class='btn-eliminar-nota' id='$id'>Eliminar</a></li>
+                  <li class='dropdown-item card-menu-item'><a class='btn-edit-nota' id='$id' titulo='$titulo' nota='$nota' data-toggle='modal' data-target='#modal_editar_nota'>
+                  <i class='fa-solid fa-edit'></i> Editar</a></li>
+                  <li class='dropdown-item card-menu-item'><a class='btn-eliminar-nota' id='$id'>
+                  <i class='fa-solid fa-trash'></i> Eliminar</a></li>
                  </ul>
                  </div>
              </div>
