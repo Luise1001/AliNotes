@@ -3,6 +3,7 @@
 function agregar_informacion_personal()
 {
     include_once '../conexion.php';
+    $admin = $_SESSION['AliNotes']['admin'];
     $userID = UserID($_SESSION['admin']);
     $nivel = AdminLevel($userID);
     $fecha = CurrentDate();
@@ -70,7 +71,8 @@ function agregar_informacion_personal()
 function agregar_informacion_juridica()
 {
     include_once '../conexion.php';
-    $userID = UserID($_SESSION['admin']);
+    $admin = $_SESSION['AliNotes']['admin'];
+    $userID = UserID($admin);
     $nivel = AdminLevel($userID);
     $fecha = CurrentDate();
     $respuesta = 

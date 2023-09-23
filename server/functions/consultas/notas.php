@@ -3,7 +3,8 @@
 function mis_notas()
 {
     include_once '../conexion.php';
-    $userID = UserID($_SESSION['admin']);
+    $admin = $_SESSION['AliNotes']['admin'];
+    $userID = UserID($admin);
     $foto = SearchProfilePhoto($userID);
     $mis_notas = MyNotes($userID);
     $botones = 

@@ -2,7 +2,8 @@
 function nueva_tarea()
 {
     include_once '../conexion.php';
-    $userID = UserID($_SESSION['admin']);
+    $admin = $_SESSION['AliNotes']['admin'];
+    $userID = UserID($admin);
     $fecha = CurrentDate();
     $respuesta = 
     [

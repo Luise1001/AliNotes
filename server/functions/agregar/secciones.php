@@ -1,5 +1,6 @@
-<?php 
-function nueva_nota()
+<?php
+
+function nueva_seccion()
 {
     include_once '../conexion.php';
     $admin = $_SESSION['AliNotes']['admin'];
@@ -12,20 +13,27 @@ function nueva_nota()
         'accion'=> 'warning'
     ];
 
-    if(isset($_POST['contenido']) && isset($_POST['titulo']))
+    if(isset($_POST['seccion']))
     {
-        $titulo = $_POST['titulo'];
-        $contenido = $_POST['contenido'];
-        $titulo = filter_var($titulo, FILTER_SANITIZE_STRING);
-        $contenido = filter_var($contenido, FILTER_SANITIZE_STRING);
-        $titulo = ucwords($titulo);
-        $contenido = ucfirst($contenido);
+        $seccion = $_POST['seccion'];
 
-        if($titulo && $contenido)
+        $seccion = filter_var($seccion, FILTER_SANITIZE_STRING);
+        $seccion = ucfirst($seccion);
+
+        if($seccion)
         {
-            $insert_sql = 'INSERT INTO notas (Titulo, Contenido, Id_usuario, Fecha) VALUES (?,?,?,?)';
-            $sent = $pdo->prepare($insert_sql);
-            if($sent->execute(array($titulo, $contenido, $userID, $fecha)))
+            $section_id = SectionID($seccion, $userID);
+
+            if(!$section_id)
+            {
+               $new_section = AddSection($seccion, $userID, $fecha);
+            }
+            else
+            {
+                $new_section = false;
+            }
+
+            if($new_section)
             {
                 $respuesta = 
                 [
@@ -46,14 +54,14 @@ function nueva_nota()
         }
         else
         {
-          $respuesta = 
-          [
-            'titulo'=>'Ups!',
-            'cuerpo'=> 'No Se Pueden Generar Registros Vacíos.',
-            'accion'=> 'warning'
-          ];
+            $respuesta = 
+            [
+                'titulo'=>'Ups!',
+                'cuerpo'=> 'No Se Pueden Registrar Datos Vacíos.',
+                'accion'=> 'warning'
+            ];
         }
-        
+
         echo json_encode($respuesta);
     }
 }

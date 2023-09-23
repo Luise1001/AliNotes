@@ -3,7 +3,8 @@
 function mis_listas()
 {
     include_once '../conexion.php';
-    $userID = UserID($_SESSION['admin']);
+    $admin = $_SESSION['AliNotes']['admin'];
+    $userID = UserID($admin);
     $foto = SearchProfilePhoto($userID);
     $mis_listas = MyLists($userID);
     $botones = 
@@ -155,7 +156,8 @@ function mis_listas()
 function lista_individual()
 {
    include_once '../conexion.php';
-   $userID = UserId($_SESSION['admin']);
+   $admin = $_SESSION['AliNotes']['admin'];
+   $userID = UserId($admin);
    $botones = 
    '
    <a class="header-icons-item accordon-button" data-bs-toggle="collapse" data-bs-target=".add-area" aria-expanded="true"
@@ -265,7 +267,8 @@ function lista_individual()
 function generar_listado()
 {
    include_once '../conexion.php';
-   $userID = UserID($_SESSION['admin']);
+   $admin = $_SESSION['AliNotes']['admin'];
+   $userID = UserID($admin);
    $botones = 
    '
     <a class="header-icons-item accordon-button" data-bs-toggle="collapse" data-bs-target=".add-area" aria-expanded="true"

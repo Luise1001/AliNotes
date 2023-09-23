@@ -3,7 +3,8 @@
 function mis_manifiestos()
 {
     include_once '../conexion.php';
-    $userID = UserID($_SESSION['admin']);
+    $admin = $_SESSION['AliNotes']['admin'];
+    $userID = UserID($admin);
     $nivel = AdminLevel($userID);
     $mis_manifiestos = MyManifests($userID, $nivel);
     $respuesta = 
@@ -55,7 +56,8 @@ function mis_manifiestos()
 function datos_manifiesto()
 {
    include_once '../conexion.php';
-   $userID = UserID($_SESSION['admin']);
+   $admin = $_SESSION['AliNotes']['admin'];
+   $userID = UserID($admin);
    $nivel = AdminLevel($userID);
    $UserData = UserData($userID, $nivel);
    $UserBarcos = UserBarcos($userID, $nivel);

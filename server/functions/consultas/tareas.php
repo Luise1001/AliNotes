@@ -3,7 +3,8 @@
 function mis_tareas()
 {
     include_once '../conexion.php';
-    $userID = UserID($_SESSION['admin']);
+    $admin = $_SESSION['AliNotes']['admin'];
+    $userID = UserID($admin);
     $foto = SearchProfilePhoto($userID);
     $mis_tareas = MyTasks($userID);
     $botones = 

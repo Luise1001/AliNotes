@@ -1,6 +1,6 @@
 <?php
  include_once 'server/conexion.php';
- if(isset($_SESSION['admin']))
+ if(isset($_SESSION['AliNotes']))
  {
   echo"<script type='text/javascript'>
      window.location.href='templates/home/inicio';
@@ -111,7 +111,7 @@
 
 <div class=" container index-footer">
     <h1 class="app-name">AliNotes</h1>
-    <p class="app-version">V1.0.2023.09.01</p>
+    <p class="app-version">V1.1.2023.09.01</p>
 </div>
 
 <script src="js/index.js"></script>

@@ -3,7 +3,8 @@
 function mis_barcos()
 {
     include_once '../conexion.php';
-    $userID = UserID($_SESSION['admin']);
+    $admin = $_SESSION['AliNotes']['admin'];
+    $userID = UserID($admin);
     $nivel = AdminLevel($userID);
     $mis_barcos = UserBarcos($userID, $nivel);
     $botones = 

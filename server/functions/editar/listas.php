@@ -3,7 +3,8 @@
 function editar_titulo_lista()
 {
     include_once '../conexion.php';
-    $userID = UserID($_SESSION['admin']);
+    $admin = $_SESSION['AliNotes']['admin'];
+    $userID = UserID($admin);
     $actualizado = CurrentTime();
     $respuesta = 
     [
@@ -63,7 +64,8 @@ function editar_titulo_lista()
 function hide_show_lista()
 {
     include_once '../conexion.php';
-    $userID = UserID($_SESSION['admin']);
+    $admin = $_SESSION['AliNotes']['admin'];
+    $userID = UserID($admin);
     $actualizado = CurrentTime();
     $respuesta = 
     [
@@ -121,7 +123,8 @@ function hide_show_lista()
 function editar_item_lista()
 {
     include_once '../conexion.php';
-    $userID = UserID($_SESSION['admin']);
+    $admin = $_SESSION['AliNotes']['admin'];
+    $userID = UserID($admin);
     $actualizado = CurrentTime();
     $respuesta = 
     [

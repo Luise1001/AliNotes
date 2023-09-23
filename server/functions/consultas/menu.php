@@ -3,8 +3,8 @@
 function header_menu()
 {
     include_once '../conexion.php';
-
-    $userID = UserID($_SESSION['admin']);
+    $admin = $_SESSION['AliNotes']['admin'];
+    $userID = UserID($admin);
     $nivel = AdminLevel($userID);
     $menu = '';
 
@@ -36,7 +36,8 @@ function header_menu()
 function footer_menu()
 {
     include_once '../conexion.php';
-    $userID = UserID($_SESSION['admin']);
+    $admin = $_SESSION['AliNotes']['admin'];
+    $userID = UserID($admin);
     $nivel = AdminLevel($userID);
     $menu = '';
 
@@ -76,10 +77,6 @@ function footer_menu()
       ';
     }
     
-
-
-
-
     echo $menu;
 }
 

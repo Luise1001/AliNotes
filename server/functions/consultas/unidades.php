@@ -3,7 +3,8 @@
 function unidades()
 {
   include_once '../conexion.php';
-  $userID = UserID($_SESSION['admin']);
+  $admin = $_SESSION['AliNotes']['admin'];
+  $userID = UserID($admin);
   $unidades = Units($userID);
   $respuesta = 
   [
@@ -32,7 +33,8 @@ function unidades()
 function unidades_en_editar()
 {
   include_once '../conexion.php';
-  $userID = UserID($_SESSION['admin']);
+  $admin = $_SESSION['AliNotes']['admin'];
+  $userID = UserID($admin);
   $unidades = Units($userID);
   $respuesta = 
   [

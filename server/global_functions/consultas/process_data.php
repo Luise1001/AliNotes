@@ -366,6 +366,10 @@ function ProcessUnits($unidad)
         {
             $respuesta = 'Botellas';
         }
+        if($unidad === 'Kilo')
+        {
+            $respuesta = 'Kilos';
+        }
 
         return $respuesta;
     }

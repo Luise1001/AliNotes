@@ -3,7 +3,8 @@
 function foto_perfil()
 {
     include_once '../conexion.php';
-    $userID = UserID($_SESSION['admin']);
+    $admin = $_SESSION['AliNotes']['admin'];
+    $userID = UserID($admin);
     $foto = 'perfil';
     
     if(isset($_FILES))
@@ -16,7 +17,8 @@ function foto_perfil()
 function editar_user_name()
 {
   include_once '../conexion.php';
-  $userID = UserID($_SESSION['admin']);
+  $admin = $_SESSION['AliNotes']['admin'];
+  $userID = UserID($admin);
   $actualizado = CurrentTime();
   $respuesta = 
   [
@@ -80,7 +82,8 @@ function editar_user_name()
 function editar_personal_info()
 { 
     include_once '../conexion.php';
-    $userID = UserID($_SESSION['admin']);
+    $admin = $_SESSION['AliNotes']['admin'];
+    $userID = UserID($admin);
     $actualizado = CurrentTime();
     $respuesta = 
     [
@@ -149,7 +152,8 @@ function editar_personal_info()
 function editar_juridica_info()
 { 
     include_once '../conexion.php';
-    $userID = UserID($_SESSION['admin']);
+    $admin = $_SESSION['AliNotes']['admin'];
+    $userID = UserID($admin);
     $actualizado = CurrentTime();
     $respuesta = 
     [

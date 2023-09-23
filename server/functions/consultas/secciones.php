@@ -3,7 +3,8 @@
 function secciones()
 {
   include_once '../conexion.php';
-  $userID = UserID($_SESSION['admin']);
+  $admin = $_SESSION['AliNotes']['admin'];
+  $userID = UserID($admin);
   $sections = Sections($userID);
   $respuesta = 
   [
@@ -32,7 +33,8 @@ function secciones()
 function secciones_en_editar()
 {
   include_once '../conexion.php';
-  $userID = UserID($_SESSION['admin']);
+  $admin = $_SESSION['AliNotes']['admin'];
+  $userID = UserID($admin);
   $sections = Sections($userID);
   $respuesta = 
   [

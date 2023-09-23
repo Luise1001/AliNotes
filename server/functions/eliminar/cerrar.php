@@ -1,19 +1,12 @@
 <?php
-session_start();
+include_once '../../conexion.php';
 
-$_SESSION = array();
+if(isset($_SESSION['AliNotes']))
+{
+    unset($_SESSION['AliNotes']);
 
-if(ini_get("session.use_cookies")){
-$params = session_get_cookie_params();
-setcookie(session_name(), '', time() - 42000,
-$params["path"], $params["domain"],
-$params["secure"], $params["httponly"]
-);
+    echo"<script type='text/javascript'>
+    window.location.href='../../../index';
+    </script>";
 }
-
-session_destroy();
-
-echo"<script type='text/javascript'>
-window.location.href='../../../index';
-</script>";
  ?>

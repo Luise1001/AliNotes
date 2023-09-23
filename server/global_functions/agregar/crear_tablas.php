@@ -153,7 +153,7 @@ foreach($tablas as $tabla)
 }
 
 
-$unidades = array('Unidad', 'Bulto', 'Caja', 'Saco', 'Frasco', 'Botella');
+$unidades = array('Unidad', 'Bulto', 'Caja', 'Saco', 'Frasco', 'Botella', 'Kilo');
 
 foreach($unidades as $unit)
 {

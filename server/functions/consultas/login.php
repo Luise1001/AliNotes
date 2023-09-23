@@ -37,7 +37,9 @@ function login()
 
             if(password_verify($pass, $password))
             {
-                $_SESSION['admin'] = $user;
+                $_SESSION['AliNotes']['name'] = $user_name;
+                $_SESSION['AliNotes']['admin'] = $user;
+                
 
                 $alert['titulo'] = 'Operación Exitosa.';
                 $alert['cuerpo'] = '';

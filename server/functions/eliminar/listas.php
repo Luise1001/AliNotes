@@ -3,7 +3,8 @@
 function eliminar_lista()
 {
     include_once '../conexion.php';
-    $userID = UserID($_SESSION['admin']);
+    $admin = $_SESSION['AliNotes']['admin'];
+    $userID = UserID($admin);
     $actualizado = CurrentTime();
 
     if(isset($_POST['id']))
@@ -46,7 +47,8 @@ function eliminar_lista()
 function eliminar_item_lista()
 {
     include_once '../conexion.php';
-    $userID = UserID($_SESSION['admin']);
+    $admin = $_SESSION['AliNotes']['admin'];
+    $userID = UserID($admin);
     $actualizado = CurrentTime();
 
     if(isset($_POST['id_lista']) && isset($_POST['id_item']))

@@ -2,7 +2,8 @@
 function nuevo_barco()
 {
     include_once '../conexion.php';
-    $userID = UserID($_SESSION['admin']);
+    $admin = $_SESSION['AliNotes']['admin'];
+    $userID = UserID($admin);
     $nivel = AdminLevel($_SESSION['admin']);
     $fecha = CurrentDate();
     $respuesta = 

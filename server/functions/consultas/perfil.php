@@ -3,7 +3,8 @@
 function mi_perfil()
 {
     include_once '../conexion.php';
-    $userID = UserID($_SESSION['admin']);
+    $admin = $_SESSION['AliNotes']['admin'];
+    $userID = UserID($admin);
     $nivel = AdminLevel($userID);
     $foto = SearchProfilePhoto($userID);
     $UserInfo = UserInfo($userID);
