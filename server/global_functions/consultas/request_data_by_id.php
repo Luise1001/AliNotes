@@ -63,7 +63,7 @@ function UserInfo($userID)
 
 }
 
-function UserData($userID)
+function UserData($userID, $nivel)
 {
   require '../conexion.php';
 
@@ -82,7 +82,7 @@ function UserData($userID)
   }
 }
 
-Function UserBusinessData($userID)
+Function UserBusinessData($userID, $nivel)
 {
   require '../conexion.php';
 
@@ -287,4 +287,40 @@ function ItemOnList($id_lista, $id_item, $userID)
   {
     return false;
   }
+}
+
+function UserBarcos($userID, $nivel)
+{
+  require '../conexion.php';
+
+  $consulta_sql = "SELECT * FROM barcos  WHERE Id_usuario=?";
+  $preparar_sql = $pdo->prepare($consulta_sql);
+  $preparar_sql->execute(array($userID));
+  $resultado = $preparar_sql->fetchAll();
+  
+  if($resultado)
+  {
+    return $resultado;
+  }
+  else
+  {
+    return false;
+  }
+}
+
+
+function MyManifests($userID, $nivel)
+{
+   $ruta = "../docs/manifiestos/user_$userID/";
+
+   if(file_exists($ruta))
+   {
+      $manifiestos = scandir($ruta);
+
+      return $manifiestos;
+   }
+   else
+   {
+     return false;
+   }
 }

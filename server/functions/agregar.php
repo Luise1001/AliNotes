@@ -47,5 +47,13 @@ if($_POST)
        {
           nuevo_usuario();
        }
+       if($page === 'nuevo_barco')
+       {
+          nuevo_barco();
+       }
+       if($page === 'generar_manifiesto')
+       {
+          generar_manifiesto();
+       }
     }
 }

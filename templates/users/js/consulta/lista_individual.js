@@ -142,6 +142,8 @@ function SelectOne(e)
    generar_listado(array_items);
 }
 
+var items;
+
 function generar_listado(array_items)
 {
    let id_lista = $('#lista_id').val();
@@ -162,9 +164,10 @@ function generar_listado(array_items)
  
    })
    .done(function(res)
-   {
+   { 
      $('.titulo-app').html(res.titulo);
      $('.header-icons').html(res.botones);
+     items = res.items;
    })
    .fail(function(err)
    {

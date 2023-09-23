@@ -280,18 +280,14 @@ function generar_listado()
 
       foreach($array_items as $item)
       {
-        array_push($ItemForList, ItemForList($item, $id_lista, $userID));
+        array_push($respuesta['items'], ItemForList($item, $id_lista, $userID));
          
       }
 
       $respuesta['titulo'] = '';
       $respuesta['botones'] .=
        '
-       <a class="header-icons-item accordon-button" ><i class="fas fa-share-alt"></i></a>
-
-       <a class="header-icons-item accordon-button" ><i class="fas fa-file-pdf"></i></a>
-
-       <a class="header-icons-item accordon-button" data-toggle="modal" data-target="#datos_manifiesto"><i class="fas fa-file-word"></i></a>
+       <a class="datos-manifiesto header-icons-item accordon-button" data-toggle="modal" data-target="#modal_datos_manifiesto"><i class="fas fa-file-word"></i></a>
         ';
   
    }

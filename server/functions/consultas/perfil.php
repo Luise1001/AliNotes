@@ -4,10 +4,11 @@ function mi_perfil()
 {
     include_once '../conexion.php';
     $userID = UserID($_SESSION['admin']);
+    $nivel = AdminLevel($userID);
     $foto = SearchProfilePhoto($userID);
     $UserInfo = UserInfo($userID);
-    $UserData = UserData($userID);
-    $UserBusinessData = UserBusinessData($userID);
+    $UserData = UserData($userID, $nivel);
+    $UserBusinessData = UserBusinessData($userID, $nivel);
     $respuesta = 
     [
         'header'=> '',

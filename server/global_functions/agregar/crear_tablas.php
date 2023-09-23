@@ -127,6 +127,24 @@ $tablas =
     Fecha DATE  NOT NULL,
     Actualizado TIMESTAMP NOT NULL DEFAULT(CURRENT_TIMESTAMP)
   )',
+  ' CREATE TABLE IF NOT EXISTS barcos
+  (
+    Id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    Barco VARCHAR(50) NOT NULL,
+    Id_usuario INT UNSIGNED NOT NULL,
+    Fecha DATE  NOT NULL,
+    Actualizado TIMESTAMP NOT NULL DEFAULT(CURRENT_TIMESTAMP),
+    FOREIGN KEY (Id_usuario) REFERENCES usuarios (Id)
+  )',
+  ' CREATE TABLE IF NOT EXISTS muelles
+  (
+    Id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    Muelle VARCHAR(50) NOT NULL,
+    Id_usuario INT UNSIGNED NOT NULL,
+    Fecha DATE  NOT NULL,
+    Actualizado TIMESTAMP NOT NULL DEFAULT(CURRENT_TIMESTAMP),
+    FOREIGN KEY (Id_usuario) REFERENCES usuarios (Id)
+  )',
 ];
 
 foreach($tablas as $tabla)

@@ -51,6 +51,9 @@ if($_POST)
         {
             editar_item_lista();
         }
-        
+        if($page === 'editar_barco')
+        {
+            editar_barco();
+        }
     }
 }

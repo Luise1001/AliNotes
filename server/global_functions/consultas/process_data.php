@@ -115,6 +115,12 @@ function ManifestTemplate($cliente, $items, $barco)
             copy($filename, $ruta.$filename);
             unlink($filename);
         }
+
+        return true;
+    }
+    else
+    {
+        return false;
     }
 
 }

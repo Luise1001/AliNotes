@@ -12,7 +12,10 @@ function header_menu()
     {
       $menu = 
       '
-     <li><a class="dropdown-itemn header-item" href="../../server/functions/eliminar/cerrar"><i class="fas fa-sign-out-alt"></i> Salir</a></li>
+      <li><a href="../users/manifiestos"class="dropdown-itemn header-item"><i class="fa-regular fa-file-word"></i> Manifiestos</a></li>
+      <li><a href="../users/barcos"class="dropdown-itemn header-item"><i class="fa-solid fa-ship"></i></i> Barcos</a></li>
+      <li><hr class="dropdown-divider header-divider"></li>
+      <li><a class="dropdown-itemn header-item" href="../../server/functions/eliminar/cerrar"><i class="fas fa-sign-out-alt"></i> Salir</a></li>
       ';
     }
 
@@ -20,7 +23,7 @@ function header_menu()
     {
       $menu = 
       '
-      <li><a class="dropdown-itemn header-item" href="../../functions/cerrar"><i class="fas fa-sign-out-alt"></i> Salir</a></li>
+      <li><a href="../admin/barcos"class="dropdown-itemn header-item"><i class="fa-solid fa-ship"></i></i> Barcos</a></li>
       <li><hr class="dropdown-divider header-divider"></li>
       <li><a class="dropdown-itemn header-item" href="../../server/functions/eliminar/cerrar"><i class="fas fa-sign-out-alt"></i> Salir</a></li>
       ';

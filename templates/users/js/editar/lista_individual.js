@@ -1,5 +1,5 @@
 $(document).on('click', '.btn-editar-item-lista', function(data)
-{
+{ 
     let id_item = data.currentTarget.attributes.objeto.value;
     let id_seccion = data.currentTarget.attributes.ids.value;
     let seccion_name = data.currentTarget.attributes.seccion.value;
@@ -11,7 +11,7 @@ $(document).on('click', '.btn-editar-item-lista', function(data)
     
     secciones_en_editar(id_seccion, seccion_name);
     unidades_en_editar(unidad);
-
+  
    $('#item_id').val(id_item);
    $('#edit_descripcion').val(descripcion);
    $('#edit_peso').val(peso);

@@ -163,7 +163,7 @@ body
   font-size: large;
   text-align: center;
   color: aqua;
-  padding-top: 10px;
+  padding: 10px;
 }
 .list-title
 {
@@ -218,6 +218,16 @@ body
   margin-right: 5px;
 }
 /*listas*/
+
+/*Barcos*/
+.container-ships
+{
+    background: #0F2C40;
+    position: relative;
+    text-align: center;
+    border-radius: 0px 0px 10px 10px;
+}
+/*Barcos*/
 
 /*modals*/
 .swal-modal

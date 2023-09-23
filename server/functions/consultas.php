@@ -61,5 +61,17 @@ if($_POST)
         {
             unidades_en_editar();
         }
+        if($page === 'mis_barcos')
+        {
+            mis_barcos();
+        }
+        if($page === 'mis_manifiestos')
+        {
+            mis_manifiestos();
+        }
+        if($page === 'datos_manifiesto')
+        {
+            datos_manifiesto();
+        }
     }
 }

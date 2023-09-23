@@ -25,5 +25,9 @@ if($_POST)
         {
             eliminar_item_lista();
         }
+        if($page === 'eliminar_barco')
+        {
+            eliminar_barco();
+        }
     }
 }

@@ -8,3 +8,5 @@ include_once 'tareas.php';
 include_once 'listas.php';
 include_once 'secciones.php';
 include_once 'unidades.php';
+include_once 'manifiestos.php';
+include_once 'barcos.php';

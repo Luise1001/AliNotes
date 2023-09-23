@@ -1,5 +1,8 @@
 <?php
 
+//consulta
+include_once 'modals/consulta/modal_datos_manifiesto.php';
+
 //agregar
 include_once 'modals/agregar/modal_agregar_personal_info.php';
 include_once 'modals/agregar/modal_agregar_juridica_info.php';
@@ -12,3 +15,4 @@ include_once 'modals/editar/modal_editar_item_lista.php';
 include_once 'modals/editar/modal_editar_user_name.php';
 include_once 'modals/editar/modal_editar_personal_info.php';
 include_once 'modals/editar/modal_editar_juridica_info.php';
+include_once 'modals/editar/modal_editar_barco.php';
