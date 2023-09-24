@@ -15,6 +15,14 @@
   <div class="add-item-body">
 
   <div class="input-group">
+      <span class="input-group-text">Tipo<span class="obligatory-span">*</span></span>
+      <select id="tipo_manifiesto" name="tipo_manifiesto" class="form-select">
+        <option value="Juridico">Jurídico</option>
+        <option value="Personal">Personal</option>
+      </select>
+    </div>
+
+  <div class="input-group">
       <span class="input-group-text">Titular<span class="obligatory-span">*</span></span>
       <select id="titular_manifiesto" name="titular_manifiesto" class="form-select">
         <option value="Seleccionar">Seleccionar</option>

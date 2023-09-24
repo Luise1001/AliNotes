@@ -59,38 +59,62 @@ function datos_manifiesto()
    $admin = $_SESSION['AliNotes']['admin'];
    $userID = UserID($admin);
    $nivel = AdminLevel($userID);
-   $UserData = UserData($userID, $nivel);
-   $UserBarcos = UserBarcos($userID, $nivel);
    $respuesta = 
    [
      'titular'=> false,
      'barco'=> false,
    ];
 
-   if($UserData)
+
+   if(isset($_POST['tipo']))
    {
-      foreach($UserData as $user)
+      $tipo = $_POST['tipo'];
+
+      if($tipo === 'Personal')
       {
-         $id_titular = $user['Id'];
-         $nombre = $user['Nombre'];
-         $apellido = $user['Apellido'];
-
-         $respuesta['titular'] = "<option value='$nombre $apellido'>$nombre $apellido</option>";
+         $UserData = UserData($userID, $nivel);
+         if($UserData)
+         {
+            foreach($UserData as $user)
+            {
+               $id_titular = $user['Id'];
+               $nombre = $user['Nombre'];
+               $apellido = $user['Apellido'];
+      
+               $respuesta['titular'] = "<option value='$nombre $apellido'>$nombre $apellido</option>";
+            }
+         }
       }
+
+      if($tipo === 'Juridico')
+      {
+         $UserBusinessData = UserBusinessData($userID, $nivel);
+         if($UserBusinessData)
+         {
+            foreach($UserBusinessData as $business)
+            {
+               $id_titular = $business['Id'];
+               $razon_social = $business['Razon_social'];
+      
+               $respuesta['titular'] = "<option value='$razon_social'>$razon_social</option>";
+            }
+         }
+      }
+
+      $UserBarcos = UserBarcos($userID, $nivel);
+
+      if($UserBarcos)
+      {
+         $respuesta['barco'] = '';
+        foreach($UserBarcos as $ship)
+        {
+           $id_barco = $ship['Id'];
+           $barco = $ship['Barco'];
+   
+           $respuesta['barco'] .= "<option value='$barco'>$barco</option>";
+        }
+      }
+
+      echo json_encode($respuesta);
    }
-
-   if($UserBarcos)
-   {
-      $respuesta['barco'] = '';
-     foreach($UserBarcos as $ship)
-     {
-        $id_barco = $ship['Id'];
-        $barco = $ship['Barco'];
-
-        $respuesta['barco'] .= "<option value='$barco'>$barco</option>";
-     }
-   }
-
-   echo json_encode($respuesta);
-
 }

@@ -31,8 +31,14 @@ $(document).on('click', '.datos-manifiesto', function()
     datos_manifiesto();
 })
 
+$(document).on('change', '#tipo_manifiesto', function()
+{
+    datos_manifiesto();
+})
+
 function datos_manifiesto()
 {
+    let tipo = $('#tipo_manifiesto').val();
     let page = 'datos_manifiesto';
 
     $.ajax
@@ -43,7 +49,8 @@ function datos_manifiesto()
        async: false,
        data: 
        {
-          page: page
+          page: page,
+          tipo: tipo
        }
   
     })

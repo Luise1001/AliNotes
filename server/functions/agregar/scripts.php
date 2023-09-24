@@ -8,4 +8,5 @@ include_once 'secciones.php';
 include_once 'tokens.php';
 include_once 'usuarios.php';
 include_once 'barcos.php';
+include_once 'vehiculos.php';
 include_once 'manifiestos.php';

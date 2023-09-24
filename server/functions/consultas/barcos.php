@@ -40,8 +40,11 @@ function mis_barcos()
                  <span><i class='fas fa-ellipsis-v'></i></span>
                </button>
                  <ul class='dropdown-menu card-menu'>
-                  <li class='dropdown-item card-menu-item'><a class='btn-edit-barco' id='$id' nombre='$nombre' data-toggle='modal' data-target='#modal_editar_barco'>Editar</a></li>
-                  <li class='dropdown-item card-menu-item'><a class='btn-eliminar-barco' id='$id'>Eliminar</a></li>
+                  <li class='dropdown-item card-menu-item'><a class='btn-edit-barco' id='$id' nombre='$nombre' 
+                  data-toggle='modal' data-target='#modal_editar_barco'>
+                  <i class='fa-solid fa-edit'></i> Editar</a></li>
+                  <li class='dropdown-item card-menu-item'><a class='btn-eliminar-barco' id='$id'>
+                  <i class='fa-solid fa-trash'></i> Eliminar</a></li>
                  </ul>
                  </div>
              </div>

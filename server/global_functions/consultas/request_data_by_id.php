@@ -328,6 +328,25 @@ function UserBarcos($userID, $nivel)
   }
 }
 
+function UserCars($userID, $nivel)
+{
+  require '../conexion.php';
+
+  $consulta_sql = "SELECT * FROM carros  WHERE Id_usuario=?";
+  $preparar_sql = $pdo->prepare($consulta_sql);
+  $preparar_sql->execute(array($userID));
+  $resultado = $preparar_sql->fetchAll();
+  
+  if($resultado)
+  {
+    return $resultado;
+  }
+  else
+  {
+    return false;
+  }
+}
+
 
 function MyManifests($userID, $nivel)
 {

@@ -229,6 +229,16 @@ body
 }
 /*Barcos*/
 
+/*Vehiculos*/
+.container-cars
+{
+    background: #0F2C40;
+    position: relative;
+    text-align: center;
+    border-radius: 0px 0px 10px 10px;
+}
+/*Vehiculos*/
+
 /*modals*/
 .swal-modal
 {

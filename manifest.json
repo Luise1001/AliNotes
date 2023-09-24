@@ -1,0 +1,42 @@
+{
+    "short_name": "AliNotes",
+    "name": "AliNotes",
+    "version": "1.1",
+    "icons": [
+      {
+        "src": "images/icons/favicon/android-chrome-512x512.png",
+        "type": "image/png",
+        "sizes": "512x512",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "images/icons/favicon/android-chrome-192x192.png",
+        "type": "image/png",
+        "sizes": "192x192",
+        "purpose": "any maskable"
+      }
+    ],
+    "id": "AliNotes",
+    "start_url": "./templates/home/inicio.php",
+    "background_color": "#0F2C40",
+    "display": "standalone",
+    "scope": "./",
+    "theme_color": "#0F2C40",
+    "shortcuts": [
+      {
+        "name": "AliNotes",
+        "short_name": "AliNotes",
+        "description": "Agenda Notas Rápidas, Recordaros, Lista de Compras.",
+        "url": "./templates/home/inicio.php",
+        "icons": [{ "src": "images/icons/favicon/android-chrome-192x192.png", "sizes": "192x192" }]
+      },
+      {
+        "name": "AliNotes",
+        "short_name": "AliNotes",
+        "description": "Agenda Notas Rápidas, Recordaros, Lista de Compras.",
+        "url": "./templates/home/inicio.php",
+        "icons": [{ "src": "images/icons/favicon/android-chrome-192x192.png", "sizes": "192x192" }]
+      }
+    ],
+    "description": "Agenda Notas Rápidas, Recordaros, Lista de Compras."
+  }

@@ -145,6 +145,31 @@ $tablas =
     Actualizado TIMESTAMP NOT NULL DEFAULT(CURRENT_TIMESTAMP),
     FOREIGN KEY (Id_usuario) REFERENCES usuarios (Id)
   )',
+  ' CREATE TABLE IF NOT EXISTS carros
+  (
+    Id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    Tipo VARCHAR(50) NOT NULL,
+    Placa VARCHAR(20) NOT NULL,
+    Modelo VARCHAR(50) NOT NULL,
+    Year_car VARCHAR(10) NOT NULL,
+    Id_usuario INT UNSIGNED NOT NULL,
+    Fecha DATE  NOT NULL,
+    Actualizado TIMESTAMP NOT NULL DEFAULT(CURRENT_TIMESTAMP),
+    FOREIGN KEY (Id_usuario) REFERENCES usuarios (Id)
+  )',
+
+  ' CREATE TABLE IF NOT EXISTS conductores
+  (
+    Id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(50) NOT NULL,
+    Apellido VARCHAR(50) NOT NULL,
+    Tipo_id VARCHAR(2) NOT NULL,
+    Cedula VARCHAR(50) NOT NULL,
+    Id_usuario INT UNSIGNED NOT NULL,
+    Fecha DATE  NOT NULL,
+    Actualizado TIMESTAMP NOT NULL DEFAULT(CURRENT_TIMESTAMP),
+    FOREIGN KEY (Id_usuario) REFERENCES usuarios (Id)
+  )',
 ];
 
 foreach($tablas as $tabla)

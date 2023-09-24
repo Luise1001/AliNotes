@@ -73,5 +73,13 @@ if($_POST)
         {
             datos_manifiesto();
         }
+        if($page === 'mis_carros')
+        {
+            mis_carros();
+        }
+        if($page === 'mis_conductores')
+        {
+            mis_conductores();
+        }
     }
 }

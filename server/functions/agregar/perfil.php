@@ -4,7 +4,7 @@ function agregar_informacion_personal()
 {
     include_once '../conexion.php';
     $admin = $_SESSION['AliNotes']['admin'];
-    $userID = UserID($_SESSION['admin']);
+    $userID = UserID($admin);
     $nivel = AdminLevel($userID);
     $fecha = CurrentDate();
     $respuesta = 

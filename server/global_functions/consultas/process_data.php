@@ -35,9 +35,11 @@ function ManifestTemplate($cliente, $items, $barco)
 {
     require '../conexion.php';
     require '../../vendor/autoload.php';
-    $userID = UserID($_SESSION['admin']);
+    $admin = $_SESSION['AliNotes']['admin'];
+    $userID = UserID($admin);
     $fecha = Date('d/m/Y');
     $year = Date('Y');
+    $titular = strtoupper($cliente);
 
     $word = new \PhpOffice\PhpWord\PhpWord();
 
@@ -64,7 +66,7 @@ function ManifestTemplate($cliente, $items, $barco)
 
     $table1->addRow();
     $table1->addCell(3500)->addText("", $styleHeader, $celdas); 
-    $table1->addCell(8000)->addText("$cliente",$styleHeader, $celdas); 
+    $table1->addCell(8000)->addText("$titular",$styleHeader, $celdas); 
     $table1->addCell(4500)->addText("", $styleHeader, $celdas); 
 
     foreach($items as $article)
@@ -129,6 +131,8 @@ function PlanillaTemplate($cliente, $responsable, $items, $total_items, $vehicul
 {
     require '../conexion.php';
     require '../../vendor/autoload.php';
+    $admin = $_SESSION['AliNotes']['admin'];
+    $userID = UserID($admin);
     $fecha = Date('d/m/Y');
     $year = Date('Y');
 

@@ -51,9 +51,14 @@ if($_POST)
        {
           nuevo_barco();
        }
+       if($page === 'nuevo_carro')
+       {
+          nuevo_carro();
+       }
        if($page === 'generar_manifiesto')
        {
           generar_manifiesto();
        }
+
     }
 }

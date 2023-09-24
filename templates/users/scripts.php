@@ -11,6 +11,8 @@
 <script src="js/agregar/listas.js"></script>
 <script src="js/agregar/lista_individual.js"></script>
 <script src="js/agregar/barcos.js"></script>
+<script src="js/agregar/vehiculos.js"></script>
+<script src="js/agregar/conductores.js"></script>
 
 <!-- Editar -->
 <script src="js/editar/perfil.js"></script>

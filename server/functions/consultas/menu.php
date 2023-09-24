@@ -14,6 +14,8 @@ function header_menu()
       '
       <li><a href="../users/manifiestos"class="dropdown-itemn header-item"><i class="fa-regular fa-file-word"></i> Manifiestos</a></li>
       <li><a href="../users/barcos"class="dropdown-itemn header-item"><i class="fa-solid fa-ship"></i></i> Barcos</a></li>
+      <li><a href="../users/vehiculos"class="dropdown-itemn header-item"><i class="fa-solid fa-car"></i></i> Vehículos</a></li>
+      <li><a href="../users/conductores"class="dropdown-itemn header-item"><i class="fa-solid fa-user-tie"></i></i> Conductores</a></li>
       <li><hr class="dropdown-divider header-divider"></li>
       <li><a class="dropdown-itemn header-item" href="../../server/functions/eliminar/cerrar"><i class="fas fa-sign-out-alt"></i> Salir</a></li>
       ';
