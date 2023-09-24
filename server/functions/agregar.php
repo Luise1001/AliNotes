@@ -55,6 +55,10 @@ if($_POST)
        {
           nuevo_carro();
        }
+       if($page === 'nuevo_conductor')
+       {
+          nuevo_conductor();
+       }
        if($page === 'generar_manifiesto')
        {
           generar_manifiesto();

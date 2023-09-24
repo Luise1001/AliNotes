@@ -59,3 +59,41 @@ function CheckUserName($username)
         return false;
     }
 }
+
+function CheckPlaca($placa, $userID)
+{
+    require '../conexion.php';
+
+    $consulta_sql = "SELECT * FROM carros WHERE Placa=? AND Id_usuario=?";
+    $preparar_sql = $pdo->prepare($consulta_sql);
+    $preparar_sql->execute(array($placa, $userID));
+    $resultado = $preparar_sql->fetchAll();
+
+    if($resultado)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+function CheckDriver($cedula, $userID)
+{
+    require '../conexion.php';
+
+    $consulta_sql = "SELECT * FROM conductores WHERE Cedula=? AND Id_usuario=?";
+    $preparar_sql = $pdo->prepare($consulta_sql);
+    $preparar_sql->execute(array($cedula, $userID));
+    $resultado = $preparar_sql->fetchAll();
+
+    if($resultado)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}

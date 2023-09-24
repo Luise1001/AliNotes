@@ -1,12 +1,16 @@
-$(document).on('click', '#guardar_barco', function()
+$(document).on('click', '#guardar_conductor', function()
 {
-    nuevo_barco();
+    nuevo_conductor();
 })
 
-function nuevo_barco()
+function nuevo_conductor()
 {
-    let nombre = $('#nombre_barco').val();
-    let page = 'nuevo_barco';
+    let nombre = $('#nombre_conductor').val();
+    let apellido = $('#apellido_conductor').val();
+    let letra = $('#tipo_id_conductor').val();
+    let cedula = $('#cedula_conductor').val();
+    
+    let page = 'nuevo_conductor';
 
     $.ajax
     ({
@@ -17,7 +21,10 @@ function nuevo_barco()
        data: 
        {
           page: page,
-          nombre: nombre
+          nombre: nombre,
+          apellido: apellido,
+          letra: letra,
+          cedula: cedula
        }
   
     })
@@ -29,7 +36,7 @@ function nuevo_barco()
 
        if(accion === 'success')
        { 
-          mis_barcos();
+          mis_conductores();
        }
        else
        {

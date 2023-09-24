@@ -313,7 +313,7 @@ function UserBarcos($userID, $nivel)
 {
   require '../conexion.php';
 
-  $consulta_sql = "SELECT * FROM barcos  WHERE Id_usuario=?";
+  $consulta_sql = "SELECT * FROM barcos  WHERE Id_usuario=? ORDER BY Actuaizado DESC";
   $preparar_sql = $pdo->prepare($consulta_sql);
   $preparar_sql->execute(array($userID));
   $resultado = $preparar_sql->fetchAll();
@@ -332,7 +332,26 @@ function UserCars($userID, $nivel)
 {
   require '../conexion.php';
 
-  $consulta_sql = "SELECT * FROM carros  WHERE Id_usuario=?";
+  $consulta_sql = "SELECT * FROM carros  WHERE Id_usuario=? ORDER BY Actualizado DESC";
+  $preparar_sql = $pdo->prepare($consulta_sql);
+  $preparar_sql->execute(array($userID));
+  $resultado = $preparar_sql->fetchAll();
+  
+  if($resultado)
+  {
+    return $resultado;
+  }
+  else
+  {
+    return false;
+  }
+}
+
+function UserDrivers($userID, $nivel)
+{
+  require '../conexion.php';
+
+  $consulta_sql = "SELECT * FROM conductores  WHERE Id_usuario=? ORDER BY Actualizado DESC";
   $preparar_sql = $pdo->prepare($consulta_sql);
   $preparar_sql->execute(array($userID));
   $resultado = $preparar_sql->fetchAll();

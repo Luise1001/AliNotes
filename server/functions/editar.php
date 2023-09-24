@@ -55,5 +55,13 @@ if($_POST)
         {
             editar_barco();
         }
+        if($page === 'editar_carro')
+        {
+            editar_carro();
+        }
+        if($page === 'editar_conductor')
+        {
+            editar_conductor();
+        } 
     }
 }

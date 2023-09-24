@@ -21,6 +21,8 @@
 <script src="js/editar/listas.js"></script>
 <script src="js/editar/lista_individual.js"></script>
 <script src="js/editar/barcos.js"></script>
+<script src="js/editar/vehiculos.js"></script>
+<script src="js/editar/conductores.js"></script>
 
 <!-- Eliminar -->
 <script src="js/eliminar/notas.js"></script>
@@ -28,6 +30,9 @@
 <script src="js/eliminar/listas.js"></script>
 <script src="js/eliminar/lista_individual.js"></script>
 <script src="js/eliminar/barcos.js"></script>
+<script src="js/eliminar/manifiestos.js"></script>
+<script src="js/eliminar/vehiculos.js"></script>
+<script src="js/eliminar/conductores.js"></script>
 
 
 

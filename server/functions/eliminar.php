@@ -29,5 +29,18 @@ if($_POST)
         {
             eliminar_barco();
         }
+        if($page === 'eliminar_carro')
+        {
+            eliminar_carro();
+        }
+        if($page === 'eliminar_conductor')
+        {
+            eliminar_conductor();
+        }
+        if($page === 'eliminar_manifiesto')
+        {
+            eliminar_manifiesto();
+        }
+
     }
 }

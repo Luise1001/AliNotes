@@ -1,8 +1,8 @@
-$(document).ready(mis_barcos());
+$(document).ready(mis_conductores());
 
-function mis_barcos()
+function mis_conductores()
 {
-    let page = 'mis_barcos';
+    let page = 'mis_conductores';
 
     $.ajax
     ({
@@ -19,7 +19,7 @@ function mis_barcos()
     .done(function(res)
     {
       $('.header-icons').html(res.botones);
-      $('.my-ships').html(res.barcos);
+      $('.my-drivers').html(res.conductores);
     })
     .fail(function(err)
     {

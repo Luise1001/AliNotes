@@ -1,5 +1,5 @@
 <?php 
-function nuevo_carro()
+function nuevo_conductor()
 {
     include_once '../conexion.php';
     $admin = $_SESSION['AliNotes']['admin'];
@@ -13,32 +13,31 @@ function nuevo_carro()
         'accion'=> 'warning'
     ];
 
-    if(isset($_POST['tipo']) && isset($_POST['modelo']) && isset($_POST['placa']) && isset($_POST['year']))
+    if(isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['letra']) && isset($_POST['cedula']))
     {
-        $tipo = $_POST['tipo'];
-        $modelo = $_POST['modelo'];
-        $placa = $_POST['placa'];
-        $year = $_POST['year'];
+        $nombre = $_POST['nombre'];
+        $apellido = $_POST['apellido'];
+        $letra = $_POST['letra'];
+        $cedula = $_POST['cedula'];
 
-        $tipo = filter_var($tipo, FILTER_SANITIZE_STRING);
-        $modelo = filter_var($modelo, FILTER_SANITIZE_STRING);
-        $placa = filter_var($placa, FILTER_SANITIZE_STRING);
-        $year = filter_var($year, FILTER_SANITIZE_STRING);
+        $nombre = filter_var($nombre, FILTER_SANITIZE_STRING);
+        $apellido = filter_var($apellido, FILTER_SANITIZE_STRING);
+        $letra = filter_var($letra, FILTER_SANITIZE_STRING);
+        $cedula = filter_var($cedula, FILTER_SANITIZE_STRING);
         
-        $tipo = ucwords($tipo);
-        $modelo = ucwords($modelo);
-        $placa = strtoupper($placa);
+        $nombre = ucwords($nombre);
+        $apellido = ucwords($apellido);
 
 
-        if($tipo && $modelo && $placa && $year)
+        if($nombre && $apellido && $letra && $cedula)
         {
-            $checkPlaca = CheckPlaca($placa, $userID);
-            
-            if(!$checkPlaca)
+            $checkDriver = CheckDriver($cedula, $userID);
+
+            if(!$checkDriver)
             {
-                $insert_sql = 'INSERT INTO carros (Tipo, Modelo, Placa, Year_car, Id_usuario, Fecha) VALUES (?,?,?,?,?,?)';
+                $insert_sql = 'INSERT INTO conductores (Nombre, Apellido, Tipo_id, Cedula, Id_usuario, Fecha) VALUES (?,?,?,?,?,?)';
                 $sent = $pdo->prepare($insert_sql);
-                if($sent->execute(array($tipo, $modelo, $placa, $year, $userID, $fecha)))
+                if($sent->execute(array($nombre, $apellido, $letra, $cedula, $userID, $fecha)))
                 {
                     $respuesta = 
                     [
@@ -62,11 +61,10 @@ function nuevo_carro()
                 $respuesta = 
                 [
                     'titulo'=>'Ups!',
-                    'cuerpo'=> 'Número de Placa Duplicado.',
+                    'cuerpo'=> 'Cédula Duplicada',
                     'accion'=> 'error'
                 ];
             }
-
         }
         else
         {

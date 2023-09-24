@@ -16,3 +16,5 @@ include_once 'modals/editar/modal_editar_user_name.php';
 include_once 'modals/editar/modal_editar_personal_info.php';
 include_once 'modals/editar/modal_editar_juridica_info.php';
 include_once 'modals/editar/modal_editar_barco.php';
+include_once 'modals/editar/modal_editar_carro.php';
+include_once 'modals/editar/modal_editar_conductor.php';

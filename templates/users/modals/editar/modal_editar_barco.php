@@ -4,6 +4,7 @@
     <div class="modal-content">
 
     <div class="container">
+
  <div class="edit-notes">
     <div class="add-notes-header">
         <div class="div-back-btn">
@@ -15,8 +16,8 @@
     <input type="hidden" id="barco_id" name="barco_id">
     <label class="label-option-1" for="edit_nombre_barco">Nombre <span class="obligatory-span">*</span></label>
     <input class="input-option-1" id="edit_nombre_barco" name="edit_nombre_barco" type="text" placeholder="Nombre" >
-   
   </div>
+
 </div>
  <div class="edit-notes-footer">
  <button id="editar_barco" name="editar_barco" data-dismiss="modal" class="btn btn-option-1">Guardar</button>

@@ -33,7 +33,7 @@ function mis_manifiestos()
                    <ul class='dropdown-menu card-menu'>
                     <li class='dropdown-item card-menu-item'><a href='../../server/docs/manifiestos/user_$userID/$archivo' >
                     <i class='fa-solid fa-download'></i> Descargar</a></li>
-                    <li class='dropdown-item card-menu-item'><a class='btn-eliminar-barco'>
+                    <li class='dropdown-item card-menu-item'><a archivo='$archivo' class='btn-eliminar-manifiesto'>
                     <i class='fa-solid fa-trash'></i> Eliminar</a></li>
                    </ul>
                    </div>
