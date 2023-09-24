@@ -2,6 +2,7 @@
 
 //consulta
 include_once 'modals/consulta/modal_datos_manifiesto.php';
+include_once 'modals/consulta/modal_datos_planilla.php';
 
 //agregar
 include_once 'modals/agregar/modal_agregar_personal_info.php';

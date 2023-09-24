@@ -3,6 +3,7 @@
 <!-- Consultas -->
 <script src="js/consulta/menu.js"></script>
 <script src="js/consulta/manifiesto.js"></script>
+<script src="js/consulta/planilla.js"></script>
 
 <!-- Agregar -->
 <script src="js/agregar/perfil.js"></script>
@@ -13,6 +14,7 @@
 <script src="js/agregar/barcos.js"></script>
 <script src="js/agregar/vehiculos.js"></script>
 <script src="js/agregar/conductores.js"></script>
+<script src="js/agregar/responsables.js"></script>
 
 <!-- Editar -->
 <script src="js/editar/perfil.js"></script>

@@ -59,6 +59,10 @@ if($_POST)
        {
           nuevo_conductor();
        }
+       if($page === 'nuevo_responsable')
+       { 
+          nuevo_responsable();
+       }
        if($page === 'generar_manifiesto')
        {
           generar_manifiesto();

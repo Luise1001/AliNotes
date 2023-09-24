@@ -73,6 +73,14 @@ if($_POST)
         {
             datos_manifiesto();
         }
+        if($page === 'mis_planillas')
+        {
+            mis_planillas();
+        }
+        if($page === 'datos_planilla')
+        {
+            datos_planilla();
+        }
         if($page === 'mis_carros')
         {
             mis_carros();
@@ -80,6 +88,10 @@ if($_POST)
         if($page === 'mis_conductores')
         {
             mis_conductores();
+        }
+        if($page === 'mis_responsables')
+        {
+            mis_responsables();
         }
     }
 }

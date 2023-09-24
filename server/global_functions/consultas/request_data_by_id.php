@@ -313,7 +313,7 @@ function UserBarcos($userID, $nivel)
 {
   require '../conexion.php';
 
-  $consulta_sql = "SELECT * FROM barcos  WHERE Id_usuario=? ORDER BY Actuaizado DESC";
+  $consulta_sql = "SELECT * FROM barcos  WHERE Id_usuario=? ORDER BY Actualizado DESC";
   $preparar_sql = $pdo->prepare($consulta_sql);
   $preparar_sql->execute(array($userID));
   $resultado = $preparar_sql->fetchAll();
@@ -366,6 +366,25 @@ function UserDrivers($userID, $nivel)
   }
 }
 
+function UserResponsibles($userID, $nivel)
+{
+  require '../conexion.php';
+
+  $consulta_sql = "SELECT * FROM responsables  WHERE Id_usuario=? ORDER BY Actualizado DESC";
+  $preparar_sql = $pdo->prepare($consulta_sql);
+  $preparar_sql->execute(array($userID));
+  $resultado = $preparar_sql->fetchAll();
+  
+  if($resultado)
+  {
+    return $resultado;
+  }
+  else
+  {
+    return false;
+  }
+}
+
 
 function MyManifests($userID, $nivel)
 {
@@ -376,6 +395,22 @@ function MyManifests($userID, $nivel)
       $manifiestos = scandir($ruta);
 
       return $manifiestos;
+   }
+   else
+   {
+     return false;
+   }
+}
+
+function MySeniatDocuments($userID, $nivel)
+{
+   $ruta = "../docs/planillas/user_$userID/";
+
+   if(file_exists($ruta))
+   {
+      $planillas = scandir($ruta);
+
+      return $planillas;
    }
    else
    {

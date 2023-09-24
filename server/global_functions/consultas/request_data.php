@@ -97,3 +97,22 @@ function CheckDriver($cedula, $userID)
         return false;
     }
 }
+
+function CheckResponsable($identidad, $userID)
+{
+    require '../conexion.php';
+
+    $consulta_sql = "SELECT * FROM responsables WHERE Numero=? AND Id_usuario=?";
+    $preparar_sql = $pdo->prepare($consulta_sql);
+    $preparar_sql->execute(array($identidad, $userID));
+    $resultado = $preparar_sql->fetchAll();
+
+    if($resultado)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}

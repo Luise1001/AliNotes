@@ -297,7 +297,10 @@ function generar_listado()
       $respuesta['botones'] .=
        '
        <a class="datos-manifiesto header-icons-item accordon-button" data-toggle="modal" data-target="#modal_datos_manifiesto"><i class="fas fa-file-word"></i></a>
-        ';
+        
+       <a class="datos-planilla header-icons-item accordon-button" data-toggle="modal" data-target="#modal_datos_planilla"><i class="fas fa-file-pdf"></i></a>
+        
+       ';
   
    }
 

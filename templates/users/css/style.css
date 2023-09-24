@@ -249,6 +249,22 @@ body
 }
 /*Conductores*/
 
+/*responsables*/
+.container-responsables
+{
+    background: #0F2C40;
+    position: relative;
+    text-align: center;
+    border-radius: 0px 0px 10px 10px;
+}
+#img_sello
+{
+   padding-top: 10px;
+   padding-left: 10px;
+   width: 50px;
+}
+/*responsables*/
+
 /*modals*/
 .swal-modal
 {

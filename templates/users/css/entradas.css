@@ -146,6 +146,15 @@ a
     text-overflow: ellipsis;
     overflow: hidden;
 }
+.label-option-4
+{
+    color: aqua;
+    margin-left: 20px !important;
+    margin-top: 10px;
+    border-radius: 10px !important;
+    border: solid 2px;
+    padding: 10px;
+}
 /*Labels*/
 
 /*span*/

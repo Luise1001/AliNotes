@@ -9,24 +9,47 @@ function MyProfilePhoto($id, $foto, $files)
     if(file_exists($ruta))
     {
         $ruta .= '/';
-        $img = imagejpeg(imagecreatefromstring(file_get_contents($files['file']["tmp_name"])), $ruta.$foto.'.jpg'); 
-        $new_img = imagejpeg($img, $ruta, $calidad);
+        $img = imagejpeg(imagecreatefromstring(file_get_contents($files['file']["tmp_name"])), $ruta.$foto.'.jpg', $calidad); 
       
-        return $new_img;
+        return $img;
     }
     else
     {
         $result = mkdir($ruta, 0777, true);
 
         $ruta .= '/';
-        $img = imagejpeg(imagecreatefromstring(file_get_contents($files['file']["tmp_name"])), $ruta.$foto.'.jpg'); 
-        $new_img = imagejpeg($img, $ruta, $calidad);
+        $img = imagejpeg(imagecreatefromstring(file_get_contents($files['file']["tmp_name"])), $ruta.$foto.'.jpg', $calidad); 
 
-        return $result;
+        return $img;
 
     }
-
-    return $ruta;
-
 }
+
+
+function NewSign($userID, $responsable, $sello, $files)
+{
+  
+    $ruta = "../../images/arts/sellos/user_$userID/sello/responsable_$responsable";
+    $calidad = 30;
+
+    if(file_exists($ruta))
+    {
+        $ruta .= '/';
+        $img = imagejpeg(imagecreatefromstring(file_get_contents($files['file']["tmp_name"])), $ruta.$sello.'.jpg', $calidad); 
+      
+        return $img;
+    }
+    else
+    {
+        $result = mkdir($ruta, 0777, true);
+
+        $ruta .= '/';
+        $img = imagejpeg(imagecreatefromstring(file_get_contents($files['file']["tmp_name"])), $ruta.$sello.'.jpg', $calidad); 
+
+        return $img;
+
+    }
+}
+
+
 
