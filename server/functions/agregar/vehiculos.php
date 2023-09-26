@@ -13,32 +13,35 @@ function nuevo_carro()
         'accion'=> 'warning'
     ];
 
-    if(isset($_POST['tipo']) && isset($_POST['modelo']) && isset($_POST['placa']) && isset($_POST['year']))
+    if(isset($_POST['marca']) && isset($_POST['tipo']) && isset($_POST['modelo']) && isset($_POST['placa']) && isset($_POST['year']))
     {
+        $marca = $_POST['marca'];
         $tipo = $_POST['tipo'];
         $modelo = $_POST['modelo'];
         $placa = $_POST['placa'];
         $year = $_POST['year'];
 
+        $marca = filter_var($marca, FILTER_SANITIZE_STRING);
         $tipo = filter_var($tipo, FILTER_SANITIZE_STRING);
         $modelo = filter_var($modelo, FILTER_SANITIZE_STRING);
         $placa = filter_var($placa, FILTER_SANITIZE_STRING);
         $year = filter_var($year, FILTER_SANITIZE_STRING);
         
+        $marca = ucwords($marca);
         $tipo = ucwords($tipo);
         $modelo = ucwords($modelo);
         $placa = strtoupper($placa);
 
 
-        if($tipo && $modelo && $placa && $year)
+        if($marca && $tipo && $modelo && $placa && $year)
         {
             $checkPlaca = CheckPlaca($placa, $userID);
             
             if(!$checkPlaca)
             {
-                $insert_sql = 'INSERT INTO carros (Tipo, Modelo, Placa, Year_car, Id_usuario, Fecha) VALUES (?,?,?,?,?,?)';
+                $insert_sql = 'INSERT INTO carros (Marca, Tipo, Modelo, Placa, Year_car, Id_usuario, Fecha) VALUES (?,?,?,?,?,?,?)';
                 $sent = $pdo->prepare($insert_sql);
-                if($sent->execute(array($tipo, $modelo, $placa, $year, $userID, $fecha)))
+                if($sent->execute(array($marca, $tipo, $modelo, $placa, $year, $userID, $fecha)))
                 {
                     $respuesta = 
                     [

@@ -191,13 +191,13 @@ function PlanillaTemplate($cliente, $responsable, $items, $total_items, $vehicul
     
     $table6 = $section1->addTable("table6");
     $table6->addRow();
-    $table6->addCell(3600, $table_4_style)->addText('  '.$responsable['Razon_social']);
-    $table6->addCell(2250, $table_4_style)->addText('  '.$responsable['Rif']);
+    $table6->addCell(3600, $table_4_style)->addText('  '.$responsable['Nombre']);
+    $table6->addCell(2250, $table_4_style)->addText('  '.$responsable['Tipo_id'].'-'.$responsable['Numero']);
     $table6->addCell(2250, $table_4_style)->addText('  '.$fecha);
     $sello = $table6->addCell(3311, array('Size'=> 10, 'bold'=> false, 'borderSize'=> false, 'borderColor'=> 'ffffff', 'bgColor'=> 'ffffff'));
-    $sello->addImage($responsable['sello'], array(
+    $sello->addImage($responsable['Sello'], array(
      'width' => 162,
-     'height' => 97,
+     'height' => 80,
      'wrappingStyle' => 'infront',
      'positioning' => 'absolute',
      'posHorizontalRel' => 'margin',
@@ -239,17 +239,17 @@ function PlanillaTemplate($cliente, $responsable, $items, $total_items, $vehicul
      for($i=0; $i<=7; $i++)
      {
 
-        if(isset($items[$i]['Descripcion']))
+        if(isset($items[$i][0]['Descripcion']))
         {
           if($i != 7)
           {
-            $unidad = ProcessUnits($items[$i]['Tipo_unidad']);
-            $descripcion = $items[$i]['Descripcion'];
-            $cantidad = $items[$i]['Cantidad'];
-            $kilos = $items[$i]['Kilos'];
+            $unidad = ProcessUnits($items[$i][0]['Tipo_unidad']);
+            $descripcion = $items[$i][0]['Descripcion'];
+            $cantidad = $items[$i][0]['Cantidad'];
+            $kilos = $items[$i][0]['Kilos'];
 
             $table11->addRow();
-            $table11->addCell(7512)->addText(' '.$unidad .$descripcion);
+            $table11->addCell(7512)->addText(' '.$unidad.' de '.$descripcion);
             $table11->addCell(1560)->addText($cantidad, null, array('align'=> 'center', 'spaceAfter'=>0));
             $table11->addCell(2342)->addText($kilos.'KG.', null, array('align'=> 'center', 'spaceAfter'=>0));
           }
@@ -335,6 +335,12 @@ function PlanillaTemplate($cliente, $responsable, $items, $total_items, $vehicul
             copy($filename, $ruta.$filename);
             unlink($filename);
         }
+
+        return true;
+    }
+    else
+    {
+        return false;
     }
  
 }

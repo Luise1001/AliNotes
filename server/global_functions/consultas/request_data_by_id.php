@@ -347,6 +347,25 @@ function UserCars($userID, $nivel)
   }
 }
 
+function UserCar($id_car, $userID)
+{
+  require '../conexion.php';
+
+  $consulta_sql = "SELECT * FROM carros  WHERE Id=? AND Id_usuario=?";
+  $preparar_sql = $pdo->prepare($consulta_sql);
+  $preparar_sql->execute(array($id_car, $userID));
+  $resultado = $preparar_sql->fetchAll();
+  
+  if($resultado)
+  {
+    return $resultado;
+  }
+  else
+  {
+    return false;
+  }
+}
+
 function UserDrivers($userID, $nivel)
 {
   require '../conexion.php';
@@ -354,6 +373,25 @@ function UserDrivers($userID, $nivel)
   $consulta_sql = "SELECT * FROM conductores  WHERE Id_usuario=? ORDER BY Actualizado DESC";
   $preparar_sql = $pdo->prepare($consulta_sql);
   $preparar_sql->execute(array($userID));
+  $resultado = $preparar_sql->fetchAll();
+  
+  if($resultado)
+  {
+    return $resultado;
+  }
+  else
+  {
+    return false;
+  }
+}
+
+function UserDriver($id_conductor, $userID, $nivel)
+{
+  require '../conexion.php';
+
+  $consulta_sql = "SELECT * FROM conductores  WHERE Id=? AND Id_usuario=?";
+  $preparar_sql = $pdo->prepare($consulta_sql);
+  $preparar_sql->execute(array($id_conductor, $userID));
   $resultado = $preparar_sql->fetchAll();
   
   if($resultado)
@@ -384,6 +422,27 @@ function UserResponsibles($userID, $nivel)
     return false;
   }
 }
+
+function Responsible($id_responsable, $userID)
+{
+  require '../conexion.php';
+
+  $consulta_sql = "SELECT * FROM responsables  WHERE Id=? AND Id_usuario=?";
+  $preparar_sql = $pdo->prepare($consulta_sql);
+  $preparar_sql->execute(array($id_responsable, $userID));
+  $resultado = $preparar_sql->fetchAll();
+  
+  if($resultado)
+  {
+    return $resultado;
+  }
+  else
+  {
+    return false;
+  }
+}
+
+
 
 
 function MyManifests($userID, $nivel)

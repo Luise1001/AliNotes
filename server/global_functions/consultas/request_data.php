@@ -116,3 +116,17 @@ function CheckResponsable($identidad, $userID)
         return false;
     }
 }
+
+function CheckSign($sello, $responsable, $userID)
+{
+    $ruta = "../../images/arts/sellos/user_$userID/sello/responsable_$responsable";
+
+    if(file_exists($ruta))
+    {
+        return $ruta;
+    }
+    else
+    {
+        return false;
+    }
+}

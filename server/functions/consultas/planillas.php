@@ -31,9 +31,9 @@ function mis_planillas()
                    <span><i class='fas fa-ellipsis-v'></i></span>
                  </button>
                    <ul class='dropdown-menu card-menu'>
-                    <li class='dropdown-item card-menu-item'><a href='../../server/docs/manifiestos/user_$userID/$archivo' >
+                    <li class='dropdown-item card-menu-item'><a href='../../server/docs/planillas/user_$userID/$archivo' >
                     <i class='fa-solid fa-download'></i> Descargar</a></li>
-                    <li class='dropdown-item card-menu-item'><a archivo='$archivo' class='btn-eliminar-manifiesto'>
+                    <li class='dropdown-item card-menu-item'><a archivo='$archivo' class='btn-eliminar-planilla'>
                     <i class='fa-solid fa-trash'></i> Eliminar</a></li>
                    </ul>
                    </div>
@@ -73,6 +73,7 @@ function datos_planilla()
       $tipo = $_POST['tipo'];
       $vehiculos = UserCars($userID, $nivel);
       $conductores = UserDrivers($userID, $nivel);
+      $responsables = UserResponsibles($userID, $nivel);
 
       if($tipo === 'Personal')
       {
@@ -102,6 +103,16 @@ function datos_planilla()
       
                $respuesta['titular'] = "<option value='$id_titular'>$razon_social</option>";
             }
+         }
+      }
+
+      if($responsables)
+      {
+         foreach($responsables as $responsable)
+         {
+            $id_responsable = $responsable['Id'];
+            $nombre = $responsable['Nombre'];
+            $respuesta['responsable'] .= "<option value='$id_responsable'>$nombre</option>";
          }
       }
 

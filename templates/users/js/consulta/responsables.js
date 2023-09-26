@@ -32,3 +32,9 @@ $("#sello").change(function ()
    let container = '#img_sello';
   readImage(container, this);
 });
+
+$(document).on('click', '.btn-watch-sign', function(data)
+{
+    let sello = data.currentTarget.attributes.sello.value;
+    $('#ver_sello').attr('src', sello);
+})

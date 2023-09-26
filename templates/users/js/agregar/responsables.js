@@ -7,21 +7,16 @@ function nuevo_responsable()
 {
     let nombre = $('#nombre_responsable').val();
     let letra = $('#tipo_id_responsable').val();
-    let identidad = $('#numero_identidad').val();
+    let numero = $('#numero_identidad').val();
     var sello = $('#sello')[0].files[0];
     let page = 'nuevo_responsable';
     var formData = new FormData();
 
-    if(!sello)
-    {
-       sello = 'Sin Sello';
-    }
-
     formData.append('page', page);
-    formData.append('file', sello);
     formData.append('nombre', nombre);
     formData.append('letra', letra);
-    formData.append('identidad', identidad);
+    formData.append('numero', numero);
+    formData.append('file', sello);
 
     
 

@@ -14,6 +14,11 @@
 
 <div class="input-group">
     <input type="hidden" id="vehiculo_id" name="vehiculo_id">
+<span class="input-group-text">Marca <span class="obligatory-span">*</span></span>
+  <input class="form-control" id="edit_marca_vehiculo" name="edit_marca_vehiculo" type="text" placeholder="Ej. Toyota">
+</div>
+
+<div class="input-group">
 <span class="input-group-text">Tipo <span class="obligatory-span">*</span></span>
   <input class="form-control" id="edit_tipo_vehiculo" name="edit_tipo_vehiculo" type="text" placeholder="Ej. Camión">
 </div>

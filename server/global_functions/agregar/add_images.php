@@ -36,8 +36,8 @@ function NewSign($userID, $responsable, $sello, $files)
     {
         $ruta .= '/';
         $img = imagejpeg(imagecreatefromstring(file_get_contents($files['file']["tmp_name"])), $ruta.$sello.'.jpg', $calidad); 
-      
-        return $img;
+        $imagen = $ruta.'sello.jpg';
+        return $imagen;
     }
     else
     {
@@ -45,8 +45,8 @@ function NewSign($userID, $responsable, $sello, $files)
 
         $ruta .= '/';
         $img = imagejpeg(imagecreatefromstring(file_get_contents($files['file']["tmp_name"])), $ruta.$sello.'.jpg', $calidad); 
-
-        return $img;
+        $imagen = $ruta.'sello.jpg';
+        return $imagen;
 
     }
 }

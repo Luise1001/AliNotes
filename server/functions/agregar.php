@@ -67,6 +67,10 @@ if($_POST)
        {
           generar_manifiesto();
        }
+       if($page === 'generar_planilla')
+       {
+          generar_planilla();
+       }
 
     }
 }

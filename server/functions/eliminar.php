@@ -37,9 +37,17 @@ if($_POST)
         {
             eliminar_conductor();
         }
+        if($page === 'eliminar_responsable')
+        {
+            eliminar_responsable();
+        }
         if($page === 'eliminar_manifiesto')
         {
             eliminar_manifiesto();
+        }
+        if($page === 'eliminar_planilla')
+        {
+            eliminar_planilla();
         }
 
     }

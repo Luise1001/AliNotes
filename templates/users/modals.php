@@ -3,6 +3,7 @@
 //consulta
 include_once 'modals/consulta/modal_datos_manifiesto.php';
 include_once 'modals/consulta/modal_datos_planilla.php';
+include_once 'modals/consulta/modal_watch_sign.php';
 
 //agregar
 include_once 'modals/agregar/modal_agregar_personal_info.php';
@@ -19,3 +20,4 @@ include_once 'modals/editar/modal_editar_juridica_info.php';
 include_once 'modals/editar/modal_editar_barco.php';
 include_once 'modals/editar/modal_editar_carro.php';
 include_once 'modals/editar/modal_editar_conductor.php';
+include_once 'modals/editar/modal_editar_responsable.php';

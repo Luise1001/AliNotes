@@ -23,6 +23,7 @@ function mis_carros()
       foreach($mis_carros as $carro)
       {
         $id = $carro['Id'];
+        $marca = $carro['Marca'];
         $tipo = $carro['Tipo'];
         $modelo = $carro['Modelo'];
         $placa = $carro['Placa'];
@@ -44,7 +45,7 @@ function mis_carros()
                </button>
                  <ul class='dropdown-menu card-menu'>
                   <li class='dropdown-item card-menu-item'><a class='btn-edit-carro' id='$id' tipo='$tipo'
-                  modelo='$modelo' placa='$placa' year='$year'
+                  marca='$marca' modelo='$modelo' placa='$placa' year='$year'
                   data-toggle='modal' data-target='#modal_editar_carro'>
                   <i class='fa-solid fa-edit'></i> Editar</a></li>
                   <li class='dropdown-item card-menu-item'><a class='btn-eliminar-carro' id='$id'>
@@ -53,6 +54,7 @@ function mis_carros()
                  </div>
              </div>
              <div class='toast-body body-$id collapse'>
+             <p>Marca: $marca</p>
              <p>Tipo: $tipo</p>
              <p>Modelo: $modelo</p>
              <p>Placa: $placa</p>

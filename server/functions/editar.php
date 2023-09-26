@@ -63,5 +63,9 @@ if($_POST)
         {
             editar_conductor();
         } 
+        if($page === 'editar_responsable')
+        {
+            editar_responsable();
+        } 
     }
 }

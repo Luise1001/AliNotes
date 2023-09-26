@@ -30,6 +30,20 @@ function mis_responsables()
           $actualizado = $responsable['Actualizado'];
           $fecha_actual = CurrentTime();
           $fecha_movimiento = TimeDifference($actualizado,$fecha_actual);
+          
+          if($sello === 'Sin Sello')
+          {
+             $sello = '';
+             $ver = 'Sin Sello';
+             $eye = 'eye-slash';
+             $modal = '';
+          }
+          else
+          {
+             $ver = 'Ver';
+             $eye = 'eye';
+             $modal = '#modal_watch_sign';
+          }
 
           $respuesta['responsables'] .= 
           "
@@ -43,11 +57,11 @@ function mis_responsables()
                  <span><i class='fas fa-ellipsis-v'></i></span>
                </button>
                  <ul class='dropdown-menu card-menu'>
-                  <li class='dropdown-item card-menu-item'><a class='btn-edit-conductor' id='$id' nombre='$nombre'
-                   letra='$letra' numero='$numero' 
-                  data-toggle='modal' data-target='#modal_editar_conductor'>
+                  <li class='dropdown-item card-menu-item'><a class='btn-edit-responsable' id='$id' nombre='$nombre'
+                   letra='$letra' numero='$numero' sello='$sello'
+                  data-toggle='modal' data-target='#modal_editar_responsable'>
                   <i class='fa-solid fa-edit'></i> Editar</a></li>
-                  <li class='dropdown-item card-menu-item'><a class='btn-eliminar-conductor' id='$id'>
+                  <li class='dropdown-item card-menu-item'><a class='btn-eliminar-responsable' id='$id' numero='$numero'>
                   <i class='fa-solid fa-trash'></i> Eliminar</a></li>
                  </ul>
                  </div>
@@ -55,7 +69,8 @@ function mis_responsables()
              <div class='toast-body body-$id collapse'>
              <p>Nombre: $nombre</p>
              <p>Identificación: $letra-$numero</p>
-             <p>Sello: $sello</p>
+             <p>Sello: <a class='btn-watch-sign' sello='$sello'
+             data-toggle='modal' data-target='$modal'><i class='fa-solid fa-$eye'></i> $ver</a></li></p>
           </div>
            </div>
           ";

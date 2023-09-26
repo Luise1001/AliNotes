@@ -18,6 +18,11 @@
   <div class="add-notes-body">
 
     <div class="input-group">
+    <span class="input-group-text">Marca <span class="obligatory-span">*</span></span>
+      <input class="form-control" id="marca_vehiculo" name="marca_vehiculo" type="text" placeholder="Ej. Toyota">
+    </div>
+
+    <div class="input-group">
     <span class="input-group-text">Tipo <span class="obligatory-span">*</span></span>
       <input class="form-control" id="tipo_vehiculo" name="tipo_vehiculo" type="text" placeholder="Ej. Camión">
     </div>

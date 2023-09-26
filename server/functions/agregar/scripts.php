@@ -10,5 +10,6 @@ include_once 'usuarios.php';
 include_once 'barcos.php';
 include_once 'vehiculos.php';
 include_once 'manifiestos.php';
+include_once 'planillas.php';
 include_once 'conductores.php';
 include_once 'responsables.php';

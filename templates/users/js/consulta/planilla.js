@@ -105,17 +105,20 @@ function datos_planilla()
     })
 }
 
-$(document).on('click', '#generar_manifiesto', function()
+$(document).on('click', '#generar_planilla', function()
 {
-    generar_manifiesto();
+    generar_planilla();
 })
 
 
-function generar_manifiesto()
+function generar_planilla()
 { 
-    let titular = $('#titular_manifiesto').val();
-    let barco = $('#barco_manifiesto').val();
-    let page = 'generar_manifiesto';
+    let tipo = $('#tipo_planilla').val();
+    let titular = $('#titular_planilla').val();
+    let responsable = $('#responsable_planilla').val();
+    let vehiculo = $('#vehiculo_planilla').val();
+    let conductor = $('#conductor_planilla').val();
+    let page = 'generar_planilla';
 
     $.ajax
     ({
@@ -126,8 +129,11 @@ function generar_manifiesto()
        data: 
        {
           page: page,
+          tipo: tipo,
           titular: titular,
-          barco: barco,
+          responsable: responsable,
+          vehiculo: vehiculo,
+          conductor: conductor,
           items: items
        }
   

@@ -5,6 +5,7 @@ $(document).on('click', '#guardar_vehiculo', function()
 
 function nuevo_carro()
 {
+    let marca = $('#marca_vehiculo').val();
     let tipo = $('#tipo_vehiculo').val();
     let placa = $('#placa').val();
     let modelo = $('#modelo_vehiculo').val();
@@ -21,6 +22,7 @@ function nuevo_carro()
        data: 
        {
           page: page,
+          marca: marca,
           tipo: tipo,
           placa: placa,
           modelo: modelo,

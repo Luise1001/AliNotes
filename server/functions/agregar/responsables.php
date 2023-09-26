@@ -13,39 +13,37 @@ function nuevo_responsable()
         'accion'=> 'warning'
     ];
 
-    if(isset($_POST['nombre']) && isset($_POST['letra']) && isset($_POST['identidad']))
+    if(isset($_POST['nombre']) && isset($_POST['letra']) && isset($_POST['numero']))
     {
         $nombre = $_POST['nombre'];
         $letra = $_POST['letra'];
-        $identidad = $_POST['identidad'];
-        $sello = "No";
+        $numero = $_POST['numero'];
 
         $nombre = filter_var($nombre, FILTER_SANITIZE_STRING);
         $letra = filter_var($letra, FILTER_SANITIZE_STRING);
-        $identidad = filter_var($identidad, FILTER_SANITIZE_STRING);
+        $numero = filter_var($numero, FILTER_SANITIZE_STRING);
         
         $nombre = ucwords($nombre);
 
 
-        if($nombre && $letra && $identidad)
+        if($nombre && $letra && $numero)
         {
-            $checkResponsable = CheckResponsable($identidad,$userID);
-            if(isset($_FILES['file']))
-            {
-               $sello = NewSign($userID, $identidad, 'sello', $_FILES);
-
-               if($sello == 1)
-               {
-                  $sello = "Si";
-               }
-            }
-            
+            $checkResponsable = CheckResponsable($numero,$userID);
 
             if(!$checkResponsable)
             {
+                if(isset($_FILES['file']))
+                {
+                   $sello = NewSign($userID, $numero, 'sello', $_FILES);
+                }
+                else
+                {
+                  $sello = "Sin Sello";
+                }
+                
                 $insert_sql = 'INSERT INTO responsables (Nombre, Tipo_id, Numero, Sello, Id_usuario, Fecha) VALUES (?,?,?,?,?,?)';
                 $sent = $pdo->prepare($insert_sql);
-                if($sent->execute(array($nombre, $letra, $identidad, $sello, $userID, $fecha)))
+                if($sent->execute(array($nombre, $letra, $numero, $sello, $userID, $fecha)))
                 {
                     $respuesta = 
                     [
