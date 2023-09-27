@@ -11,13 +11,13 @@ if($_POST)
     {
         $page = $_POST['page'];
         
-       if($page === 'agregar_informacion_personal')
+       if($page === 'agregar_persona')
        {
-          agregar_informacion_personal();
+          agregar_persona();
        } 
-       if($page === 'agregar_informacion_juridica')
+       if($page === 'agregar_empresa')
        {
-          agregar_informacion_juridica();
+          agregar_empresa();
        } 
        if($page === 'nueva_nota')
        {

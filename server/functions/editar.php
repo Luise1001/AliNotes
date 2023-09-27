@@ -19,13 +19,13 @@ if($_POST)
         {
             editar_user_name();
         }
-        if($page === 'editar_personal_info')
+        if($page === 'editar_persona')
         {
-            editar_personal_info();
+            editar_persona();
         }
-        if($page === 'editar_juridica_info')
+        if($page === 'editar_empresa')
         {
-            editar_juridica_info();
+            editar_empresa();
         }
         if($page === 'editar_nota')
         {

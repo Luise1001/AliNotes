@@ -19,6 +19,7 @@ function mi_perfil()
     .done(function(res)
     {
       $('.user-header').html(res.header);
+      $('.personal-data').html(res.personal_data);
     })
     .fail(function(err)
     {

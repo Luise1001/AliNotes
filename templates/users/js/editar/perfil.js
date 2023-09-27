@@ -103,10 +103,10 @@ $(document).on('click', '#edit_user_personal_info', function(data)
 
 $(document).on('click', '#editar_personal_info', function()
 {
-   editar_personal_info();
+   editar_persona();
 })
 
-function editar_personal_info()
+function editar_persona()
 {
   let id = $('#personal_id').val();
   let nombre = $('#edit_nombre').val();
@@ -114,7 +114,7 @@ function editar_personal_info()
   let letra = $('#edit_tipo_id').val();
   let cedula = $('#edit_cedula').val();
   
-  let page = "editar_personal_info";
+  let page = "editar_persona";
 
   $.ajax
   ({
@@ -141,6 +141,8 @@ function editar_personal_info()
     if(accion === 'success')
     {
       mi_perfil();
+      personal_info();
+      business_info();
     }
     else
     {
@@ -170,10 +172,10 @@ $(document).on('click', '#edit_user_juridica_info', function(data)
 
 $(document).on('click', '#editar_juridica_info', function()
 {
-   editar_juridica_info();
+   editar_empresa();
 })
 
-function editar_juridica_info()
+function editar_empresa()
 {
   let id = $('#business_id').val();
   let razon_social = $('#edit_razon_social').val();
@@ -181,7 +183,7 @@ function editar_juridica_info()
   let letra = $('#edit_tipo_id_emp').val();
   let rif = $('#edit_rif').val();
 
-  let page = "editar_juridica_info";
+  let page = "editar_empresa";
 
   $.ajax
   ({
@@ -208,6 +210,8 @@ function editar_juridica_info()
     if(accion === 'success')
     {
       mi_perfil();
+      personal_info();
+      business_info();
     }
     else
     {

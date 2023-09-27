@@ -40,6 +40,28 @@ body
     text-align: center;
     color: aqua;
 }
+.personal-data
+{
+  color: aqua;
+}
+.personal-info-body
+{
+  color: aqua;
+}
+.acordion-footer
+{
+   text-align: center;
+   color: aqua;
+}
+.add-user-header
+{
+  font-family: serif;
+  font-size: large;
+  font-weight: bold;
+  padding: 10px;
+
+}
+
 /*Mi Perfil*/
 
 /*Notas*/
@@ -141,7 +163,7 @@ body
   font-size: large;
   text-align: center;
   color: aqua;
-  padding-top: 10px;
+  padding: 10px;
 }
 .list-title
 {
@@ -179,11 +201,94 @@ body
 }
 .card-comment
 {
-   position: absolute;
-   padding-top: 30px;
-   padding-left: 30px;
+ position: relative;
+ left: 40px;
+}
+.item-header
+{
+  padding: 5px;
+}
+.me-auto
+{
+   margin: 0px !important;
+}
+.section-sl, .item-sl
+{
+  position: relative;
+  margin-right: 5px;
 }
 /*listas*/
+
+/*Barcos*/
+.container-ships
+{
+    background: #0F2C40;
+    position: relative;
+    text-align: center;
+    border-radius: 0px 0px 10px 10px;
+}
+/*Barcos*/
+
+/*Vehiculos*/
+.container-cars
+{
+    background: #0F2C40;
+    position: relative;
+    text-align: center;
+    border-radius: 0px 0px 10px 10px;
+}
+/*Vehiculos*/
+
+/*Conductores*/
+.container-drivers
+{
+    background: #0F2C40;
+    position: relative;
+    text-align: center;
+    border-radius: 0px 0px 10px 10px;
+}
+/*Conductores*/
+
+/*personas*/
+.container-people
+{
+    background: #0F2C40;
+    position: relative;
+    text-align: center;
+    border-radius: 0px 0px 10px 10px;
+}
+/*personas*/
+
+/*empresas*/
+.container-business
+{
+    background: #0F2C40;
+    position: relative;
+    text-align: center;
+    border-radius: 0px 0px 10px 10px;
+}
+/*empresas*/
+
+/*responsables*/
+.container-responsables
+{
+    background: #0F2C40;
+    position: relative;
+    text-align: center;
+    border-radius: 0px 0px 10px 10px;
+}
+#img_sello, #edit_img_sello
+{
+   padding-top: 10px;
+   padding-left: 10px;
+   width: 50px;
+}
+#ver_sello
+{
+   width: 200px;
+   padding-bottom: 20px;
+}
+/*responsables*/
 
 /*modals*/
 .swal-modal

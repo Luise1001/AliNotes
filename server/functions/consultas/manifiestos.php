@@ -72,7 +72,7 @@ function datos_manifiesto()
 
       if($tipo === 'Personal')
       {
-         $UserData = UserData($userID, $nivel);
+         $UserData = PersonData($userID, $nivel);
          if($UserData)
          {
             foreach($UserData as $user)
@@ -81,14 +81,21 @@ function datos_manifiesto()
                $nombre = $user['Nombre'];
                $apellido = $user['Apellido'];
       
-               $respuesta['titular'] = "<option value='$nombre $apellido'>$nombre $apellido</option>";
+               if($nivel === '1')
+               {
+                  $respuesta['titular'] .= "<option value='$nombre $apellido'>$nombre $apellido</option>";
+               }
+               else
+               {
+                  $respuesta['titular'] = "<option value='$nombre $apellido'>$nombre $apellido</option>";
+               }
             }
          }
       }
 
       if($tipo === 'Juridico')
       {
-         $UserBusinessData = UserBusinessData($userID, $nivel);
+         $UserBusinessData = BusinessData($userID, $nivel);
          if($UserBusinessData)
          {
             foreach($UserBusinessData as $business)
@@ -96,7 +103,14 @@ function datos_manifiesto()
                $id_titular = $business['Id'];
                $razon_social = $business['Razon_social'];
       
+              if($nivel === '1')
+              {
+               $respuesta['titular'] .= "<option value='$razon_social'>$razon_social</option>";
+              }
+              else
+              {
                $respuesta['titular'] = "<option value='$razon_social'>$razon_social</option>";
+              }
             }
          }
       }

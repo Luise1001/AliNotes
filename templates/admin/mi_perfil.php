@@ -8,8 +8,11 @@
     <?php include_once 'menu.php';?>
  <div class="contenido">
  <div class="user-header"></div>
+ <div class="personal-data"></div>
  
  </div>
+
+ <?php include_once 'modals.php';?>
 
     <script src="js/consulta/mi_perfil.js"></script>
     <?php include_once 'scripts.php';?>

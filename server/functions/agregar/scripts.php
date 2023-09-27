@@ -1,6 +1,7 @@
 <?php
 
-include_once 'perfil.php';
+include_once 'personas.php';
+include_once 'empresas.php';
 include_once 'notas.php';
 include_once 'tareas.php';
 include_once 'listas.php';

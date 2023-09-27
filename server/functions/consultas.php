@@ -25,6 +25,14 @@ if($_POST)
         {
             mi_perfil();
         }
+        if($page === 'personal_info')
+        {
+            personal_info();
+        }
+        if($page === 'business_info')
+        {
+            business_info();
+        }
         if($page === 'mis_notas')
         {
             mis_notas();
@@ -92,6 +100,14 @@ if($_POST)
         if($page === 'mis_responsables')
         {
             mis_responsables();
+        }
+        if($page === 'mis_empresas')
+        {
+            mis_empresas();
+        }
+        if($page === 'mis_personas')
+        {
+            mis_personas();
         }
     }
 }

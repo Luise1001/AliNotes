@@ -29,6 +29,7 @@
 {
     padding-left: 10px;
     color: aqua;
+    margin-right: 20px;
 }
 #options
 {
@@ -40,7 +41,7 @@
     right: 0px !important;
     background: #0F2C40 !important;
     border: solid 2px aqua !important;
-    text-align: center !important;
+    padding: 10px !important;
 }
 .header-item
 {
@@ -74,4 +75,5 @@
     font-size: small;
     font-family: 'Times New Roman', Times, serif;
     padding-top: 5px;
+    margin-left: 3px;
 }

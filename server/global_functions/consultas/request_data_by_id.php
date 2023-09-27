@@ -83,11 +83,11 @@ function UserName($userID)
 
 }
 
-function UserData($userID, $nivel)
+function PersonData($userID, $nivel)
 {
   require '../conexion.php';
 
-  $consulta_sql = "SELECT * FROM informacion_personal WHERE Id_usuario=?";
+  $consulta_sql = "SELECT * FROM personas WHERE Id_usuario=? ORDER BY Actualizado DESC";
   $preparar_sql = $pdo->prepare($consulta_sql);
   $preparar_sql->execute(array($userID));
   $resultado = $preparar_sql->fetchAll();
@@ -102,11 +102,11 @@ function UserData($userID, $nivel)
   }
 }
 
-Function UserBusinessData($userID, $nivel)
+Function BusinessData($userID, $nivel)
 {
   require '../conexion.php';
 
-  $consulta_sql = "SELECT * FROM empresas WHERE Id_usuario=?";
+  $consulta_sql = "SELECT * FROM empresas WHERE Id_usuario=? ORDER BY Actualizado DESC";
   $preparar_sql = $pdo->prepare($consulta_sql);
   $preparar_sql->execute(array($userID));
   $resultado = $preparar_sql->fetchAll();

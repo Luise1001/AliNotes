@@ -2,7 +2,9 @@
  include_once '../../server/conexion.php';
  if(isset($_SESSION['AliNotes']))
  {
+   $sesion_name = $_SESSION['AliNotes']['name'];
    $admin = $_SESSION['AliNotes']['admin'];
+
    $userID = UserID($admin);
    $nivel = AdminLevel($userID);
 

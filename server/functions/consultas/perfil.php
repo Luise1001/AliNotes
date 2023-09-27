@@ -8,12 +8,9 @@ function mi_perfil()
     $nivel = AdminLevel($userID);
     $foto = SearchProfilePhoto($userID);
     $UserInfo = UserInfo($userID);
-    $UserData = UserData($userID, $nivel);
-    $UserBusinessData = UserBusinessData($userID, $nivel);
     $respuesta = 
     [
-        'header'=> '',
-        'personal_data'=>''
+        'header'=> ''
     ];
     
     if($UserInfo)
@@ -46,144 +43,178 @@ function mi_perfil()
         </a>
         </div>
         ";
-     
-        if($UserData)
-        {
-            $respuesta['personal_data'] = 
-            "
-            <div class='accordion'>
-            <div class='accordion-item'>
-              <h2 class='accordion-header'>
-                <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#personal_data' aria-expanded='true' aria-controls='personal_data'>
-                  Información Personal
-                </button>
-              </h2>
-              <div id='personal_data' class='accordion-collapse collapse'>
-                <div class='accordion-body personal-info-body'>";
+    
+    }
 
-                foreach($UserData as $data)
-                {
-                    $personal_id = $data['Id'];
-                    $nombre = $data['Nombre'];
-                    $apellido = $data['Apellido'];
-                    $letra = $data['Tipo_id'];
-                    $cedula = $data['Cedula'];
+    echo json_encode($respuesta);
+}
 
-                }
 
-                $respuesta['personal_data'].=
-                "
-                <p>Nombre: $nombre $apellido</p>
-                <p>Cedula: $letra-$cedula</p>
-            
-                ";
-           
-                $respuesta['personal_data'] .=
-                "
-                </div>
-                <div class='acordion-footer'>
-                <a class='btn' id='edit_user_personal_info' personal='$personal_id' nombre='$nombre' apellido='$apellido' letra='$letra' cedula='$cedula' title='Editar Información Personal'
-                data-toggle='modal' data-target='#modal_editar_personal_info'>
-                <i class='fas fa-user-edit'></i>
-                </a>
-                </div>
-              </div>
-            </div>
-            ";
-        }
-        else
-        {
-            $respuesta['personal_data'] = 
-            "
-            <div class='accordion'>
-            <div class='accordion-item'>
-              <h2 class='accordion-header'>
-                <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#personal_data' aria-expanded='true' aria-controls='personal_data'>
-                  Información Personal
-                </button>
-              </h2>
-              <div id='personal_data' class='accordion-collapse collapse'>
-                <div class='accordion-body personal-info-body'>
-                Sin Información Personal
-                </div>
-                <div class='acordion-footer'>
-                <a class='btn' id='add_user_data' title='Agregar Mis Datos'
-                data-toggle='modal' data-target='#modal_agregar_personal_info'>
-                <i class='fas fa-user-plus'></i>
-                </a>
-                </div>
-              </div>
-            </div>
-            ";
-        }
+function personal_info()
+{
+    include_once '../conexion.php';
+    $admin = $_SESSION['AliNotes']['admin'];
+    $userID = UserID($admin);
+    $nivel = AdminLevel($userID);
+    $PersonData = PersonData($userID, $nivel);
+    $respuesta = 
+    [
+        'personal_data'=>''
+    ];
 
-        if($UserBusinessData)
-        {
-          $respuesta['personal_data'] .=
-          "
-          <div class='accordion-item'>
+    if($PersonData && $nivel === '0')
+    {
+        $respuesta['personal_data'] = 
+        "
+        <div class='accordion'>
+        <div class='accordion-item'>
           <h2 class='accordion-header'>
-            <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#business_data' aria-expanded='false' aria-controls='business_data'>
-              Información Jurídica
+            <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#personal_data' aria-expanded='true' aria-controls='personal_data'>
+              Información Personal
             </button>
           </h2>
-          <div id='business_data' class='accordion-collapse collapse'>
+          <div id='personal_data' class='accordion-collapse collapse'>
             <div class='accordion-body personal-info-body'>";
 
-            foreach($UserBusinessData as $business)
+            foreach($PersonData as $data)
             {
-              $business_id = $business['Id'];
-              $razon_social = $business['Razon_social'];
-              $letra = $business['Tipo_id'];
-              $rif = $business['Rif'];
-              $direccion = $business['Direccion'];
+                $personal_id = $data['Id'];
+                $nombre = $data['Nombre'];
+                $apellido = $data['Apellido'];
+                $letra = $data['Tipo_id'];
+                $cedula = $data['Cedula'];
+
             }
 
-            $respuesta['personal_data'] .=
+            $respuesta['personal_data'].=
             "
-            <p>Razón Social: $razon_social</p>
-            <p>Rif: $letra-$rif</p>
-            <p>Dirección: $direccion</p>
-            ";
-
+            <p>Nombre: $nombre $apellido</p>
+            <p>Cedula: $letra-$cedula</p>
         
+            ";
+       
             $respuesta['personal_data'] .=
             "
             </div>
             <div class='acordion-footer'>
-            <a class='btn' id='edit_user_juridica_info' business='$business_id' razon='$razon_social' direccion='$direccion' letra='$letra' rif='$rif' title='Editar Información Jurídica'
-            data-toggle='modal' data-target='#modal_editar_juridica_info'>
-            <i class='fas fa-edit'></i>
+            <a class='btn' id='edit_user_personal_info' personal='$personal_id' nombre='$nombre' apellido='$apellido' letra='$letra' cedula='$cedula' title='Editar Información Personal'
+            data-toggle='modal' data-target='#modal_editar_personal_info'>
+            <i class='fas fa-user-edit'></i>
             </a>
             </div>
           </div>
         </div>
         ";
-        }
-        else
-        {
-            $respuesta['personal_data'] .=
-            "
-            <div class='accordion-item'>
-            <h2 class='accordion-header'>
-              <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#business_data' aria-expanded='false' aria-controls='business_data'>
-                Información Jurídica
-              </button>
-            </h2>
-            <div id='business_data' class='accordion-collapse collapse'>
-              <div class='accordion-body'>
-        
-              </div>
-              <div class='acordion-footer'>
-              <a class='btn' id='add_user_business'  title='Información Jurídica'
-              data-toggle='modal' data-target='#modal_agregar_juridica_info'>
-              <i class='fas fa-plus'></i>
-              </a>
-              </div>
+    }
+    else
+    {
+        $respuesta['personal_data'] = 
+        "
+        <div class='accordion'>
+        <div class='accordion-item'>
+          <h2 class='accordion-header'>
+            <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#personal_data' aria-expanded='true' aria-controls='personal_data'>
+              Información Personal
+            </button>
+          </h2>
+          <div id='personal_data' class='accordion-collapse collapse'>
+            <div class='accordion-body personal-info-body'>
+            Sin Información Personal
+            </div>
+            <div class='acordion-footer'>
+            <a class='btn' id='add_user_data' title='Agregar Mis Datos'
+            data-toggle='modal' data-target='#modal_agregar_personal_info'>
+            <i class='fas fa-user-plus'></i>
+            </a>
             </div>
           </div>
-          ";
+        </div>
+        ";
+    }
+
+    echo json_encode($respuesta);
+}
+
+
+function business_info()
+{
+    include_once '../conexion.php';
+    $admin = $_SESSION['AliNotes']['admin'];
+    $userID = UserID($admin);
+    $nivel = AdminLevel($userID);
+    $UserBusinessData = BusinessData($userID, $nivel);
+    $respuesta = 
+    [
+        'business_info'=>''
+    ];
+    
+    if($UserBusinessData && $nivel === '0')
+    {
+      $respuesta['business_info'] = 
+      "
+      <div class='accordion'>
+      <div class='accordion-item'>
+        <h2 class='accordion-header'>
+          <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#business_data' aria-expanded='true' aria-controls='business_data'>
+            Información Jurídica
+          </button>
+        </h2>
+        <div id='business_data' class='accordion-collapse collapse'>
+          <div class='accordion-body personal-info-body'>";
+
+        foreach($UserBusinessData as $business)
+        {
+          $business_id = $business['Id'];
+          $razon_social = $business['Razon_social'];
+          $letra = $business['Tipo_id'];
+          $rif = $business['Rif'];
+          $direccion = $business['Direccion'];
         }
+
+        $respuesta['business_info'] .=
+        "
+        <p>Razón Social: $razon_social</p>
+        <p>Rif: $letra-$rif</p>
+        <p>Dirección: $direccion</p>
+        ";
+
+    
+        $respuesta['business_info'] .=
+        "
+        </div>
+        <div class='acordion-footer'>
+        <a class='btn' id='edit_user_juridica_info' business='$business_id' razon='$razon_social' direccion='$direccion' letra='$letra' rif='$rif' title='Editar Información Jurídica'
+        data-toggle='modal' data-target='#modal_editar_juridica_info'>
+        <i class='fas fa-edit'></i>
+        </a>
+        </div>
+      </div>
+    </div>
+    ";
+    }
+    else
+    {
+        $respuesta['business_info'] .=
+        "
+        <div class='accordion-item'>
+        <h2 class='accordion-header'>
+          <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#business_data' aria-expanded='false' aria-controls='business_data'>
+            Información Jurídica
+          </button>
+        </h2>
+        <div id='business_data' class='accordion-collapse collapse'>
+          <div class='accordion-body'>
+    
+          </div>
+          <div class='acordion-footer'>
+          <a class='btn' id='add_user_business'  title='Información Jurídica'
+          data-toggle='modal' data-target='#modal_agregar_juridica_info'>
+          <i class='fas fa-plus'></i>
+          </a>
+          </div>
+        </div>
+      </div>
+      ";
     }
 
     echo json_encode($respuesta);

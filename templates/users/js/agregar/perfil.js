@@ -1,15 +1,15 @@
 $(document).on('click', '#guardar_personal_info', function()
 {
-    agregar_informacion_personal();
+    agregar_persona();
 })
 
-function agregar_informacion_personal()
+function agregar_persona()
 {
    let nombre = $('#nombre').val();
    let apellido = $('#apellido').val();
    let letra = $('#tipo_id').val();
    let cedula = $('#cedula').val();
-   let page = 'agregar_informacion_personal';
+   let page = 'agregar_persona';
 
     $.ajax
     ({
@@ -50,16 +50,16 @@ function agregar_informacion_personal()
 
 $(document).on('click', '#guardar_juridica_info', function()
 {
-    agregar_juridica_personal();
+    agregar_empresa();
 })
 
-function agregar_juridica_personal()
+function agregar_empresa()
 {
    let razon_social = $('#razon_social').val();
    let letra = $('#tipo_id_emp').val();
    let rif = $('#rif').val();
    let direccion = $('#direccion').val();
-   let page = 'agregar_informacion_juridica';
+   let page = 'agregar_empresa';
 
     $.ajax
     ({

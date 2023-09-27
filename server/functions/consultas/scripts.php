@@ -14,3 +14,5 @@ include_once 'barcos.php';
 include_once 'vehiculos.php';
 include_once 'conductores.php';
 include_once 'responsables.php';
+include_once 'empresas.php';
+include_once 'personas.php';

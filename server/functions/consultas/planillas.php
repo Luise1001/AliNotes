@@ -77,7 +77,7 @@ function datos_planilla()
 
       if($tipo === 'Personal')
       {
-         $UserData = UserData($userID, $nivel);
+         $UserData = PersonData($userID, $nivel);
          if($UserData)
          {
             foreach($UserData as $user)
@@ -86,14 +86,22 @@ function datos_planilla()
                $nombre = $user['Nombre'];
                $apellido = $user['Apellido'];
       
-               $respuesta['titular'] = "<option value='$id_titular'>$nombre $apellido</option>";
+               if($nivel === '1')
+               {
+                  $respuesta['titular'] .= "<option value='$id_titular'>$nombre $apellido</option>";
+               }
+               else
+               {
+                  $respuesta['titular'] = "<option value='$id_titular'>$nombre $apellido</option>";
+               }
+               
             }
          }
       }
 
       if($tipo === 'Juridico')
       {
-         $UserBusinessData = UserBusinessData($userID, $nivel);
+         $UserBusinessData = BusinessData($userID, $nivel);
          if($UserBusinessData)
          {
             foreach($UserBusinessData as $business)
@@ -101,7 +109,14 @@ function datos_planilla()
                $id_titular = $business['Id'];
                $razon_social = $business['Razon_social'];
       
-               $respuesta['titular'] = "<option value='$id_titular'>$razon_social</option>";
+               if($nivel === '1')
+               {
+                  $respuesta['titular'] .= "<option value='$id_titular'>$razon_social</option>";
+               }
+               else
+               {
+                  $respuesta['titular'] = "<option value='$id_titular'>$razon_social</option>";
+               }
             }
          }
       }

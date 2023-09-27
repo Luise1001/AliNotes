@@ -67,3 +67,37 @@ $(document).on('click', '#options', function()
     dropdownContent.style.display = "block";
   }
 })
+
+$(document).ready(IconsColor());
+
+function IconsColor()
+{
+   let MyLocation = window.location;
+   let url = MyLocation.pathname;
+   let icon_note = document.getElementById('icon_note');
+   let icon_task = document.getElementById('icon_task');
+   let icon_home = document.getElementById('icon_home');
+   let icon_list = document.getElementById('icon_list');
+   let icon_profile = document.getElementById('icon_profile');
+   
+   if(url.includes('notas'))
+   {
+      icon_note.style.color = "white";
+   }
+   if(url.includes('tareas'))
+   {
+      icon_task.style.color = "white";
+   }
+   if(url.includes('home'))
+   {
+      icon_home.style.color = "white";
+   }
+   if(url.includes('list'))
+   {
+      icon_list.style.color = "white";
+   }
+   if(url.includes('perfil'))
+   {
+      icon_profile.style.color = "white";
+   }
+}

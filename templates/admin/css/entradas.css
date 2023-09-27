@@ -72,6 +72,9 @@
     background: none;
     border: none;
     color: aqua;
+    position: absolute;
+    top: 0px;
+    right: 0px;
 }
 .btn-option-3
 {
@@ -99,6 +102,15 @@
     position: absolute;
     left: 10px;
     color: aqua !important;
+}
+.history-back
+{
+    position: absolute;
+    left: 0px;
+    background: #0f2c40;
+    color: aqua;
+    border: none;
+    height: 20px;
 }
 a
 {
@@ -133,6 +145,15 @@ a
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+}
+.label-option-4
+{
+    color: aqua;
+    margin-left: 20px !important;
+    margin-top: 10px;
+    border-radius: 10px !important;
+    border: solid 2px;
+    padding: 10px;
 }
 /*Labels*/
 
