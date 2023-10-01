@@ -66,11 +66,10 @@ function footer_menu()
     "
     <a href='../$folder/notas'><i id='icon_note' class='fa-solid fa-comment fa-2x footer-icons'><span class='span-icon'>Notas</span></i></a>
     <a href='../$folder/tareas'><i id='icon_task' class='fa-solid fa-list-check fa-2x footer-icons'><span class='span-icon'>Tareas</span></i></a>
-    <a href='../home/inicio'><i id='icon_home' class='fas fa-home fa-2x footer-icons'><span class='span-icon'>Inicio</span></i></a>
+    <a href='../$folder/agenda'><i id='icon_book' class='fa-solid fa-address-book fa-2x footer-icons'><span class='span-icon'>Contactos</span></i></a>
     <a href='../$folder/listas'><i id='icon_list' class='fas fa-list fa-2x footer-icons'><span class='span-icon'>Listas</span></i></a>
     <a href='../$folder/mi_perfil'><i id='icon_profile' class='fa-solid fa-user fa-2x footer-icons'><span class='span-icon'>Perfil</span></i></a>
     ";
     
     echo $menu;
 }
-

@@ -42,10 +42,11 @@ function login(e)
         let titulo = res.titulo;
         let cuerpo = res.cuerpo;
         let accion = res.accion;
+        let nivel = res.nivel;
 
         if(accion === 'success')
         {
-            window.location.href = "templates/home/inicio";
+            window.location.href = `templates/${nivel}/notas`;
         }
         else
         {

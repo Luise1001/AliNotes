@@ -376,9 +376,7 @@ function generar_listado()
        <a class="datos-manifiesto header-icons-item accordon-button" data-toggle="modal" data-target="#modal_datos_manifiesto"><i class="fas fa-file-word"></i></a>
         
        <a class="datos-planilla header-icons-item accordon-button" data-toggle="modal" data-target="#modal_datos_planilla"><i class="fas fa-file-pdf"></i></a>
-        
-       <a href="https://api.whatsapp.com/send?text=algo" class="header-icons-item"><i class="fa-brands fa-whatsapp"></i></a>
-        
+         
        ';
   
    }

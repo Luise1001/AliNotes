@@ -207,10 +207,10 @@ function ListSections($id_lista, $userID)
 {
   require '../conexion.php';
 
-  $consulta_sql = "SELECT * FROM item_lista 
-  INNER JOIN items_para_lista ON item_lista.Id_item = items_para_lista.Id 
-  INNER JOIN secciones ON item_lista.Id_seccion = secciones.Id
-  WHERE item_lista.Id_lista=? AND item_lista.Id_usuario=?  ORDER BY secciones.Actualizado DESC";
+
+  $consulta_sql = "SELECT a.Id_seccion, b.Titulo FROM item_lista AS a
+  INNER JOIN secciones AS b ON a.Id_seccion = b.Id
+  WHERE a.Id_lista=? AND a.Id_usuario=? GROUP BY  a.Id_seccion, b.Titulo";
   $preparar_sql = $pdo->prepare($consulta_sql);
   $preparar_sql->execute(array($id_lista, $userID));
   $resultado = $preparar_sql->fetchAll();

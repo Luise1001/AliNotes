@@ -1,1 +1,0 @@
-<script src="js/consulta/menu.js"></script>

@@ -76,7 +76,7 @@ function IconsColor()
    let url = MyLocation.pathname;
    let icon_note = document.getElementById('icon_note');
    let icon_task = document.getElementById('icon_task');
-   let icon_home = document.getElementById('icon_home');
+   let icon_book = document.getElementById('icon_book');
    let icon_list = document.getElementById('icon_list');
    let icon_profile = document.getElementById('icon_profile');
    
@@ -88,9 +88,9 @@ function IconsColor()
    {
       icon_task.style.color = "white";
    }
-   if(url.includes('home'))
+   if(url.includes('agenda'))
    {
-      icon_home.style.color = "white";
+      icon_book.style.color = "white";
    }
    if(url.includes('list'))
    {

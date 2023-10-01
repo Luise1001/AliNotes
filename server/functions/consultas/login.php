@@ -10,7 +10,8 @@ function login()
         [
             'titulo'=> 'warnign',
             'cuerpo'=> 'warning',
-            'action'=> 'warning'
+            'action'=> 'warning',
+            'nivel'=> ''
         ];
 
         $user = filter_var($user, FILTER_SANITIZE_EMAIL);
@@ -39,6 +40,15 @@ function login()
             {
                 $_SESSION['AliNotes']['name'] = $user_name;
                 $_SESSION['AliNotes']['admin'] = $user;
+
+                if($nivel)
+                {
+                    $alert['nivel'] = 'admin';
+                }
+                else
+                {
+                    $alert['nivel'] = 'users';
+                }
                 
 
                 $alert['titulo'] = 'Operación Exitosa.';
