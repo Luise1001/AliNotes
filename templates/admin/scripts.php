@@ -41,6 +41,8 @@
 <script src="js/eliminar/vehiculos.js"></script>
 <script src="js/eliminar/conductores.js"></script>
 <script src="js/eliminar/responsables.js"></script>
+<script src="js/eliminar/personas.js"></script>
+<script src="js/eliminar/empresas.js"></script>
 
 
 

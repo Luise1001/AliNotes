@@ -9,3 +9,5 @@ include_once 'planillas.php';
 include_once 'vehiculos.php';
 include_once 'conductores.php';
 include_once 'responsables.php';
+include_once 'personas.php';
+include_once 'empresas.php';

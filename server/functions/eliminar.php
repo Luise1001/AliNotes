@@ -49,6 +49,14 @@ if($_POST)
         {
             eliminar_planilla();
         }
+        if($page === 'eliminar_persona')
+        {
+            eliminar_persona();
+        }
+        if($page === 'eliminar_empresa')
+        {
+            eliminar_empresa();
+        }
 
     }
 }

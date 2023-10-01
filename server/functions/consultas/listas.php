@@ -29,7 +29,7 @@ function mis_listas()
           <h2 class='accordion-header'>
            <button class='accordion-button' type='button' data-bs-toggle='collapse' data-bs-target='#visibles' 
             aria-expanded='true' aria-controls='visibles'>
-              visibles
+              Activas
            </button>
          </h2>
          <div id='visibles' class='accordion-collapse collapse show'>
@@ -47,7 +47,7 @@ function mis_listas()
 
           if($visible === '1')
           {
-             $eye = 'fa-eye-slash';
+             $eye = 'fa-check';
 
 
 
@@ -91,7 +91,7 @@ function mis_listas()
          <h2 class='accordion-header'>
           <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#oculta' 
            aria-expanded='true' aria-controls='oculta'>
-             Ocultas
+             Procesadas
           </button>
         </h2>
         <div id='oculta' class='accordion-collapse collapse'>
@@ -109,7 +109,7 @@ function mis_listas()
 
          if($visible === '0')
          {
-          $eye = 'fa-eye';
+          $eye = 'fa-check-double';
 
           $respuesta['ocultas'] .= 
           "
@@ -190,7 +190,7 @@ function lista_individual()
             <div class='accordion-item'>
               <h2 class='accordion-header'>
                <button class='accordion-button' type='button' data-bs-toggle='collapse' data-bs-target='#$id_section' aria-expanded='true' aria-controls='$id_section'>
-                 <input id='section_$id_section' onchange='SelectAll($id_section)'  class='section-sl' type='checkbox'> $section_name
+                 <input id='section_$id_section' onchange='SelectAll($id_section)' class='section-sl' type='checkbox'> $section_name
                </button>
              </h2>
              <div id='$id_section' class='accordion-collapse collapse show'>
