@@ -1,6 +1,7 @@
 <?php
 
 require '../global_functions/consultas/global_functions.php';
+require '../global_functions/editar/global_functions.php';
 include_once 'eliminar/scripts.php';
 
 if($_POST)

@@ -120,6 +120,72 @@ function hide_show_lista()
     }
 }
 
+function hide_show_item()
+{
+    include_once '../conexion.php';
+    $admin = $_SESSION['AliNotes']['admin'];
+    $userID = UserID($admin);
+    $actualizado = CurrentTime();
+    $respuesta = 
+    [
+        'titulo'=>'warning',
+        'cuerpo'=> 'warning',
+        'accion'=> 'warning'
+    ]; 
+
+    if(isset($_POST['lista']) && isset($_POST['item']) && isset($_POST['visible']))
+    {
+        $id_lista = $_POST['lista'];
+        $id_item = $_POST['item'];
+        $visible = $_POST['visible'];
+
+        $id_lista = filter_var($id_lista, FILTER_SANITIZE_STRING);
+        $id_item = filter_var($id_item, FILTER_SANITIZE_STRING);
+        $visible = filter_var($visible, FILTER_SANITIZE_STRING);
+
+        if($visible == 1)
+        {
+            $visible = 0;
+        }
+        else
+        {
+            $visible = 1;
+        }
+
+        if($id_lista && $id_item)
+        {
+            $editsql = 'UPDATE item_lista SET Visible=?, Actualizado=? WHERE Id_item=? AND Id_lista=? AND Id_usuario=?';
+            $editar_sentence = $pdo->prepare($editsql);
+        
+            if($editar_sentence->execute(array($visible, $actualizado, $id_item, $id_lista, $userID)))
+            {
+                 Actualizado('listas', $id_lista);
+                $respuesta = 
+                [
+                    'titulo'=>'Operación Exitosa',
+                    'cuerpo'=> '',
+                    'accion'=> 'success'
+                ];
+            }
+            else
+            {
+                $respuesta = 
+                [
+                    'titulo'=>'Ups!',
+                    'cuerpo'=> 'No se Pudo Editar El Registro.',
+                    'accion'=> 'error'
+                ]; 
+            }
+        }
+        else
+        {
+             echo 'aja';
+        }
+
+        echo json_encode($respuesta);
+    }
+}
+
 function editar_item_lista()
 {
     include_once '../conexion.php';
@@ -177,6 +243,7 @@ function editar_item_lista()
         
             if($editar_sentence->execute(array($itemID, $cantidad, $kilos, $observacion, $id_seccion, $actualizado, $id_item, $id_lista, $userID)))
             {
+                Actualizado('listas', $id_lista);
                 $respuesta = 
                 [
                     'titulo'=>'Operación Exitosa',

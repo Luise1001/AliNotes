@@ -54,7 +54,7 @@ function editar_titulo_lista()
    })
 }
 
-$(document).on('click', '.hide-show', function(data)
+$(document).on('click', '.hide-show-lista', function(data)
 {
     let lista = data.currentTarget.attributes.lista.value;
     let visible = data.currentTarget.attributes.visible.value;

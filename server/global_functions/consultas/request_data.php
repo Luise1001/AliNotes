@@ -130,3 +130,32 @@ function CheckSign($sello, $responsable, $userID)
         return false;
     }
 }
+
+function IsSectionComplete($id_seccion, $id_lista, $userID)
+{
+    require '../conexion.php';
+
+    $consulta_sql = "SELECT * FROM item_lista WHERE Id_seccion=? AND Id_lista=? AND Id_usuario=?";
+    $preparar_sql = $pdo->prepare($consulta_sql);
+    $preparar_sql->execute(array($id_seccion, $id_lista, $userID));
+    $resultado = $preparar_sql->fetchAll();
+
+    if($resultado)
+    {
+        foreach($resultado as $result)
+        {
+             $visible = $result['Visible'];
+
+             if($visible)
+             {
+                 return false;
+             }
+        }
+
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}

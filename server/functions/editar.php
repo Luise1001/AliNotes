@@ -47,6 +47,10 @@ if($_POST)
         {
             hide_show_lista();
         }
+        if($page === 'hide_show_item')
+        {
+            hide_show_item();
+        }
         if($page === 'editar_item_lista')
         {
             editar_item_lista();

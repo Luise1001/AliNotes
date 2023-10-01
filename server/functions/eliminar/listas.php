@@ -66,7 +66,8 @@ function eliminar_item_lista()
         $sentenceDelete = $pdo->prepare($deletesql);
     
         if($sentenceDelete-> execute(array($id_item, $id_lista, $userID)))
-        {
+        {  
+             Actualizado('listas', $id_lista);
             $respuesta = 
             [
                 'titulo'=>'Operación Exitosa',

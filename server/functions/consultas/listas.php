@@ -57,7 +57,7 @@ function mis_listas()
                  <div class='toast-header'>
                     <img src=$foto width='32' height='32' class='rounded me-2' alt='Perfil'>
                     <strong class='me-auto'><a href='lista_individual?id=$id'>$titulo</a></strong>
-                    <small class='card-time'><a lista='$id' visible='$visible' class='hide-show'><i class='fa-solid $eye'></i></a></small>
+                    <small class='card-time'><a lista='$id' visible='$visible' class='hide-show-lista'><i class='fa-solid $eye'></i></a></small>
                     <small class='card-time'>$fecha_movimiento</small>
                     <div> 
                     <button class=' btn-option-2' data-bs-toggle='dropdown' data-bs-auto-close='true' aria-expanded='false'>
@@ -117,7 +117,7 @@ function mis_listas()
               <div class='toast-header'>
                  <img src=$foto width='32' height='32' class='rounded me-2' alt='Perfil'>
                  <strong class='me-auto'><a href='lista_individual?id=$id'>$titulo</a></strong>
-                 <small class='card-time'><a lista='$id' visible='$visible' class='hide-show'><i class='fa-solid $eye'></i></a></small>
+                 <small class='card-time'><a lista='$id' visible='$visible' class='hide-show-lista'><i class='fa-solid $eye'></i></a></small>
                  <small class='card-time'>$fecha_movimiento</small>
                  <div> 
                  <button class=' btn-option-2' data-bs-toggle='dropdown' data-bs-auto-close='true' aria-expanded='false'>
@@ -183,17 +183,33 @@ function lista_individual()
        {
           $id_section = $section['Id_seccion'];
           $section_name = $section['Titulo'];
+          $IsSectionComplete = IsSectionComplete($id_section, $id_lista, $userID);
+
+          if($IsSectionComplete)
+          {
+             $check = 'check-double'; 
+             $collapsed = 'collapsed';
+             $show = '';
+          }
+          else
+          {
+              $check = 'check';
+              $collapsed = '';
+              $show = 'show';
+          }
 
           $respuesta['contenido'] .=
           "
           <div class='accordion'>
             <div class='accordion-item'>
               <h2 class='accordion-header'>
-               <button class='accordion-button' type='button' data-bs-toggle='collapse' data-bs-target='#$id_section' aria-expanded='true' aria-controls='$id_section'>
-                 <input id='section_$id_section' onchange='SelectAll($id_section)' class='section-sl' type='checkbox'> $section_name
-               </button>
+               <button class='accordion-button $collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#$id_section' aria-expanded='true' aria-controls='$id_section'>
+                 <input id='section_$id_section' onchange='SelectAll($id_section)' class='section-sl' type='checkbox'>
+                  $section_name 
+               <i class='fa-solid fa-$check'></i>
+                 </button>
              </h2>
-             <div id='$id_section' class='accordion-collapse collapse show'>
+             <div id='$id_section' class='accordion-collapse collapse $show'>
              <div class=''>
           ";
 
@@ -210,6 +226,7 @@ function lista_individual()
               $peso = $item['Peso'];
               $kilos = $item['Kilos'];
               $observacion = $item['Observacion'];
+              $visible = $item['Visible'];
 
               if($cantidad > 1)
               {
@@ -219,13 +236,19 @@ function lista_individual()
               {
                 $unidad = $tipo_unidad;
               }
-     
-     
+
+              if($visible)
+              {
+                 $check = 'check';
+               
              $respuesta['contenido'] .= 
              "
              <div class='card list-items' role='alert' aria-live='assertive' aria-atomic='true'>
                  <div class='item-header'>
-                    <p class='me-auto'><input id='item_$id_item' onchange='SelectOne($id_item)'  section='$id_seccion' item='$id_item' class='item-sl item-$id_section' type='checkbox'> $cantidad - $unidad de $descripcion - $kilos Kg.</p>
+                    <p class='me-auto'><input id='item_$id_item' onchange='SelectOne($id_item)'  section='$id_seccion' 
+                     class='item-sl item-$id_section' type='checkbox'> $cantidad - $unidad de $descripcion - $kilos Kg.
+                      <a articulo='$id_item' lista='$id_lista' visible='$visible' class='hide-show-item'><i class='fa-solid fa-$check'></i></a>
+                    </p>
                     <small class='card-comment'>$observacion</small>
                     <div> 
                     <button class=' btn-option-2' data-bs-toggle='dropdown' data-bs-auto-close='true' aria-expanded='false'>
@@ -243,6 +266,60 @@ function lista_individual()
                 </div>
               </div>
              ";
+              }
+            }
+
+            foreach($inside_my_list as $item)
+            {
+              $id_seccion = $item['Id_seccion'];
+              $id_item = $item['Id_item'];
+              $descripcion = $item['Descripcion'];
+              $tipo_unidad = $item['Tipo_unidad'];
+              $cantidad = $item['Cantidad'];
+              $peso = $item['Peso'];
+              $kilos = $item['Kilos'];
+              $observacion = $item['Observacion'];
+              $visible = $item['Visible'];
+
+              if($cantidad > 1)
+              {
+                 $unidad = ProcessUnits($tipo_unidad);
+              }
+              else
+              {
+                $unidad = $tipo_unidad;
+              }
+
+              if(!$visible)
+              {
+                 $check = 'check-double';
+
+             $respuesta['contenido'] .= 
+             "
+             <div class='card list-items' role='alert' aria-live='assertive' aria-atomic='true'>
+                 <div class='item-header'>
+                    <p class='me-auto'><input id='item_$id_item' onchange='SelectOne($id_item)'  section='$id_seccion' 
+                     class='item-sl item-$id_section' type='checkbox'> $cantidad - $unidad de $descripcion - $kilos Kg.
+                      <a articulo='$id_item' lista='$id_lista' visible='$visible' class='hide-show-item'><i class='fa-solid fa-$check'></i></a>
+                    </p>
+                    <small class='card-comment'>$observacion</small>
+                    <div> 
+                    <button class=' btn-option-2' data-bs-toggle='dropdown' data-bs-auto-close='true' aria-expanded='false'>
+                    <span><i class='fas fa-ellipsis-v'></i></span>
+                  </button>
+                    <ul class='dropdown-menu card-menu'>
+                     <li class='dropdown-item card-menu-item'><a class='btn-editar-item-lista' ids='$id_section' seccion='$section_name' objeto='$id_item'
+                       descripcion='$descripcion' unidad='$tipo_unidad' peso='$peso' cantidad='$cantidad' observacion='$observacion'
+                       data-toggle='modal' data-target='#modal_editar_item_lista'>
+                       <i class='fa-solid fa-edit'></i> Editar</a></li>
+                     <li class='dropdown-item card-menu-item'><a class='btn-eliminar-item-lista' id='$id_item'>
+                     <i class='fa-solid fa-trash'></i> Eliminar</a></li>
+                    </ul>
+                    </div>
+                </div>
+              </div>
+             ";
+              }
             }
           }
 
@@ -299,6 +376,8 @@ function generar_listado()
        <a class="datos-manifiesto header-icons-item accordon-button" data-toggle="modal" data-target="#modal_datos_manifiesto"><i class="fas fa-file-word"></i></a>
         
        <a class="datos-planilla header-icons-item accordon-button" data-toggle="modal" data-target="#modal_datos_planilla"><i class="fas fa-file-pdf"></i></a>
+        
+       <a href="https://api.whatsapp.com/send?text=algo" class="header-icons-item"><i class="fa-brands fa-whatsapp"></i></a>
         
        ';
   

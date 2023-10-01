@@ -123,7 +123,7 @@
 
 <div class=" container index-footer">
     <h1 class="app-name">AliNotes</h1>
-    <p class="app-version">V1.1.2023.09.01</p>
+    <p class="app-version">V1.2.2023.09.01</p>
 </div>
 
 <script src="js/index.js"></script>

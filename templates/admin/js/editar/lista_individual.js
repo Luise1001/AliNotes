@@ -137,3 +137,53 @@ function unidades_en_editar(unidad)
       console.log(err);
   })
 }
+
+
+$(document).on('click', '.hide-show-item', function(data)
+{
+    let item = data.currentTarget.attributes.articulo.value;
+    let lista = data.currentTarget.attributes.lista.value;
+    let visible = data.currentTarget.attributes.visible.value;
+
+    hide_show_item(item, lista, visible);
+})
+
+function hide_show_item(item, lista, visible)
+{ 
+   let page = 'hide_show_item';
+
+   $.ajax
+   ({
+      url: '../../server/functions/editar.php',
+      type: 'POST',
+      dataType: 'json',
+      async: false,
+      data: 
+      {
+         page: page,
+         item: item,
+         lista: lista,
+         visible: visible
+      }
+ 
+   })
+   .done(function(res)
+   {
+      let titulo = res.titulo;
+      let cuerpo = res.cuerpo;
+      let accion = res.accion;
+
+      if(accion === 'success')
+      {
+        lista_individual();
+      }
+      else
+      {
+         swal(titulo, cuerpo, accion);
+      }
+   })
+   .fail(function(err)
+   {
+       console.log(err);
+   })
+}
