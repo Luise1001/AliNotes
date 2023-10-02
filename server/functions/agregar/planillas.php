@@ -45,7 +45,7 @@ function generar_planilla()
         
         if($tipo === 'Juridico')
         {
-           $UserBusinessData = UserBusinessData($userID, $nivel);
+           $UserBusinessData = BusinessData($userID, $nivel);
 
            foreach($UserBusinessData as $business)
            {
