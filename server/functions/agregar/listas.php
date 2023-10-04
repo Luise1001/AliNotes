@@ -79,7 +79,6 @@ function nuevo_item_lista()
         $peso = $_POST['peso'];
         $cantidad = $_POST['cantidad'];
         $observacion = $_POST['observacion'];
-        $kilos = $peso * $cantidad;
 
         $id_lista = filter_var($id_lista, FILTER_SANITIZE_STRING);
         $id_seccion = filter_var($id_seccion, FILTER_SANITIZE_STRING);
@@ -95,6 +94,7 @@ function nuevo_item_lista()
 
         if($id_lista && $tipo_unidad && $descripcion && $peso && $cantidad)
         {
+            $kilos = $peso * $cantidad;
             $item_id = ItemID($descripcion, $tipo_unidad);
             if(!$item_id)
             {

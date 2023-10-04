@@ -380,6 +380,14 @@ function ProcessUnits($unidad)
         {
             $respuesta = 'Kilos';
         }
+        if($unidad === 'Paquete')
+        {
+             $respuesta = 'Paquetes';
+        }
+        if($unidad === 'Docena')
+        {
+            $respuesta = 'Docenas';
+        }
 
         return $respuesta;
     }

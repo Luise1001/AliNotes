@@ -8,7 +8,7 @@
    $userID = UserID($admin);
    $nivel = AdminLevel($userID);
 
-   if($nivel != '0')
+   if($nivel != '0' || $nivel != '1')
    {
       echo"<script type='text/javascript'>
       window.location.href='../home/inicio';

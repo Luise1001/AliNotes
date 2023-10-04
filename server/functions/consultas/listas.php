@@ -245,7 +245,7 @@ function lista_individual()
              "
              <div class='card list-items' role='alert' aria-live='assertive' aria-atomic='true'>
                  <div class='item-header'>
-                    <p class='me-auto'><input id='item_$id_item' onchange='SelectOne($id_item)'  section='$id_seccion' 
+                    <p class='me-auto'><input id='item_$id_item' onchange='SelectOne($id_item)' item='$id_item'  section='$id_seccion' 
                      class='item-sl item-$id_section' type='checkbox'> $cantidad - $unidad de $descripcion - $kilos Kg.
                       <a articulo='$id_item' lista='$id_lista' visible='$visible' class='hide-show-item'><i class='fa-solid fa-$check'></i></a>
                     </p>

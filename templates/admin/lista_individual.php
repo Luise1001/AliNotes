@@ -60,6 +60,10 @@
       <input id="descripcion" name="descripcion" type="text" class="form-control" placeholder="Ej. Cereal con Avena">
     </div>
 
+<div class="input-group">
+   <ul id='predicted_items' class="predicted-items d-none"></ul>
+</div>
+
     <div class="input-group">
       <span class="input-group-text">Peso KG.<span class="obligatory-span">*</span></span>
       <input id="peso" name="peso" type="number" class="form-control" placeholder="0,00">

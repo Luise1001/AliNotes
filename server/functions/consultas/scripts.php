@@ -16,3 +16,5 @@ include_once 'conductores.php';
 include_once 'responsables.php';
 include_once 'empresas.php';
 include_once 'personas.php';
+include_once 'usuarios.php';
+include_once 'items.php';

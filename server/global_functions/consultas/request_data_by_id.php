@@ -63,6 +63,33 @@ function UserInfo($userID)
 
 }
 
+function UserList($userID)
+{
+    require '../conexion.php';
+
+    $consulta_sql = "SELECT 
+    u.Id AS Id, u.User_name AS user, u.Correo AS email, u.Actualizado AS actualizado,
+    p.Nombre AS nombre, p.Apellido As apellido, 
+    e.Razon_social AS razon_social
+    FROM usuarios AS u 
+    INNER JOIN personas AS p ON p.Id_usuario = u.Id
+    INNER JOIN empresas AS e ON e.Id_usuario = u.Id
+    WHERE u.Id !=? GROUP BY Id, user, email, nombre, apellido, razon_social, actualizado ORDER BY actualizado";
+    $preparar_sql = $pdo->prepare($consulta_sql);
+    $preparar_sql->execute(array($userID));
+    $resultado = $preparar_sql->fetchAll();
+    
+    if($resultado)
+    {
+      return $resultado;
+    }
+    else
+    {
+      return false;
+    }
+
+}
+
 function UserName($userID)
 {
     require '../conexion.php';
@@ -201,6 +228,25 @@ function Sections($userID)
       return false;
     }
 
+}
+
+function ItemsPredicted($search)
+{
+    require '../conexion.php';
+    
+    $consulta_sql = "SELECT * FROM items_para_lista WHERE Descripcion LIKE '%".$search."%'";
+    $preparar_sql = $pdo->prepare($consulta_sql);
+    $preparar_sql->execute();
+    $resultado = $preparar_sql->fetchAll();
+    
+    if($resultado)
+    {
+      return $resultado;
+    }
+    else
+    {
+      return false;
+    }
 }
 
 function ListSections($id_lista, $userID)

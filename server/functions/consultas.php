@@ -49,6 +49,10 @@ if($_POST)
         {
             lista_individual();
         }
+        if($page === 'predecir_items')
+        {
+             predecir_items();
+        }
         if($page === 'generar_listado')
         {
             generar_listado();
@@ -108,6 +112,10 @@ if($_POST)
         if($page === 'mis_personas')
         {
             mis_personas();
+        }
+        if($page === 'lista_de_usuarios')
+        {
+            lista_de_usuarios();
         }
     }
 }

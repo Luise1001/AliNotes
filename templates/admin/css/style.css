@@ -217,6 +217,19 @@ body
   position: relative;
   margin-right: 5px;
 }
+.predicted-items
+{
+  width: 100%;
+  background: #0F2C40;
+  color: aqua;
+  border: solid 2px aqua;
+  border-radius: 10px;
+}
+.li-predicted
+{
+  border: solid 1px aqua;
+  padding: 5px;
+}
 /*listas*/
 
 /*Barcos*/

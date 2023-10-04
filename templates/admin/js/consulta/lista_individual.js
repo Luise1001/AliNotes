@@ -174,3 +174,69 @@ function generar_listado(array_items)
        console.log(err);
    })
 }
+
+$(document).on('keydown', '#descripcion', function()
+{
+    let buscar = $('#descripcion').val();
+    predecir_items(buscar);
+})
+
+function predecir_items(buscar)
+{
+   
+   let page = 'predecir_items';
+   $.ajax
+   ({
+      url: '../../server/functions/consultas.php',
+      type: 'POST',
+      dataType: 'json',
+      async: false,
+      data: 
+      {
+         page: page,
+         buscar: buscar
+      }
+ 
+   })
+   .done(function(res)
+   { 
+      let list = document.getElementById('predicted_items');
+      
+      if(list.classList.contains('d-none'))
+      {
+          list.classList.remove('d-none');
+      }
+
+      if(res.items != false)
+      {
+         $('.predicted-items').html(res.items);
+      }
+      else
+      {
+          list.classList.add('d-none');
+      }
+     
+   })
+   .fail(function(err)
+   {
+       console.log(err);
+   })
+}
+
+$(document).on('click', '.item-predicted', function(data)
+{
+   let unidad = data.currentTarget.attributes.unidad.value;
+   let descripcion = data.currentTarget.attributes.descripcion.value;
+   let peso = data.currentTarget.attributes.peso.value;
+
+   item_predicted(unidad, descripcion, peso);
+})
+
+function item_predicted(unidad, descripcion, peso)
+{
+  $('#tipo_unidad').val(unidad);
+  $('#descripcion').val(descripcion);
+  $('#peso').val(peso);
+
+  $('.predicted-items').addClass('d-none');
+}
