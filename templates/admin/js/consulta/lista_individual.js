@@ -237,6 +237,8 @@ function item_predicted(unidad, descripcion, peso)
   $('#tipo_unidad').val(unidad);
   $('#descripcion').val(descripcion);
   $('#peso').val(peso);
+  const cantidad = document.getElementById('cantidad');
+  cantidad.focus();
 
   $('.predicted-items').addClass('d-none');
 }

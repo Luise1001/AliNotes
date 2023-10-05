@@ -57,6 +57,10 @@ if($_POST)
         {
             generar_listado();
         }
+        if($page === 'mis_secciones')
+        {
+            mis_secciones();
+        }
         if($page === 'secciones')
         {
            secciones();

@@ -21,3 +21,4 @@ include_once 'modals/editar/modal_editar_barco.php';
 include_once 'modals/editar/modal_editar_carro.php';
 include_once 'modals/editar/modal_editar_conductor.php';
 include_once 'modals/editar/modal_editar_responsable.php';
+include_once 'modals/editar/modal_editar_seccion.php';

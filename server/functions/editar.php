@@ -71,5 +71,9 @@ if($_POST)
         {
             editar_responsable();
         } 
+        if($page === 'editar_seccion')
+        {
+            editar_seccion();
+        }
     }
 }

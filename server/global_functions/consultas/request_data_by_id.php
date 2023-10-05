@@ -256,7 +256,7 @@ function ListSections($id_lista, $userID)
 
   $consulta_sql = "SELECT a.Id_seccion, b.Titulo FROM item_lista AS a
   INNER JOIN secciones AS b ON a.Id_seccion = b.Id
-  WHERE a.Id_lista=? AND a.Id_usuario=? GROUP BY  a.Id_seccion, b.Titulo";
+  WHERE a.Id_lista=? AND a.Id_usuario=? GROUP BY  a.Id_seccion, b.Titulo ORDER BY b.Actualizado DESC";
   $preparar_sql = $pdo->prepare($consulta_sql);
   $preparar_sql->execute(array($id_lista, $userID));
   $resultado = $preparar_sql->fetchAll();
@@ -489,7 +489,66 @@ function Responsible($id_responsable, $userID)
   }
 }
 
+function Titular($tipo, $id_titular, $userID, $nivel)
+{
+  require '../conexion.php';
+  
+  $cliente = 
+  [
+    'Nombre'=>'',
+    'Rif'=>''
+  ];
 
+  if($tipo === 'Personal')
+  {
+    $consulta_sql = "SELECT p.Nombre, p.Apellido, p.Tipo_id, p.Cedula
+     FROM personas AS p WHERE p.Id=? AND p.Id_usuario=?";
+    $preparar_sql = $pdo->prepare($consulta_sql);
+    $preparar_sql->execute(array($id_titular, $userID));
+    $resultado = $preparar_sql->fetchAll();
+
+    if($resultado)
+    {
+      foreach($resultado as $result)
+      {
+         $cliente['Nombre'] = $result['Nombre'].' '.$result['Apellido'];
+         $cliente['Rif'] = $result['Tipo_id'].'-'.$result['Cedula'];
+      }
+
+      return $cliente;
+    }
+    else
+    {
+       return false;
+    }
+
+  }
+  
+  if($tipo === 'Juridico')
+  {
+    $consulta_sql = "SELECT p.Razon_social, p.Tipo_id, p.Rif
+    FROM empresas AS p WHERE p.Id=? AND p.Id_usuario=?";
+    $preparar_sql = $pdo->prepare($consulta_sql);
+    $preparar_sql->execute(array($id_titular, $userID));
+    $resultado = $preparar_sql->fetchAll();
+
+    if($resultado)
+    {
+      foreach($resultado as $result)
+      {
+         $cliente['Nombre'] = $result['Razon_social'];
+         $cliente['Rif'] = $result['Tipo_id'].'-'.$result['Rif'];
+      }
+
+      return $cliente;
+    }
+    else
+    {
+       return false;
+    }
+  }
+  
+}
 
 
 function MyManifests($userID, $nivel)

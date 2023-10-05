@@ -44,6 +44,15 @@ function mis_listas()
           $visible = $listas['Visible'];
           $fecha_actual = CurrentTime();
           $fecha_movimiento = TimeDifference($actualizado, $fecha_actual);
+          $items = CheckList($id, $userID, 1);
+          if($items)
+          {
+             $badge = "<span class='badge bg-danger'>$items</span>";
+          }
+          else
+          {
+             $badge = '';
+          }
 
           if($visible === '1')
           {
@@ -56,7 +65,11 @@ function mis_listas()
              <div class='card list-items' role='alert' aria-live='assertive' aria-atomic='true'>
                  <div class='toast-header'>
                     <img src=$foto width='32' height='32' class='rounded me-2' alt='Perfil'>
-                    <strong class='me-auto'><a href='lista_individual?id=$id'>$titulo</a></strong>
+                    <strong class='me-auto'><a href='lista_individual?id=$id'>
+                    $titulo
+                     $badge
+                     </a>
+                     </strong>
                     <small class='card-time'><a lista='$id' visible='$visible' class='hide-show-lista'><i class='fa-solid $eye'></i></a></small>
                     <small class='card-time'>$fecha_movimiento</small>
                     <div> 

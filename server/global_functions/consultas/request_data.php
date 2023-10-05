@@ -60,13 +60,13 @@ function CheckUserName($username)
     }
 }
 
-function CheckPlaca($placa, $userID)
+function CheckPlaca($placa)
 {
     require '../conexion.php';
 
-    $consulta_sql = "SELECT * FROM carros WHERE Placa=? AND Id_usuario=?";
+    $consulta_sql = "SELECT * FROM carros WHERE Placa=?";
     $preparar_sql = $pdo->prepare($consulta_sql);
-    $preparar_sql->execute(array($placa, $userID));
+    $preparar_sql->execute(array($placa));
     $resultado = $preparar_sql->fetchAll();
 
     if($resultado)
@@ -157,5 +157,24 @@ function IsSectionComplete($id_seccion, $id_lista, $userID)
     else
     {
         return false;
+    }
+}
+
+function CheckList($id_lista, $userID, $visible)
+{
+    require '../conexion.php';
+
+    $consulta_sql = "SELECT count(*) AS total FROM item_lista WHERE Id_lista=? AND Id_usuario=? AND Visible=?";
+    $preparar_sql = $pdo->prepare($consulta_sql);
+    $preparar_sql->execute(array($id_lista, $userID, $visible));
+    $resultado = $preparar_sql->fetchAll();
+
+    if($resultado)
+    {
+        return $resultado[0]['total'];
+    }
+    else
+    {
+        return 'nada';
     }
 }

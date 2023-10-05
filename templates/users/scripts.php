@@ -26,6 +26,7 @@
 <script src="js/editar/vehiculos.js"></script>
 <script src="js/editar/conductores.js"></script>
 <script src="js/editar/responsables.js"></script>
+<script src="js/editar/secciones.js"></script>
 
 <!-- Eliminar -->
 <script src="js/eliminar/notas.js"></script>
@@ -38,6 +39,7 @@
 <script src="js/eliminar/vehiculos.js"></script>
 <script src="js/eliminar/conductores.js"></script>
 <script src="js/eliminar/responsables.js"></script>
+<script src="js/eliminar/secciones.js"></script>
 
 
 

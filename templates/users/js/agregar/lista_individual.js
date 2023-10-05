@@ -31,7 +31,14 @@ function nueva_seccion()
  
         if(accion === 'success')
         { 
-           lista_individual();
+            if(typeof lista_individual === 'function')
+            {
+              lista_individual();
+            }
+            else
+            {
+               mis_secciones();
+            }
         }
         else
         {

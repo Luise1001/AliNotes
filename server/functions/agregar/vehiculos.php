@@ -35,7 +35,7 @@ function nuevo_carro()
 
         if($marca && $tipo && $modelo && $placa && $year)
         {
-            $checkPlaca = CheckPlaca($placa, $userID);
+            $checkPlaca = CheckPlaca($placa);
             
             if(!$checkPlaca)
             {
@@ -65,7 +65,7 @@ function nuevo_carro()
                 $respuesta = 
                 [
                     'titulo'=>'Ups!',
-                    'cuerpo'=> 'Número de Placa Duplicado.',
+                    'cuerpo'=> 'Número de Placa Registrado.',
                     'accion'=> 'error'
                 ];
             }

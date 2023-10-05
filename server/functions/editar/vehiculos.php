@@ -13,32 +13,35 @@ function editar_carro()
         'accion'=> 'warning'
     ];
 
-    if(isset($_POST['id']) && isset($_POST['tipo']) && isset($_POST['modelo']) && isset($_POST['placa']) && isset($_POST['year']))
+    if(isset($_POST['id']) && isset($_POST['marca']) && isset($_POST['tipo']) && isset($_POST['modelo']) && isset($_POST['placa']) && isset($_POST['year']))
     {
         $id = $_POST['id'];
         $tipo = $_POST['tipo'];
+        $marca = $_POST['marca'];
         $modelo = $_POST['modelo'];
         $placa = $_POST['placa'];
         $year = $_POST['year'];
 
         $id = filter_var($id, FILTER_SANITIZE_STRING);
         $tipo = filter_var($tipo, FILTER_SANITIZE_STRING);
+        $marca = filter_var($marca, FILTER_SANITIZE_STRING);
         $modelo = filter_var($modelo, FILTER_SANITIZE_STRING);
         $placa = filter_var($placa, FILTER_SANITIZE_STRING);
         $year = filter_var($year, FILTER_SANITIZE_STRING);
         
         $tipo = ucwords($tipo);
+        $marca = ucwords($marca);
         $modelo = ucwords($modelo);
         $placa = strtoupper($placa);
 
 
 
-        if($id && $tipo && $modelo && $placa && $year)
+        if($id && $marca && $tipo && $modelo && $placa && $year)
         {
-            $editsql = 'UPDATE carros SET Tipo=?, Modelo=?, Placa=?, Year_car=?, Actualizado=? WHERE Id=? AND Id_usuario=?';
+            $editsql = 'UPDATE carros SET Marca=?, Tipo=?, Modelo=?, Placa=?, Year_car=?, Actualizado=? WHERE Id=? AND Id_usuario=?';
             $editar_sentence = $pdo->prepare($editsql);
 
-            if($editar_sentence->execute(array($tipo, $modelo, $placa, $year, $actualizado, $id, $userID)))
+            if($editar_sentence->execute(array($marca, $tipo, $modelo, $placa, $year, $actualizado, $id, $userID)))
             {
                 $respuesta = 
                 [

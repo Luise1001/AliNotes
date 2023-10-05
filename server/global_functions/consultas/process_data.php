@@ -282,7 +282,7 @@ function PlanillaTemplate($cliente, $responsable, $items, $total_items, $vehicul
  
     $table14 = $section1->addTable("table14");
     $table14->addRow();
-    $table14->addCell(9200)->addText(' '.$vehiculo['Marca']);
+    $table14->addCell(9200)->addText(' '.$vehiculo['Tipo'].' '.$vehiculo['Marca']);
     $table14->addCell(2000)->addText(' '.$vehiculo['Placa']);
     $table14->addCell(4800)->addText(' '.$vehiculo['Modelo']);
  

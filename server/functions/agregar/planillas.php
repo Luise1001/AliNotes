@@ -25,35 +25,8 @@ function generar_planilla()
     
     if($tipo && $id_titular && $id_responsable && $id_vehiculo && $id_conductor && $items)
     {
-        $cliente = 
-        [
-           'Nombre'=>'',
-           'Rif'=>''
-        ];
-
-        if($tipo === 'Personal')
-        {
-          $userData = UserData($userID, $nivel);
-
-
-          foreach($userData as $user)
-          {
-             $cliente['Nombre'] = $user['Nombre'];
-             $cliente['Rif'] = $user['Tipo_id'].'-'.$user['Cedula'];
-          }
-        }
-        
-        if($tipo === 'Juridico')
-        {
-           $UserBusinessData = BusinessData($userID, $nivel);
-
-           foreach($UserBusinessData as $business)
-           {
-             $cliente['Nombre'] = $business['Razon_social'];
-             $cliente['Rif'] = $business['Tipo_id'].'-'.$business['Rif'];
-           }
-        }
-
+        $cliente = Titular($tipo, $id_titular, $userID, $nivel);
+  
         $responsables = Responsible($id_responsable, $userID);
         if($responsables)
         {

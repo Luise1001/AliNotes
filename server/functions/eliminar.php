@@ -58,6 +58,10 @@ if($_POST)
         {
             eliminar_empresa();
         }
+        if($page === 'eliminar_seccion')
+        {
+            eliminar_seccion();
+        }
 
     }
 }

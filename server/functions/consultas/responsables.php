@@ -9,7 +9,7 @@ function mis_responsables()
     $mis_responsables = UserResponsibles($userID, $nivel);
     $botones = 
     '
-    <a class="header-icons-item accordon-button" data-bs-toggle="collapse" data-bs-target=".container-responsables" aria-expanded="true" aria-controls=".container-ships" ><i class="fa-solid fa-plus"></i></a>
+    <a class="header-icons-item accordon-button" data-bs-toggle="collapse" data-bs-target=".container-responsables" aria-expanded="true" aria-controls=".container-responsables" ><i class="fa-solid fa-plus"></i></a>
 
     ';
     $respuesta = 

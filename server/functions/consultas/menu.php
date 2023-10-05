@@ -14,6 +14,7 @@ function header_menu()
       '
       <li><a href="../users/manifiestos"class="dropdown-itemn header-item"><i class="fa-regular fa-file-word"></i> Manifiestos</a></li>
       <li><a href="../users/planillas"class="dropdown-itemn header-item"><i class="fa-regular fa-file-pdf"></i> Planillas</a></li>
+      <li><a href="../users/secciones"class="dropdown-itemn header-item"><i class="fa-solid fa-hashtag"></i> Secciones</a></li>
       <li><a href="../users/barcos"class="dropdown-itemn header-item"><i class="fa-solid fa-ship"></i></i> Barcos</a></li>
       <li><a href="../users/vehiculos"class="dropdown-itemn header-item"><i class="fa-solid fa-car"></i></i> Vehículos</a></li>
       <li><a href="../users/conductores"class="dropdown-itemn header-item"><i class="fa-solid fa-user-tie"></i></i> Conductores</a></li>
@@ -31,6 +32,7 @@ function header_menu()
       <li><a href="../admin/empresas"class="dropdown-itemn header-item"><i class="fa-regular fa-file-word"></i> Empresas</a></li>
       <li><a href="../admin/manifiestos"class="dropdown-itemn header-item"><i class="fa-regular fa-file-word"></i> Manifiestos</a></li>
       <li><a href="../admin/planillas"class="dropdown-itemn header-item"><i class="fa-regular fa-file-pdf"></i> Planillas</a></li>
+      <li><a href="../admin/secciones"class="dropdown-itemn header-item"><i class="fa-solid fa-hashtag"></i> Secciones</a></li>
       <li><a href="../admin/barcos"class="dropdown-itemn header-item"><i class="fa-solid fa-ship"></i></i> Barcos</a></li>
       <li><a href="../admin/vehiculos"class="dropdown-itemn header-item"><i class="fa-solid fa-car"></i></i> Vehículos</a></li>
       <li><a href="../admin/conductores"class="dropdown-itemn header-item"><i class="fa-solid fa-user-tie"></i></i> Conductores</a></li>
